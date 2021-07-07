@@ -473,7 +473,9 @@ router.get("/ended",(req,res)=>{
 });
 
 
-
+router.get("/july",(req,res)=>{
+  res.render("user/july")
+})
 
 module.exports = router;
 

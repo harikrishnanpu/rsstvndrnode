@@ -5,7 +5,6 @@ $("#gurudhakshinaForm").submit((e)=>{
         method: 'POST',
         data: $('#gurudhakshinaForm').serialize(),
         success:(response)=>{
-            alert(response)
             razorPay(response)
         }
     })
@@ -18,21 +17,21 @@ function razorPay(order){
         "currency": "INR",
         "name": "Rss Tvndr",
         "description": "Test Transaction",
-        "image": "https://example.com/your_logo",
+        "image": "https://rsstvndrapp.herokuapp.com/images/omm.png",
         "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         "handler": function (response){
             verifyPayment(response,order)
         },
         "prefill": {
-            "name": "Gaurav Kumar",
-            "email": "gaurav.kumar@example.com",
-            "contact": "9999999999"
+            "name": order.name,
+            "email": "youremail@gmail.com",
+            "contact": ""
         },
         "notes": {
-            "address": "Razorpay Corporate Office"
+            "address": "ThiruvanvadoorP.O,Chengannur,Kerala"
         },
         "theme": {
-            "color": "#3399cc"
+            "color": "#f05000"
         }
 
     };
@@ -50,6 +49,8 @@ function verifyPayment(payment,order){
         success:(response)=>{
             if(response.status){
                 window.location.href = "/payment-success"
+            }else{
+                alert("ERROR OCCURED")
             }
         }
     })

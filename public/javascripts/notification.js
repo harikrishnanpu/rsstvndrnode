@@ -7,7 +7,6 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
 
 // Initialize deferredPrompt for use later to show browser install prompt.
 let deferredPrompt;
-
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent the mini-infobar from appearing on mobile
   e.preventDefault();
@@ -19,13 +18,15 @@ window.addEventListener('beforeinstallprompt', (e) => {
   console.log(`'beforeinstallprompt' event was fired.`);
 });
 
+
 function showInstallPromotion(){
-  $('#modal').modal('show')
+  // $('#modal').modal('show')
+  document.getElementById("pwa-install").style.display = "block";
 }
 
-const butInstall = document.getElementById('butInstall');
-
-butInstall.addEventListener('click', async () => {
+const Pwabutton = document.getElementById('buttoninstall');
+// addEventListener('click', async () =>
+Pwabutton.addEventListener('click', async () =>{
   // Hide the app provided install promotion
   hideInstallPromotion();
   // Show the install prompt
@@ -39,10 +40,15 @@ butInstall.addEventListener('click', async () => {
   deferredPrompt = null;
 });
 
+
+
 function hideInstallPromotion(){
-  $('#modal').modal('hide')
+  // $('#modal').modal('hide')
+  document.getElementById("pwa-install").style.display = "none";
 }
 
 window.addEventListener('appinstalled', (evt) => {
-  $('#modal1').modal('show')
+  // $('#modal1').modal('show')
+  document.getElementById("pwa-install-success").style.display = "block";
 });
+
