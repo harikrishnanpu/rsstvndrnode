@@ -433,10 +433,45 @@ router.get("/videomeet",(req,res)=>{
   res.render("user/meet/videomeet")
 });
 
+router.get("/gurudhakshina",verifyLogin,(req,res)=>{
+  res.render("user/gurudhakshina",{user:req.session.user})
+});
+
+router.post("/add-gurudhakshina",(req,res)=>{
+  userHelpers.addGuruDhakshina(req.body).then((response)=>{
+    userHelpers.generateRazorPay(response._id , response.amount).then((result)=>{
+      res.json(result)
+    })
+  })
+});
+
+router.post("/verify-payment",(req,res)=>{
+  console.log(req.body);
+  userHelpers.verifyPayment(req.body).then(()=>{
+    userHelpers.changePaymentStatus(req.body['order[receipt]']).then(()=>{
+      console.log("Payment Success");
+      res.json({status:true})
+    })
+  }).catch(()=>{
+    console.log("Payment Failed");
+    res.json({status:false})
+  })
+});
+
+router.get("/payment-success",(req,res)=>{
+  res.render("user/payment-success")
+});
+
+router.get("/payment-status",(req,res)=>{
+  userHelpers.getAllPaymentStatus(req.session.user._id).then((response)=>{
+    res.render("user/payment-status",{payments:response,user:req.session.user})
+  })
+})
 
 router.get("/ended",(req,res)=>{
   res.render("user/meet/thanks",{thanksPage:true})
-})
+});
+
 
 
 

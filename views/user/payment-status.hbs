@@ -1,0 +1,25 @@
+    <section class="container">
+        <div class="container">
+
+      <h4 class="text-center mt-3">Your All App Payments</h4>
+      <p class="text-center">Rashtriya <span style="color: orange;">Swayam</span> Seva <span style="color: orange;">Sangh <span> Thiruvanvadoor</p>
+      <div class="row">
+        {{#each payments}}
+        <div class="class card w-100 text-center mb-4"
+          style="background-color:rgba(255, 255, 255, 0.411);background-repeat: no-repeat;background-size: contain;background-position: center;">
+          <div class="card-body container">
+            <h4 class="card-title mt-3" style="color: orange;">Receipt</h4>
+            <h6 class="card-text">Name: {{this.name}}</h6>
+            <h6 class="card-text">Phone: {{this.phone}}</h6>
+            <h6 class="card-text">Amount: ₹ {{this.amount}}</h6>
+            <h6 class="card-text">Status: {{this.status}}</h6>
+            <h6 class="card-text">Paid For: Gurudhakshina</h6>
+            <h6 class="card-text">Receipt From: Rss Tvndr App</h6>
+            <h6 class="card-text">Receipt To: {{this.name}}</h6>
+            <h6 class="card-text mb-3">Verified By: Rss Tvndr App</h6>
+          </div>
+        </div>
+        {{/each}}
+        </div>
+      </div>
+    </section>

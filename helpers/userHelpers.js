@@ -1,6 +1,11 @@
 var db = require('../config/connection');
 var collections = require('../config/collections');
 const objectID = require('mongodb').ObjectID;
+const Razorpay = require("razorpay");
+var instance = new Razorpay({
+    key_id: 'rzp_test_GSZGTR3AzGMHqc',
+    key_secret: 'Sg9svhWqGba3JCnQLa3qlpOY',
+  });
 
 
 module.exports={
@@ -99,6 +104,67 @@ module.exports={
             }).then((response)=>{
                 resolve(response)
             })
+        })
+    },
+
+    addGuruDhakshina:(details)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.GURUDHAKSHINA_COLLECTIONS).insertOne(details).then((response)=>{
+                resolve(response.ops[0])
+            })
+        })
+    },
+
+    generateRazorPay:(gurudhakshinaId,totalamount)=>{
+        return new Promise((resolve,reject)=>{
+            var options = {
+                amount: totalamount*100,  // amount in the smallest currency unit
+                currency: "INR",
+                receipt: ""+gurudhakshinaId
+              };
+              instance.orders.create(options, function(err, order) {
+                  if(err){
+                      console.log(err);
+                  }else{
+                console.log("New Guru Dhakshina",order);
+                resolve(order)
+                  }
+              });
+        })
+    },
+
+    verifyPayment:(details)=>{
+        return new Promise((resolve,reject)=>{
+            const crypto = require("crypto");
+            let hmac = crypto.createHmac('sha256','Sg9svhWqGba3JCnQLa3qlpOY');
+            hmac.update(details['payment[razorpay_order_id]']+'|'+details['payment[razorpay_payment_id]']);
+            hmac=hmac.digest('hex');
+            if(hmac == details['payment[razorpay_signature]']){
+                resolve()
+            }else{
+                reject()
+            }
+        })
+    },
+
+    changePaymentStatus:(orderId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.GURUDHAKSHINA_COLLECTIONS).updateOne({_id:objectID(orderId)},
+            {
+                $set:{
+                    status:"Placed"
+                }
+            }
+            ).then(()=>{
+                resolve()
+            })
+        })
+    },
+
+    getAllPaymentStatus:(userId)=>{
+        return new Promise(async(resolve,reject)=>{
+            let data = await db.get().collection(collections.GURUDHAKSHINA_COLLECTIONS).find({paymentId:userId}).toArray()
+            resolve(data.reverse())
         })
     }
 }

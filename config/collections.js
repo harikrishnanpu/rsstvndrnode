@@ -10,5 +10,6 @@ module.exports = {
     LATESTUPDATES_COLLECTION:'latest-updates',
     CONTACTUSDATA_COLLECTION:'contactus-data',
     GHOSH_DATA_COLLECTION : 'users-ghosh',
-    GHOSH_CLASS_CONNECTION:'ghosh-class'
+    GHOSH_CLASS_CONNECTION:'ghosh-class',
+    GURUDHAKSHINA_COLLECTIONS: 'guru-dhakshina'
 }

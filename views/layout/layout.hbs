@@ -52,7 +52,7 @@
     }
     document.head.append(s)
   </script>
-
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 
 <body class="text-fluid">
@@ -108,7 +108,7 @@
 </div>
   </div>
   {{#if home}}
-      <div class="banner w-100">
+      {{!-- <div class="banner w-100">
       <div class="banner__content">
         <div class="banner__text">
           <strong>Reminder: </strong>തിരുവൻവണ്ടൂർ ശാഖാ ഗുരുദക്ഷിണ ബൈoക്ക് 4/07/2021 7:30Pm 
@@ -118,7 +118,7 @@
         <i style="font-size: 20px;color: white;" class="far fa-window-close"></i>
         </button>
       </div>
-    </div>
+    </div> --}}
     {{/if}}
   {{!-- /Other Components --}}
   <section id="body">
@@ -139,7 +139,8 @@
       <a href="/latest-updates" class="{{#if latestUpdates}} active {{/if}}">Latest Updates</a>
       <a href="/rss-ghosh" class="{{#if rssGhosh}} active {{/if}}">Rss Ghosh</a>
       <a href="/blood-donation" class="{{#if blood}} active {{/if}}">Blood Donation</a>
-      <a href="/videomeet"><i class="fa fa-video" class="{{#if videomeet}} active {{/if}}"></i> Rss Video Meet</a>
+      {{!-- <a href="/videomeet"><i class="fa fa-video" class="{{#if videomeet}} active {{/if}}"></i> Rss Video Meet</a> --}}
+      <a href="/gurudhakshina">Gurudhakshina</a>
       <a href="/notifications" class="{{#if bnotify}} active {{/if}}">Notifications</a>
       <a href="/gallery" class="{{#if gallery}} active {{/if}}">Gallery</a>
       <a href="/contact" class="{{#if contact}} active {{/if}}">Contact</a>
@@ -197,6 +198,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/javascripts/ajaxform.js"></script>
     <script src="/javascripts/script.js"></script>
     <script src="/javascripts/notify.js"></script>
     <script src="/javascripts/bnav.js"></script>
