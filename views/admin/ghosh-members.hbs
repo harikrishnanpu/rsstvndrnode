@@ -1,0 +1,25 @@
+<section class="container"  style="width: 90%;height: 100%;">
+    <h5 class="text-center mt-3">All Users</h5>
+      <div class="table-responsive">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Ghosh</th>
+      <th>Call</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each users}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{this.phone}}</td>
+      <td>{{this.ghosh}}</td>
+      <td><a href="tel:{{this.phone}}" class="btn btn-color">Call</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+</section>

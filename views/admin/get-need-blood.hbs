@@ -1,0 +1,21 @@
+<section class="container" style="width: 90%;height: 100%;padding-bottom: 50%;">
+  <h5 class="text-center mt-3">Need Blood Form Data</h5>
+  <hr>
+    {{#if Formdata}}
+  <div>
+  {{#each Formdata}}
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action ">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Name:{{this.name}}</h5>
+      <small>Due Date:{{this.date}}</small>
+    </div>
+      <p class="mb-1">Phone:{{this.phone}}</p>
+        <small>Hospital:{{this.hospital}}</small>
+        <small>Extra Details:{{this.text}}</small>
+  </a>
+</div>
+{{/each}}
+</div>
+{{/if}}
+</section>

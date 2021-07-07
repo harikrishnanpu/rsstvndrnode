@@ -1,0 +1,105 @@
+<style>
+  h6,
+  p {
+    font-weight: 600;
+  }
+
+  .class::before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 26px solid rgba(255, 255, 255, 0.411);
+    z-index: 1000;
+    border-bottom: 13px solid transparent;
+    transform: rotate(180deg);
+  }
+
+  @media screen and (max-width:700px) {
+    .card {
+      font-size: x-small !important;
+    }
+
+    .card-title {
+      font-size: medium;
+    }
+
+    .error {
+      font-size: x-small;
+    }
+  }
+</style>
+
+<section class="container">
+  <div class="container">
+    {{#if ghosh}}
+
+    <div class="row">
+      <div class="card w-100 text-center mb-4"
+        style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/vam.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+        <div class="card-body container">
+          <h4 class="card-title mt-3"> Rss <span style="color: #ec650b;">Ghosh Registered</span></h4>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          <h6 class="card-text">നമസ്‌തെ,{{user.name}}</h6>
+          {{#if noclassess}}
+          <p class="card-text">Online {{user.ghosh.ghosh}} ക്ലാസ് തീയതി ഇതുവരെ ഉറപ്പിച്ചിട്ടില്ല.അടുത്ത ക്ലാസ്
+            എന്നാണെന്നു വാട്സാപ്പിൽ കൂടിയോ അല്ലെങ്കിൽ ആപ്പ് Notification വഴിയോ നിങ്ങള്ക്ക് ലഭിക്കും</p>
+          <marquee behavior="" direction="">ക്ലാസിൽ Join ചെയ്യാൻ എന്തെങ്കിലും ബുദ്ധിമുട്ടുണ്ടെങ്കിൽ അറിയിക്കുക</marquee>
+          <div class="text-center mb-3"><a class="btn btn-color w-50">No Classes</a></div>
+          {{else}}
+          <p class="card-text">താഴെ കാണുന്ന അതാതു ക്ലാസ്സിന്റെ സമയം അനുസരിച്ചു Join Now എന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്യുക.</p>
+          <marquee behavior="" direction="">ക്ലാസിൽ Join ചെയ്യാൻ എന്തെങ്കിലും ബുദ്ധിമുട്ടുണ്ടെങ്കിൽ അറിയിക്കുക</marquee>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+    {{else}}
+
+
+    <div class="row">
+      <div class="card w-100 text-center mb-4"
+        style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/vam.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+        <div class="card-body container">
+          <h4 class="card-title mt-3"> Rss <span style="color: #ec650b;">Ghosh</span></h4>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          <p class="card-text">നമസ്‌തെ,{{user.name}} താങ്കൾ Rss Tvndr അവതരിപ്പിക്കുന്ന ഓൺലൈൻ ഘോഷ് Clasill Register
+            ചെയ്തിട്ടില്ല.</p>
+          <marquee behavior="" direction="">താഴെ കാണുന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്തു രജിസ്റ്റർ ചെയ്തതിനു ശേഷം ക്ലാസ്സിൽ Join
+            ചെയ്യുക.</marquee>
+          <div class="text-center mb-3"><a href="/rss-ghosh/register" class="btn btn-color w-50">Register</a></div>
+        </div>
+      </div>
+    </div>
+    
+    {{/if}}
+
+    {{#if noclassess}}
+    <div class="text-center">
+      <h5 class="text-center error">No {{user.ghosh.ghosh}} Class Is Registered.Want Any Help Contact Us</h5>
+      <a href="tel:7306899364" class="btn btn-color text-center">Call Us</a>
+    </div>
+    {{else}}
+    <section class="container">
+      <h5 class="text-center mt-3">All {{user.ghosh.ghosh}} Class</h5>
+      <div class="row">
+        {{#each classes}}
+        <div class="class card w-100 text-center mb-4"
+          style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/omm.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+          <div class="card-body container">
+            <h4 class="card-title mt-3">{{this.title}} Class</h4>
+            <h6 class="card-text">Date: {{this.classdate}}</h6>
+            <h6 class="card-text">Time: {{this.classtime}}</h6>
+            <h6 class="card-text">Tutor: {{this.tutor}}</h6>
+            <a href="{{this.link}}" class="btn btn-color mb-3">Join Now</a>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </section>
+    {{/if}}
+  </div>
+</section>

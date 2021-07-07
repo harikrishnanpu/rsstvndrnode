@@ -1,0 +1,35 @@
+<section class="text-center" style="background-color: #474e5d; color: white;">
+    <hr style="background-color: orange;margin-top: 0;margin-bottom: 0;height: 5px;">
+    <img src="/images/blood.png.png" class="img-fluid" style="height: 100px;" alt="">
+    <h5 class="text-center ">Blood Donators Registeration Form</h5>
+<form class="text-center mt-5 container" method="POST" action="/add-donators">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Enter Your Name" required>
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Phone</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Enter Your Phone Number" required>
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Blood Group</label>
+        <select class="form-control" name="blood" required>
+        <option value="" disabled selected>Choose..</option>
+        <option>A+ve</option>
+        <option>A-ve</option>
+        <option>B+ve</option>
+        <option>B-ve</option>
+        <option>AB+ve</option>
+        <option>AB-ve</option>
+        <option>O+ve</option>
+        <option>O-ve</option>
+    </select>  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Age</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="age" placeholder="Enter Your Age" required>
+  </div>
+  <div class="form-group">
+      <input type="submit"  id="submit" class="form-control btn btn-danger" id="exampleFormControlInput1">
+  </div>
+</form>
+</section>

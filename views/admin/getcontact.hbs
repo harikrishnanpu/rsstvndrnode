@@ -1,0 +1,21 @@
+<section class="container" style="width: 90%;height: 100%;padding-bottom: 50%;">
+  <h5 class="text-center mt-3">Contact Form Submitted Data</h5>
+  <hr>
+    {{#if details}}
+  {{#each details}}
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action ">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Name:{{this.name}}</h5>
+      <small>Submitted Date:{{this.date1}}</small>
+      <small>Time:{{this.time}}</small>
+    </div>
+      <p class="mb-1">Phone:{{this.phone}}</p>
+       <p class="mb-1">About:{{this.about}}</p>
+        <p class="mb-1">Place:{{this.place}}</p>
+        <p class="mb-1">Message:{{this.text}}</p>
+  </a>
+</div>
+{{/each}}
+{{/if}}
+</section>

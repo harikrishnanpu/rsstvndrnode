@@ -1,0 +1,34 @@
+<style>
+  @media screen and (max-width:600px) {
+    
+  body{
+    font-size: x-small;
+  }
+  }
+</style>
+<section class="container"  style="width: 90%;height: 100%;">
+    <h5 class="text-center mt-3">All Users</h5>
+      <div class="table-responsive">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Blood</th>
+      <th scope="col">Age</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each donators}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td id="{{@index}}">{{this.phone}}</td>
+      <td>{{this.blood}}</td>
+      <td>{{this.age}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+</section>

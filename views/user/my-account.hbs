@@ -1,0 +1,24 @@
+<div class="container">
+      <div class="card pb-3 text-center mb-4" style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+    <div class="card-body container">
+      <h5 class="card-title mt-3">My <span style="color: orange;">Account</span> Details</h5>
+      <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+      <h6 class="card-text">Name: {{user.name}}</h6>
+      <h6 class="card-text">Blood: {{user.blood}}</h6>
+      <h6 class="card-text">Age: {{user.age}}</h6>
+      <h6 class="card-text">Phone: {{user.phone}}</h6>
+      <h6 class="card-text">Ghosh: {{ghosh.ghosh}}</h6>
+      <h6 class="card-text">App Current Version: 1.1.0</h6>
+      <h6 class="card-text">Last Updated: 29/06/2021</h6>
+      <div class="text-center"><a href="/update-profile" class="btn btn-color mb-2" style="width: 70%;">Update Your Details</a></div>
+      <div class="text-center"><a href="/about" class="btn btn-color mb-2" style="width: 70%;">About App</a></div>
+      <button onclick="share()" style="background-color: #0dd30d;width: 70%;border:0;border-radius: 10px;color: white;justify-content: center;cursor: pointer;padding-top: 10px;"><h6> Share This App Using Watsapp <i class="fab fa-whatsapp"></i></h6></button>    
+      </div>
+  </div>
+</div>
+
+<script>
+  function share(){
+    window.location.href = "whatsapp://send?text=നമസ്‌തെ, താങ്കൾ Rss Tvndr App Install ചെയ്തിട്ടില്ലെങ്കിൽ താഴെ കാണുന്ന Link ക്ലിക്ക് ചെയ്തു ഒരു Account Create ചെയുക.Link : https://rsstvndrapp.herokuapp.com/     "
+  }
+</script>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/images/omm.png" sizes="40*40" />
+  <title>Rss Tvndr App</title>
+  <meta name="description"
+    content="Rss Tvndr App Is For Rss Thiruvanvadoor Shakha Members.This App Contains Online Shakha , Online Ghosh Classes , Karyakari Details, Latest Updates And Other Informations About Rss Thiruvanvadoor Shaka">
+  {{!-- Manifest --}}
+  <link rel="manifest" href="/manifest.json">
+  {{!-- /Manifest --}}
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/nav.css">
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/a67a810767.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preload" as="image" href="/images/omm.png">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+  {{!-- Apple Touch Icon --}}
+  <link rel="apple-touch-icon" href="images/omm.png">
+  <meta name="apple-mobile-web-app-status-bar" content="#ff6f00">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manjari:wght@700&display=swap');
+
+    @media screen and (min-width:700px) {
+      .mysideNav {
+        max-width: 50% !important;
+      }
+    }
+  </style>
+  <script>
+    window.addEventListener("load", () => {
+      document.getElementById("preloader").style.display = "none";
+    })
+  </script>
+
+  <script id="script">
+    var s = document.createElement("script")
+    s.src = "https://notix.io/ent/current/enot.min.js"
+    s.onload = function (sdk) {
+      sdk.startInstall({
+        appId: "10040f32060a88723cd2dc3dbfb2db7",
+        loadSettings: true
+      })
+    }
+    document.head.append(s)
+  </script>
+
+</head>
+
+<body class="text-fluid">
+
+
+  {{!-- !!.. Warning Copyright &copy 2021 Rsstvndr --}}
+  {{!-- Other Components --}}
+  <style>
+    .banner {
+      background: rgba(255, 115, 0, 0.918);
+      position: fixed;
+      z-index: 100000000;
+    }
+
+    .banner__content {
+      padding: 16px;
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .banner__text {
+      flex-grow: 1;
+      line-height: 1.4;
+    }
+
+    .banner__close {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .banner__text,
+    .banner__close>span {
+      color: #ffffff;
+    }
+
+    #preloader{
+      background: #000;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      z-index: 10000000000000000000000000;
+    }
+  </style>
+  <div id="preloader">
+  <div class="loader">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+<div class="text-center" style="color: #000;"><h5 id="loading-msg">Loading...</h5></div>
+</div>
+  </div>
+  {{#if home}}
+      <div class="banner w-100">
+      <div class="banner__content">
+        <div class="banner__text">
+          <strong>Reminder: </strong>തിരുവൻവണ്ടൂർ ശാഖാ ഗുരുദക്ഷിണ ബൈoക്ക് 4/07/2021 7:30Pm 
+          <a href="/videomeet" class="btn btn-color">Join Now</a>
+        </div>
+        <button class="banner__close" type="button">
+        <i style="font-size: 20px;color: white;" class="far fa-window-close"></i>
+        </button>
+      </div>
+    </div>
+    {{/if}}
+  {{!-- /Other Components --}}
+  <section id="body">
+    {{#if admin}}
+    {{>admin-header}}
+    {{else}}
+    {{>user-header}}
+    {{/if}}
+    {{{body}}}
+
+    <div id="mySidenav" style="z-index: 99;background-color:white;  font-family:'Manjari', sans-serif;font-size: large;z-index: 100000000000000000000000000000000;"
+      class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="/">Rss <span style="color: orange;">Tvndr</span> App</a>
+      {{#if user}}
+      <a href="/my-account">🙏 {{user.name}}</a>
+      <a href="/" class="{{#if home}} active {{/if}}">Home</a>
+      <a href="/latest-updates" class="{{#if latestUpdates}} active {{/if}}">Latest Updates</a>
+      <a href="/rss-ghosh" class="{{#if rssGhosh}} active {{/if}}">Rss Ghosh</a>
+      <a href="/blood-donation" class="{{#if blood}} active {{/if}}">Blood Donation</a>
+      <a href="/videomeet"><i class="fa fa-video" class="{{#if videomeet}} active {{/if}}"></i> Rss Video Meet</a>
+      <a href="/notifications" class="{{#if bnotify}} active {{/if}}">Notifications</a>
+      <a href="/gallery" class="{{#if gallery}} active {{/if}}">Gallery</a>
+      <a href="/contact" class="{{#if contact}} active {{/if}}">Contact</a>
+      <a href="/my-account" class="{{#if bsetting}} active {{/if}}">My Account</a>
+      <a href="/subhashitham" class="{{#if subhashitham}} active {{/if}}">Subhashitham</a>
+      <a href="/ganageetham" class="{{#if ganageetham}} active {{/if}}">Ganageetham</a>
+      <a href="/amrithavachanam" class="{{#if amritham}} active {{/if}}">Amrithavachanam</a>
+      <a href="/admin">Admin Page</a>
+      <a href="/logout">Logout</a>
+      {{else}}
+      <a href="/login">Login</a>
+      <a href="/signup">SignUp</a>
+      {{/if}}
+      <hr>
+      <a href="/about">About App</a>
+      <a href="/about">Version: 1.1.0</a>
+    </div>
+
+    {{!-- Other Components --}}
+    <button onclick="topFunction()" id="myBtn" title="Go To Top" style="display: block;"><img src="/images/top.png"
+        class="img-fluid"></button>
+    {{!-- /Other Components --}}
+
+
+    <script>
+      function openNav() {
+        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        if (width <= 700) {
+          document.getElementById("mySidenav").style.width = "70%";
+        } else {
+          document.getElementById("mySidenav").style.width = "30%";
+        }
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+
+      document.querySelector(".banner__close").addEventListener("click", function () {
+        this.closest(".banner").style.display = "none";
+      });
+
+      window.addEventListener("load",()=>{
+        document.getElementById("preloader").style.display = "none"
+      })
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    <script src="/javascripts/script.js"></script>
+    <script src="/javascripts/notify.js"></script>
+    <script src="/javascripts/bnav.js"></script>
+    <script src="/javascripts/toast.js"></script>
+    <script src="/javascripts/notification.js"></script>
+    <script src="/javascripts/tooltip.js"></script>
+  </section>
+</body>
+
+</html>

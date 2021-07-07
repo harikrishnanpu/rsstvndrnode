@@ -1,0 +1,26 @@
+<div class="container">
+      <div class="card pb-3 text-center mb-4" style="background-color:rgba(255, 255, 255, 0.411);">
+    <div class="card-body container">
+      <h5 class="card-title mt-3">Update Your<span style="color: orange;">Account</span> Details</h5>
+      <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+      <form action="/update-profile" method="POST">
+      <label class="text-left" for="name">Name</label>
+      <input class="form-control" type="text" name="name" id="name" value="{{user.name}}">
+            <label class="text-left" for="name">Age</label>
+      <input class="form-control" type="text" name="age" id="age" value="{{user.age}}">
+            <label class="text-left" for="name">Phone</label>
+      <input class="form-control" type="text" name="phone" id="phone" value="{{user.phone}}">
+            <label class="text-left" for="name">Ghosh</label>
+      <input class="form-control" type="text" value="{{ghosh.ghosh}}" readonly>
+            <label class="text-left" for="name">App User Id</label>
+      <input class="form-control" type="text" value="{{user._id}}" readonly>
+      <input type="submit" class="btn w-100 mt-3 btn-color" onclick="submitted()" value="Submit" id="loadersubmit">
+      </form>
+      </div>
+  </div>
+</div>
+<script>
+function submitted(){
+      document.getElementById("loadersubmit").value = "Loading.."
+}
+</script>

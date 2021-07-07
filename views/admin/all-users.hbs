@@ -1,0 +1,27 @@
+<section class="container"  style="width: 90%;height: 100%;">
+    <h5 class="text-center mt-3">All Users</h5>
+      <div class="table-responsive">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Blood</th>
+      <th scope="col">Age</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each allusers}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{this.phone}}</td>
+      <td>{{this.blood}}</td>
+      <td>{{this.age}}</td>
+      <td><a href="/admin/add-notify/{{this._id}}" class="btn btn-color">Notify</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+</section>

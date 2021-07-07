@@ -1,0 +1,59 @@
+
+<style>
+@media screen and (max-width) {
+  .card-text{
+    font-size: small;
+  }
+}
+</style>
+
+<section style="background-color: #474e5d;" class="container pb-3">
+    <h4 style="color: white;" class="text-center mb-3 mt-2">Latest <span style="color: orange;"> Updates</span></h4>
+  <h5 style="color: white;" class="text-center">Rashtriya <span style="color: orange;"> Swayam </span> Seva <span style="color: orange;"> Sangh </span><br> Thiruvanvadoor <span style="color: orange;"> Shaka </span></h6>
+  <div class="text-center"><a href="tel:7306899364" class="text-center btn btn-color mb-2 mt-2">Contact Us</a></div>
+  <h6 style="color: white;font-size: small;" class="text-left mt-2">Date: <i class="fas fa-calendar-alt"></i> <span id="date"></span> <span class="float-right">Time: <span><i class="fas fa-clock"></i></span> <span id="time"></span></span></h6>
+  <div class="container">
+    {{#each details}}
+      <div class="card mx-auto mt-4 text-center">
+    <div class="card-body">
+      <h5 class="card-title mt-2" style="color: black;">{{this.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted" style="color: black;">Rss Tvndr</h6>
+      <p class="card-text" style="color: black;">{{this.description}}</p>
+      <marquee behavior="" direction="" style="color: black;">{{this.marquee}}</marquee>
+      {{!-- <div class="text-center"><a href="tel:7306899364" class="btn btn-color">{{this.btntext}}</a></div> --}}
+      <img style="height: 200px;width:70%;" class="img-fluid mt-3 mb-2" src="/updates/{{this._id}}.png" id="{{@index}}" alt="" onerror="hideImg({{@index}})">
+    </div>
+  </div>
+  {{/each}}
+  </div>
+</section>
+
+<script>
+      function hideImg(id) {
+        document.getElementById(`${id}`).style.display = "none";
+       }
+</script>
+
+
+<script>
+  var tdate = new Date().getDate();
+  var tmonth = new Date().getMonth() + 1;
+  var tyear = new Date().getFullYear();
+  document.getElementById('date').innerHTML =  tdate  + "/" + tmonth + "/" + tyear;
+</script>
+
+<script>
+  var timeDisplay = document.getElementById("time");
+
+
+function refreshTime() {
+  var ttime = new Date();
+  var tmin = ttime.getMinutes();
+  var thour = ttime.getHours();
+  var tsecond = ttime.getSeconds();
+  var ampm = thour >= 12 ? 'Pm' : 'Am';
+  timeDisplay.innerHTML = thour + ":" + tmin + ":" + tsecond + ampm ;
+}
+
+setInterval(refreshTime, 1000);
+</script>

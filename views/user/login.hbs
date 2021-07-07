@@ -1,0 +1,143 @@
+<style>
+  .error{
+    background-color: #dc3545;
+    color: white;
+  }
+</style>
+<section class="container">
+    <h3 class="text-center mt-5">Rss Tvndr Login Form</h3>
+    {{!-- <p class="text-center mt-2">You Are  Not Logged In Fill The Below Form And Click The Submit Button If You Have An Account In Our Website or Else Click The "I Want To Create An Account" Button To Create A Account</p> --}}
+    <p class="text-center">Powered By Rss Tvndr</p>
+    <div class="text-center">
+    <a href="/signup" class="btn btn-color mb-3">I Want To Create A Account</a><br>
+    </div>
+    {{#if loginErr}}
+    <p class="btn btn-danger form-control">Check Your Phone Number</p>
+    {{/if}}
+        {{#if ploginErr}}
+    <p class="btn btn-danger form-control">Check Your Password</p>
+    {{/if}}
+    {{#if loginErr1}}
+    <div class="container text-center" style="width: 90%;">
+      <p style="background-color: #dc3545;border-radius: 5px;height: fit-content;">താങ്കൾ ഈ Appill ഒരു Account Create ചെയ്തിടുണ്ട്.താഴെ കാണുന്ന Login Formill, Account Create ചെയ്യാൻ ഉപയോഗിച്ച Phone നമ്പറും,Passwordum വച്ച് Login ചെയുക. </p>
+    </div>
+    {{/if}}
+    <form action="/login" method="POST">
+    <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" class="form-control" name="name" id="lname" placeholder="Enter Your Name" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Phone</label>
+    <input type="text" name="phone" class="form-control {{#if loginErr}}error{{/if}}{{#if loginErr1}}error{{/if}}" id="lphone" {{#if loginErr}}placeholder="Check Your Phone Number" style="border: 4px solid #dc3545;" {{/if}}   {{#if loginErr1}} style="border: 4px solid #dc3545;" placeholder="Enter Your Registered Number"{{/if}} placeholder="Enter Your Phone Number" required>
+    <small id="emailHelp" class="form-text text-muted">Enter Your Registered Phone Number</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="text" name="password" {{#if loginErr}} style="border: 2px solid #dc3545;" {{/if}} {{#if loginErr1}} style="border: 4px solid #dc3545;" {{/if}} {{#if ploginErr}} style="border: 4px solid #dc3545;" {{/if}} class="form-control {{#if loginErr}}error{{/if}}{{#if ploginErr}}error{{/if}}" id="exampleInputPassword1" {{#if ploginErr}} placeholder="Check Your Password" {{/if}} placeholder="Password" required>
+    <small id="emailHelp" class="form-text text-muted" >Enter Your Registered password</small>
+  </div>
+  <input type="submit" value="Submit" onclick="changeText()"  id="submitbtn" class="btn btn-color w-100 mb-5">
+</form>
+</section>
+
+
+
+
+{{!-- Other Components --}}
+{{!-- {{#if ploginErr}}
+<div class="message" id="alert" style="background-color: #dc3545;border-left:15px solid #880714;" >
+  <span class="messageclosebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Error! </strong>Please Check Your Password, It's Wrong!..
+</div>
+{{/if}}
+
+{{!-- {{#if loginErr1}}
+<div class="message" id="alert" style="background-color: #dc3545;border-left:15px solid #880714;" >
+  <span class="messageclosebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Error! </strong>Account This Number Already Registered Fill This Form
+</div>
+{{/if}} 
+
+{{#if loginErr}}
+<div class="message" id="alert" style="background-color: #dc3545;border-left:15px solid #880714;" >
+  <span class="messageclosebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Error! </strong>Check Your Phone Number, It's Wrong
+</div>
+{{/if}} --}}
+{{!-- /Other Components --}}
+
+<script>
+  window.addEventListener('load',()=>{
+    setTimeout(()=>{
+    document.getElementById("alert").classList.add("show")
+    },1000);
+    setTimeout(()=>{
+      document.getElementById("alert").classList.remove("show");
+      document.getElementById("alert").classList.add("hide");
+    },6000)
+    setTimeout(()=>{
+      document.getElementById("alert").style.display = "none";
+    },8000)
+  })
+</script>
+
+<script>
+  document.getElementById("lname").value = localStorage.getItem("userName");
+  document.getElementById("lphone").value = localStorage.getItem("userPhone");
+  let lErr = document.getElementById("lErr");
+  setTimeout(()=>{
+    lErr.style.display = "none";
+  },4000);
+</script>
+
+  {{!-- Modal --}}
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: black;" id="exampleModalLongTitle">Rss <span style="color: orange;">Tvndr</span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center" style="color: black;">
+      <h6>നമസ്‌തെ, താഴെ കാണുന്ന Install Button ക്ലിക്ക് ചെയ്തു Rss Tvndr App Install ചെയുക.</h6>
+       <button id="butInstall" type="button" class="btn btn-color">Install</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: black;" id="exampleModalLongTitle">Rss <span style="color: orange;">Tvndr</span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center" style="color: black;">
+      <h6>താങ്കൾ Rss Tvndr App വിജയകരമായി Install ചെയ്തിരിക്കുന്നു.താങ്കളുടെ Phoninte Home Pagill ചെന്ന് Rss Tvndr App Open ചെയുക.</h6>
+      <img src="/images/screenShot.jpg" alt="">
+      <a href="tel:7306899364" class="btn btn-color">Want Help</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function changeText(){
+    var elem = document.getElementById("submitbtn");
+    elem.value = "Loading...."
+  }
+</script>

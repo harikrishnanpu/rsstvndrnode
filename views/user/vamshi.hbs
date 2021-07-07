@@ -1,0 +1,26 @@
+<section style="background-color: #474e5d;" class="container pb-3">
+  <hr style="margin: 0;background-color: orange;height: 5px;">
+  <h4 style="color: white;" class="text-center mb-3 mt-2"> <span style="color: orange;"> Updates</span></h4>
+  <h5 style="color: white;" class="text-center">Rashtriya <span style="color: orange;"> Swayam </span> Seva <span style="color: orange;"> Sangh </span> Thiruvanvadoor <span style="color: orange;"> Shaka </span></h6>
+  <h6 style="color: white;" class="text-left" id="date"></h6>
+  <div class="container">
+    {{#each details}}
+      <div class="card mx-auto mt-4">
+    <div class="card-body">
+      <h5 class="card-title">Rss Ghosh Vamshi</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Rss Tvndr</h6>
+      <p class="card-text">Click The Below Button To Join To The Class</p>
+      <marquee behavior="" direction="">Vamshi Class Starting On </marquee>
+      <div class="text-center"><a class="btn btn-color">Join Class <i class="fa fa-lock"></i></a></div>
+    </div>
+  </div>
+  {{/each}}
+  </div>
+</section>
+
+<script>
+  var tdate = new Date().getDate();
+  var tmonth = new Date().getMonth();
+  var tyear = new Date().getFullYear();
+  document.getElementById('date').innerHTML = "Date:" + tdate  + "/" + tmonth + "/" + tyear;
+</script>

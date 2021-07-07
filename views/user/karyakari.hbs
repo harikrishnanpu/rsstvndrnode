@@ -1,0 +1,29 @@
+<section style="background-color: transparent;color:black" class="container pb-3 text-center">
+  <h4  class="text-center mb-3 mt-2" style="color: white;">Shaka <span style="color: orange;"> Karyakari </span></h4>
+  <h5 class="text-center" style="color: white;">Rashtriya <span style="color: orange;"> Swayam </span> Seva <span style="color: orange;"> Sangh </span> Thiruvanvadoor <span style="color: orange;"> Shaka </span></h6>
+  <h6  class="text-left" id="date"></h6>
+  <div class="container">
+    {{#if karyakari}}
+    {{#each karyakari}}
+      <div class="card mx-auto mt-4">
+    <div class="card-body">
+      <h5 class="card-title">{{this.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Rss Tvndr</h6>
+      <h6 class="card-text ">Karyakari Date: {{this.kdate}}</h6>
+      <h6 class="card-text ">Karyakari Place: {{this.place}}</h6>
+      <h6 class="card-text ">Karyakari Time: {{this.ktime}}</h6>
+      <h6 class="card-text ">Shaka: {{this.shaka}}</h6>
+      <h6 class="card-text ">Extra Details:{{this.text}}</h6>
+      <p class="card-text">Karyakari Description: {{this.description}}</p>
+      <p class="card-text text-muted">Submitted Date: {{this.date}}</p>
+      <div class="text-center mb-2"><a href="{{this.link}}" class="btn btn-color" style="width: 90%;">Join Now</a></div>
+      <div class="text-center mb-2"><a href="tel:{{this.phone}}" class="btn btn-color" style="width: 90%;">Contact</a></div>
+    </div>
+  </div>
+  {{/each}}
+  {{else}}
+  <h1 class="text-center mt-5">!</h1>
+  <p class="text-center">No Data Filled</p>
+  {{/if}}
+  </div>
+</section>

@@ -1,0 +1,96 @@
+<section class="container" style="width: 90%;">
+    {{!-- <h4 class="text-center mt-3">My Notifications ({{count}})</h4> --}}
+  <div >
+  {{!-- <div class="container w-50 float-left">
+    <div class="row container">
+       <h5 class="text-center text-fluid">Personal Notifications {{#if Pcount}} ({{Pcount}}) {{else}} (0) {{/if}}</h5>
+      <hr>
+      {{#if Pnotify}}
+          <div>
+                 <div class="accordion" id="accordionExample">
+                       
+                        <hr>
+                        {{#each Pnotify}}
+              <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-color text-fluid" style="width: 100%;" type="button" data-toggle="collapse" data-target="#collapse{{@index}}"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  Perosonal Notify
+                </button>
+              </h2>
+            </div>
+            <div class="collapse" id="collapse{{@index}}" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="list-group">
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{this.title}}</h5>
+                      <small>{{this.date}}</small>
+                    </div>
+                    <p class="mb-1">{{this.description}}</p>
+                    <small>{{this.About}}</small>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+                        {{/each}}
+            </div>
+            </div>
+            {{else}}
+            <h6 class="text-center">No Notifications</h6>
+      {{/if}}
+    </div>
+
+    </div> --}}
+
+    <div class="container pt-3">
+    <div>
+    <h5 class="text-center text-fluid">Rss <span style="color: orange;">Site Notifications </span> {{#if Scount}} ({{Scount}}) {{else}} (0) {{/if}}</h5>
+    <p class="text-center">By, Rss Tvndr</p>
+    <hr>
+      {{#if Snotify}}
+          <div>
+                    <div class="accordion " id="accordionExample">
+                      {{#each Snotify}}
+              <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-color" style="width: 100%;" type="button" data-toggle="collapse" data-target=".collapse{{@index}}"
+                  aria-expanded="true" aria-controls=".collapse0">
+                  Site Notification
+                </button>
+              </h2>
+            </div>
+            <div class="collapse collapse{{@index}}" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="list-group">
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{this.title}}</h5>
+                      <small>{{this.date}}</small>
+                    </div>
+                    <p class="mb-1">{{this.description}}</p>
+                    <small>{{this.About}}</small>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+                        {{/each}}
+            </div>
+            </div>
+                        {{else}}
+            <h6 class="text-center">No Notifications</h6>
+                  {{/if}}
+    </div>
+    </div>
+    <hr>
+    </div>
+</section>
+
+<script>
+  document.querySelector('#collapse0').classList.add('show');
+  document.querySelector('.collapse0').classList.add('show');
+</script>

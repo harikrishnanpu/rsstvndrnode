@@ -1,0 +1,42 @@
+<section style="background-color: #474e5d;color: white;" class="container pb-3 text-center">
+      <h4 style="color: white;" class="text-center mb-3 mt-2">Rss Ghosh <span style="color: orange;">Registeration </span></h4>
+  <h5 style="color: white;" class="text-center">Rashtriya <span style="color: orange;"> Swayam </span> Seva <span style="color: orange;"> Sangh </span> Thiruvanvadoor</h6>
+  <h6 style="color: white;" class="text-left" id="date"></h6>
+  <div class="container">
+      <form class="text-center mt-5 container" method="POST" action="/ghosh-register">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" class="form-control" value="{{user.name}}" id="exampleFormControlInput1" name="name" placeholder="Your Name" required>
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Phone Number</label>
+    <input type="text" class="form-control" value="{{user.phone}}" id="exampleFormControlInput1" name="phone" placeholder="Your Phone Number" required>
+  </div>
+  <div class="form-group">
+      <label>Ghosh</label>
+      <select class="form-control" name="ghosh" id="ghosh" required>
+          <option value="" selected disabled>Select..</option>
+          <option>Vamshi</option>
+          <option >Anak</option>
+          <option >Sringh</option>
+          <option >Shankh</option>
+      </select>
+  </div>
+  <input type="text" name="user" style="display: none;" value="{{user._id}}">
+  <div class="form-group">
+      <input type="submit"  id="submit" class="form-control btn btn-color" id="exampleFormControlInput1">
+  </div>
+</form>
+  </div>
+</section>
+
+<script>
+  var tdate = new Date().getDate();
+  var tmonth = new Date().getMonth();
+  var tyear = new Date().getFullYear();
+  var hour = new Date().getHours();
+  var minute = new Date().getMinutes();
+  var second = new Date().getSeconds();
+  document.getElementById('date1').value =  tdate  + "/" + tmonth + "/" + tyear;
+  document.getElementById('time').value =  hour  + ":" + minute + ":" + second;
+</script>

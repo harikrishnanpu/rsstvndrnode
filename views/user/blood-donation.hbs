@@ -1,0 +1,54 @@
+  <div class="container" style="margin-left: auto;margin-right: auto;">
+  <div class="container">
+    <div class="card  text-center mb-4" style="margin-left:auto;margin-right:auto;width:100%;background-color:rgb(255, 255, 255, 0.411);background-image: url('/images/blood.png.png');background-repeat: no-repeat;background-size: contain;background-position: center;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+    <div class="card-body container">
+      <h4 class="card-title mt-3">Blood <span style="color: red;">Donation</span></h4>
+      <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+      <h6 class="card-text">New Donour: <span>{{lastuser.name}}</span></h6>
+      <p class="card-text" style="font-size: small;">{{cardContent.description}}</p>
+      <marquee behavior="" direction="" style="font-size: small;">{{cardContent.marquee}}</marquee>
+      <div class="text-center mb-3"><a href="/need-blood" class="btn btn-danger w-50" >{{cardContent.btntext}}</a></div>
+    </div>
+  </div>
+    <h5 class="text-center">Registered <span style="color: red;">Blood</span> Donators</h5>
+  
+  <div class="table-responsive" style="background-color: rgb(255, 255, 255, 0.411);border-radius: 10px;">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Blood</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each details}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.name}}</td>
+      <td style="color: red;">{{this.blood}}</td>
+      <td>{{this.age}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+
+
+{{#if Error}}
+  <div class="toast" id="toast" style="visibility: hidden;" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <img src="/images/omm.png" class="img-fluid rounded mr-2" style="height: 20px;">
+    <strong class="mr-auto" style="color: black;">From Rss Tvndr</strong>
+  </div>
+  <div class="toast-body text-center">
+   <img src="/images/fail.gif" class="img-fluid rounded mr-2" style="height: 60px;">
+   <p style="color: black;">You Are Already Registered</p>
+  </div>
+</div>
+{{/if}}
+</div>
+</div>
+
+<br><br>

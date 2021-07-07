@@ -1,0 +1,75 @@
+      <style>
+        span{
+          font-size: larger;
+        }
+
+        @media screen and (max-width:700px) {
+          .card-text{
+            font-size: x-small;
+          }
+        }
+      </style>
+      <section class="container">
+        <div class="container">
+        <div class="row">
+        <div class="card w-100 text-center mb-4 container"
+        style="background-color:rgba(255, 255, 255, 0.411);">
+        <div class="card-body container">
+          <h3 class="card-title mt-3"> Ghosh <span style="color: #ec650b;">Baidakh</span></h3>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          <p class="card-text">നമസ്തെ, 29/06/2021 തിങ്കളാഴിച്ച വൈകിട്ട് 8.00 മണിക്ക് Ghosh ബൈoക്ക് Rss Tvndr Appill കൂടി നടക്കും. ഘോഷ് പഠിക്കുന്ന എല്ലാ സ്വയം സേവകരും Onlinayi പങ്കെടുക്കുക.പരമാവധി എല്ലാ ഘോഷ് വാദകന്മാരേ ബൈoക്കിൽ പങ്കെടുപ്പിക്കുക.</p>
+          <marquee behavior="" direction="">App installationill എന്തെങ്കിലും ബുദ്ധിമുട്ടുണ്ടെങ്കിൽ അറിയിക്കുക.</marquee>
+          <div class="container">
+  <h4 id="headline">Ghosh <span style="color: #ec650b;">Baidakh</span> Starts In:</h4>
+  <div id="countdown">
+      <span id="days"></span>Day
+      <span id="hours"></span>Hour
+      <span id="minutes"></span>Minutes
+      <span id="seconds"></span>Seconds 
+  </div>
+  <div id="content" class="emoji">
+    <p class="text-center">Click The Below Button</p>
+    <span><div class="text-center"><a href="https://meet.google.com/pvk-yocf-bdi" class="btn btn-color">Join Now</a></div></span>
+  </div>
+</div><br>
+        </div>
+      </div>
+
+      <script>
+(function () {
+  const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+
+  let birthday = "Jun 29, 2021 20:10:00",
+      countDown = new Date(birthday).getTime(),
+      x = setInterval(function() {    
+
+        let now = new Date().getTime(),
+            distance = countDown - now;
+
+        document.getElementById("days").innerText = Math.floor(distance / (day)),
+          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+          document.getElementById("content").style.display = "none";
+        //do something later when date is reached
+        if (distance < 0) {
+          let headline = document.getElementById("headline"),
+              countdown = document.getElementById("countdown"),
+              content = document.getElementById("content");
+
+          headline.innerHTML = `<h5>Ghosh <span style="color: #ec650b;">Baidakh</span> Started:</h5>`;
+          countdown.style.display = "none";
+          content.style.display = "block";
+
+          clearInterval(x);
+        }
+        //seconds
+      }, 0)
+  }());
+      </script>
+      </div>
+      </div>
+      </section>

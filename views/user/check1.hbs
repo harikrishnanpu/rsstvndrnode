@@ -1,0 +1,64 @@
+
+    <div class="card text-center mb-4" style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/omm.png');background-repeat: no-repeat;background-size: contain;background-position: center;font-size: xx-small;">
+    <div class="card-body container">
+      <h5 class="card-title mt-3" style="font-weight: 700;"> Rss <span style="color: #ec650b;">Notice</span></h5>
+      <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+      <p class="card-text">നമസ്‌തെ, Rss Tvndr (PWA) Appilekku താങ്കൾക്ക് സ്വാഗതം.താങ്കൾ ഈ Appill ഒരു വട്ടം Account Create ചെയ്തെങ്കിൽ താഴെ കാണുന്ന <span style="font-weight: 700;"> Login ബട്ടൺ </span> ക്ലിക്ക് ചെയുക.താങ്കൾ ആദ്യമായി ഈ App Open ചെയുവാണെങ്കിൽ താഴെ കാണുന്ന <span style="font-weight: 700;"> Signup ബട്ടൺ </span> ക്ലിക്ക് ചെയുക.</p>
+      <p><span >How To Install This App On Your Phone: </span><marquee behavior="" direction="">നമസ്‌തെ, ഈ App ആദ്യമായി ആണ് താങ്കൾ Open ചെയുന്നതെങ്കിൽ താഴെ Add To Home Sreen എന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്തു App Install ചെയുക.ഈ Feature Google Chromill ലെ Support ആകുകയൊള്ളു.താങ്കൾക്ക് ഈ ആപ്പുമായി ഉള്ള എല്ലാപ്രശ്നങ്ങൾ Wats App ഗ്രൂപ്പിൽ Message അയക്കുക. </marquee></p>
+      <p><span>About App:</span> App Size: 6.26MB App Installation Support: Only On Google Chrome</p>
+      <div class="text-center mb-3"><a href="/signup" class="btn btn-color mb-2 text-fluid" style="width: 70%;">Signup (New User)</a><br><a href="/login" class="btn btn-color text-fluid" style="width: 70%;">Login (old user)</a></div>
+    </div>
+  </div>
+
+  {{!-- Modal --}}
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: black;" id="exampleModalLongTitle">Rss <span style="color: orange;">Tvndr</span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center" style="color: black;">
+      <h6>നമസ്‌തെ, താഴെ കാണുന്ന Install Button ക്ലിക്ക് ചെയ്തു Rss Tvndr App Install ചെയുക.</h6>
+       <button id="butInstall" type="button" class="btn btn-color">Install</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: black;" id="exampleModalLongTitle">Rss <span style="color: orange;">Tvndr</span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center" style="color: black;">
+      <h6>താങ്കൾ Rss Tvndr App വിജയകരമായി Install ചെയ്തിരിക്കുന്നു.താങ്കളുടെ Phoninte Home Pagill ചെന്ന് Rss Tvndr App Open ചെയുക.</h6>
+      <a href="tel:7306899364" class="btn btn-color">Want Help</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let logged = localStorage.getItem("logged");
+  if(logged === "true"){
+  window.location.href = "https://rsstvndrapp.herokuapp.com/login";  
+  }else{
+  console.log("Not Registered")
+}
+</script>
+

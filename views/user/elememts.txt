@@ -1,0 +1,479 @@
+{{!-- <div class="modal" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="container" method="POST" action="/signup">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Enter Your Name">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Phone</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Enter Your Phone Number">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Blood Group</label>
+        <select class="form-control" name="blood">
+        <option>Choose..</option>
+        <option>A+ve</option>
+        <option>A-ve</option>
+        <option>B+ve</option>
+        <option>B-ve</option>
+        <option>AB+ve</option>
+        <option>AB-ve</option>
+        <option>O+ve</option>
+        <option>O-ve</option>
+    </select>  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Age</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="age" placeholder="Enter Your Age">
+  </div>
+      <div class="form-group">
+    <label for="exampleFormControlInput1">Enter A Password</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Any Password For Your Account">
+  </div>
+      </div>
+      <input type="submit" class="btn btn-color mx-auto mb-2" id="exampleFormControlInput1" style="width: 50%;">
+      <div class="modal-footer">
+       <a class="btn btn-color" style="color: white;" data-dismiss="modal"  data-toggle="modal" data-target="#myModal2">Already Registered</a>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div> 
+</form>
+    </div>
+  </div>
+</div> --}}
+
+
+{{!-- {{#if loginErr}}
+
+<div class="toast1" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <img src="/images/omm.png" class="img-fluid rounded mr-2" style="height: 20px;">
+    <strong class="mr-auto">From Rss Tvndr</strong>
+  </div>
+  <div class="toast-body text-center">
+   <img src="/images/fail.gif" class="img-fluid rounded mr-2" style="height: 60px;">
+   <p>Error Occured</p>
+  </div>
+</div>
+
+{{/if}} --}}
+
+
+<script>
+  var tdate = new Date().getDate();
+  var tmonth = new Date().getMonth();
+  var tyear = new Date().getFullYear();
+  var hour = new Date().getHours();
+  var minute = new Date().getMinutes();
+  var second = new Date().getSeconds();
+  document.getElementById('date').innerHTML = "Date:" + tdate  + "/" + tmonth + "/" + tyear;
+  document.getElementById('time').innerHTML = "Time:" + hour  + ":" + minute + ":" + second;
+</script>
+
+
+
+
+  {{#each Pnotify}}
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action ">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{this.title}}</h5>
+      <small>{{this.date}}</small>
+    </div>
+      <p class="mb-1">{{this.description}}</p>
+        <small>{{this.About}}</small>
+  </a>
+
+
+</div>
+
+
+
+
+
+
+      {{#if Snotify}}
+              <div class="accordion" id="accordionExample">
+      <div>
+        <h5 class="text-center">Site Notifications</h5>
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-color" type="button" data-toggle="collapse" data-target=".collapseTwo"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  {{SlastNotify.title}}
+                </button>
+              </h2>
+            </div>
+            <div class="collapse show collapseTwo" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="list-group">
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{SlastNotify.title}}</h5>
+                      <small>{{SlastNotify.date}}</small>
+                    </div>
+                    <p class="mb-1">{{SlastNotify.description}}</p>
+                    <small>{{SlastNotify.About}}</small>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {{#each Snotify}}
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-color" type="button" data-toggle="collapse" data-target=".collapse{{@index}}"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  {{this.title}}
+                </button>
+              </h2>
+            </div>
+            <div class="collapse collapse{{@index}}" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="list-group">
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{this.title}}</h5>
+                      <small>{{this.date}}</small>
+                    </div>
+                    <p class="mb-1">{{this.description}}</p>
+                    <small>{{this.About}}</small>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        {{/each}}
+      </div>
+      {{/if}}
+
+
+
+
+
+      CACHE DATAS
+
+
+          event.waitUntil(    
+        caches.open('static').then((cache)=>{
+            cache.add('/');
+            cache.add('../views/error.hbs');
+            cache.add('/stylesheets/style.css');
+            cache.add('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+    }))
+
+
+    self.addEventListener('fetch',(event)=>{
+    event.respondWith(
+        caches.match(event.request).then((res)=>{
+            if (res) {
+                console.log('Found ', event.request.url, ' in cache');
+                return res;
+              }
+              console.log('Network request for ', event.request.url);
+              return fetch(event.request)
+            }).catch(error => {
+                console.log("ERROR",error);
+        })
+        )
+})
+]
+
+
+
+    {{!-- <ul class="container">
+    <li class="nav-link"><a href="/">Home</a></li>
+    <li class="nav-link"><a href="/contact" >Contact Us</a></li>
+    {{#if home}}
+    {{!-- <li class="nav-link"><a href="/members">Members</a></li>
+    <li class="nav-link"><a href="/blood-donation" >Blood Donation</a></li>
+    <li class="nav-link"><a href="/karyakari">Karyakari</a></li> --}}
+    {{!-- <li class="nav-link"><a href="/shaka-vrittam" >Shaka Vrittam </a></li>
+    <li class="nav-link"><a href="/rss-ghosh">Rss Ghosh</a></li>
+    <li class="nav-link"><a href="/covid19">Covid Tracker</a></li> --}}
+    {{!-- {{/if}} --}}
+    {{!-- <li class="nav-link"><a href="/latest-updates">Latest Updates</a></li>
+    <li class="nav-link"><a href="/admin">Admin Panel</a></li>
+    <li class="nav-link"><a href="/notifications">Notifications <span class="badge badge-pill badge-danger">{{notifyCount}}</span></a></li>
+  </ul>  --}}
+  {{!-- {{#if home}}
+<div id="logedin" class="float-right"  style="display: block;margin-bottom: 0;">
+  {{#if user}}
+  <select class="form-control form-select" onchange="myAccount()">
+    <option class="form-control select"> <h6 style="color: white;margin-bottom: 0;">{{user.name}}</h6></option>
+    <option>My Account</option>
+  </select>
+  {{/if}}
+</div>
+{{/if}} --}}
+
+
+
+footer
+
+
+    <section style="background-color: #474e5d; height: 230px;">
+      <section id="footer">
+        <div class="footer container text-center">
+          <div class="brand" style="text-decoration: none;">
+            <h5 style="color: white;">RSS<span style="color: #ff8800;">TVNDR</span></h5>
+          </div>
+          {{!-- <div class="social-ico">
+            <div class="text-center">
+              <a href=""></a>
+            </div>
+          </div> --}}
+          <p>Copyright © 2021 Rss Tvndr. All rights reserved</p>
+          {{!-- <p>Site Created By, <a href="https://harikishnan.github.io/My-Website/">Hari Krishnan</a></p> --}}
+        </div>
+      </section>
+    </section>
+
+
+
+  helpbar\
+
+
+
+
+      {{!-- <div class="helpbar text-center" style="visibility: hidden;">
+      <a><i class="fab fa-facebook-f"></i></a><br><br>
+      <a href="https://chat.whatsapp.com/F91AFUE3AOuB6PAPHdfYqw"><i class="fab fa-whatsapp"></i></a><br><br>
+      <a href="tel:7306899364"><i class="fas fa-phone"></i></a>
+      <span style="color: white;" class="text-center text-fluid">Call</span><br><br>
+      </ul>
+    </div>  --}}
+
+      {{!-- {{/if}} --}}
+  {{!-- <div class="container">
+    {{#if user}}
+    <div class="dropdown-menu" style="left: -41%;" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/admin">Go To Admin Page</a>
+    <a class="dropdown-item" href="/my-account">My Account</a>
+    <a class="dropdown-item" href="/logout">Logout</a>
+    </div>
+    {{else}}
+    <div class="dropdown-menu" style="left: -41%;" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/login">LogIn</a>
+    <a class="dropdown-item" href="/signup">Sign In</a>
+    </div>
+    {{/if}}
+  </div> --}}
+
+
+
+
+  navbar
+
+
+  <nav class="navbar navbar-expand-lg navbar-light text-center" style="background-color: #474e5d;font-family: 'Noto Sans JP', sans-serif;">
+  <a style="font-size: medium;left: 10px;" onclick="openNav()"><span><i class="fa fa-bars"></i></span></a>
+  <a class="navbar-brand" href="/" style="font-weight: 800; color: white; font-size: 1.2rem;text-align: center;">Rss <span style="color: orange;">Tvndr</span> App</a>
+  <a class=""><span><i class="fas fa-bell"></i></span></a>
+{{!-- {{#if home}} --}}
+{{!-- <div class="dropdown"> --}}
+  {{!-- {{#if user}} --}}
+  {{!-- <button onclick="openNav()" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown1" aria-haspopup="true" aria-expanded="false"> --}}
+   {{!-- {{#if user}}
+   {{user.name}}
+   {{else}}
+   Account
+   {{/if}}
+  </button> 
+</div> --}}
+{{!-- {{/if}} --}}
+
+</nav>
+<hr class="mb-1" style="margin: 0; height: 2px;background-color: orange;">
+<hr class="mb-1" style="margin: 0 0;height: 2px;background-color: orange;">
+
+
+
+horizontal navbar
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+.icon-bar {
+  background-color: white;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.icon-bar a {
+  width: 20%;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: black;
+  font-size: large;
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+  color: white;
+}
+
+.active {
+  background-color: orange;
+}
+</style>
+
+<div class="icon-bar">
+  <a class="active" href="#"><i class="fa fa-home"></i><span></span></a> 
+  <a href="#"><i class="fas fa-newspaper"></i></a>
+  <a href="#"><i class="fas fa-heartbeat"></i></a> 
+  <a href="#"><i class="fas fa-drum"></i></a>
+  <a href="#"><i class="fas fa-images"></i></a> 
+  <a href="#"><i class="fas fa-scroll"></i></a>
+</div>
+
+
+
+bnavbr bottom bavbar
+
+    {{#if blood}}
+    <nav class="bnav">
+      <a href="/" class="nav__link {{#if home}} nav__link--active {{/if}}">
+        <i class="fas fa-home nav__icon"></i>
+        <span class="nav__text">Home</span>
+      </a>
+      {{!-- <a href="#" class="nav__link">
+        <i class="fas fa-comments nav__icon"></i>
+        <span class="nav__text">Comment</span>
+      </a> --}}
+      <a href="/blood-donation" class="nav__link {{#if blood}} nav__link--active {{/if}}">
+        <i class="fas fa-heartbeat nav__icon"></i>
+        <span class="nav__text">Blood Donation</span>
+      </a>
+      <a href="/notifications" class="nav__link {{#if bnotify}} nav__link--active {{/if}}">
+        <i class="fas fa-bell nav__icon"></i>
+        <span class="nav__text">Notifications</span>
+      </a>
+      <a href="/my-account" class="nav__link {{#if bsetting}} nav__link--active {{/if}}">
+        <i class="fas fa-cog nav__icon"></i>
+        <span class="nav__text">Settings</span>
+      </a>
+      {{!-- <a class="nav__link" style="background-color: #eee;color: #444;">
+        <i class="fas fa-users nav__icon"></i>
+        <span class="nav__text">Users</span>
+      </a> --}}
+    </nav>
+    {{/if}}
+
+    {{#if bnotify}}
+    <nav class="bnav">
+      <a href="/" class="nav__link {{#if home}} nav__link--active {{/if}}">
+        <i class="fas fa-home nav__icon"></i>
+        <span class="nav__text">Home</span>
+      </a>
+      {{!-- <a href="#" class="nav__link">
+        <i class="fas fa-comments nav__icon"></i>
+        <span class="nav__text">Comment</span>
+      </a> --}}
+      <a href="/blood-donation" class="nav__link {{#if blood}} nav__link--active {{/if}}">
+        <i class="fas fa-heartbeat nav__icon"></i>
+        <span class="nav__text">Blood Donation</span>
+      </a>
+      <a href="/notifications" class="nav__link {{#if bnotify}} nav__link--active {{/if}}">
+        <i class="fas fa-bell nav__icon"></i>
+        <span class="nav__text">Notifications</span>
+      </a>
+      <a href="/my-account" class="nav__link {{#if bsetting}} nav__link--active {{/if}}">
+        <i class="fas fa-cog nav__icon"></i>
+        <span class="nav__text">Settings</span>
+      </a>
+      {{!-- <a class="nav__link" style="background-color: #eee;color: #444;">
+        <i class="fas fa-users nav__icon"></i>
+        <span class="nav__text">Users</span>
+      </a> --}}
+    </nav>
+    {{/if}}
+
+    {{#if bsetting}}
+    <nav class="bnav">
+      <a href="/" class="nav__link {{#if home}} nav__link--active {{/if}}">
+        <i class="fas fa-home nav__icon"></i>
+        <span class="nav__text">Home</span>
+      </a>
+      {{!-- <a href="#" class="nav__link">
+        <i class="fas fa-comments nav__icon"></i>
+        <span class="nav__text">Comment</span>
+      </a> --}}
+      <a href="/blood-donation" class="nav__link {{#if blood}} nav__link--active {{/if}}">
+        <i class="fas fa-heartbeat nav__icon"></i>
+        <span class="nav__text">Blood Donation</span>
+      </a>
+      <a href="/notifications" class="nav__link {{#if bnotify}} nav__link--active {{/if}}">
+        <i class="fas fa-bell nav__icon"></i>
+        <span class="nav__text">Notifications</span>
+      </a>
+      <a href="/my-account" class="nav__link {{#if bsetting}} nav__link--active {{/if}}">
+        <i class="fas fa-cog nav__icon"></i>
+        <span class="nav__text">Settings</span>
+      </a>
+      {{!-- <a class="nav__link" style="background-color: #eee;color: #444;">
+        <i class="fas fa-users nav__icon"></i>
+        <span class="nav__text">Users</span>
+      </a> --}}
+    </nav>
+    {{/if}}
+
+
+
+    mask loader
+
+      <div id="overlay"  class="text-center ml-auto mr-auto" style="z-index: 1000000000000;height: 100%;width: 100%;">
+    <img src="/images/cload-unscreen.gif" class="img-fluid text-center" alt="Loading...">
+    <div class="progress" style="margin: auto auto;">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+        aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <h5 style="margin: auto auto;" class="mt-3"><strong>Loading....</strong></h5>
+  </div>
+
+  mask loader javascript
+
+      //document.onreadystatechange = function () {
+  //   if (document.readyState !== "complete") {
+    //  document.querySelector("#body").style.display = "none";
+    //    document.querySelector("#overlay").style.display = "block";
+   //     document.querySelector("#bnav").style.display = "none";
+    //    document.body.scrollTop = 0,
+   //     document.documentElement.scrollTop = 0
+   //   }
+   //   else if (document.readyState == 'interactive') {
+   //     document.querySelector("#body").style.display = "none";
+   //     document.querySelector("#overlay").style.display = "block";
+   //   }
+//
+   //   else {
+   //     document.querySelector('.progress-bar').style.width = "100%";
+    //    setTimeout(loader, 500)
+    //    function loader() {
+    //      document.querySelector("#overlay").style.display = "none";
+    //      document.querySelector("#body").style.display = "block";
+    ///      document.querySelector('#bnav').style.display = "block";
+    //    }
+    //}
+    //}
+
+
+    

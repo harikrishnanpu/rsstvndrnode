@@ -1,0 +1,50 @@
+<section class="container" style="width: 90%;">
+    <h5 class="text-center mt-5">Add Latest Updates Details</h5>
+<form class="text-center mt-5 container" method="POST" action="/admin/add-latest-updates" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="title">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Description</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="description" placeholder="description">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Marquee</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="marquee" placeholder="moving text">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Buttton Text</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="btntext" placeholder="click me">
+  </div>
+      <div class="form-group">
+    <label for="exampleFormControlInput1">Content</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="content" placeholder="content">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Image</label>
+    <input  type="file" class="form-control" id="exampleFormControlInput1" name="image">
+  </div>
+
+  <input type="text" name="date" id="date" style="display: none;">
+  <input type="text" name="time" id="time" style="display: none;">
+
+
+  <div class="form-group">
+      <input type="submit" class="form-control btn btn-color" id="exampleFormControlInput1">
+  </div>
+</form>
+</section>
+
+
+<script>
+  var tdate = new Date().getDate();
+  var tmonth = new Date().getMonth();
+  var tyear = new Date().getFullYear();
+  var hour = new Date().getHours();
+  var minute = new Date().getMinutes();
+  var second = new Date().getSeconds();
+  document.getElementById('date').value =   tdate  + "/" + tmonth + "/" + tyear;
+  document.getElementById('time').value =   hour  + ":" + minute + ":" + second;
+</script>

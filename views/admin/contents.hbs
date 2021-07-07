@@ -1,0 +1,46 @@
+<section class="container"  style="width: 90%;">
+    <h5 class="text-center mt-3">Website Contents</h5>
+      {{!-- <div class="row">
+        <a class="btn btn-color ml-auto mr-5">Add Details</a>
+      </div> --}}
+     <div class="table-responsive"> 
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Button Text</th>
+      <th scope="col">Marquee</th>
+      <th scope="col">Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each content}}
+    <tr>
+      <td>{{this.title}}</td>
+      <td>{{this.btntext}}</td>
+      <td>{{this.marquee}}</td>
+      <td>{{this.description}}</td>
+      <td><a href="/admin/edit-details/{{this._id}}" class="btn btn-color">Edit</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+</section>
+
+
+
+
+{{#if updatesuccess}}
+<div class="toast" role="alert" aria-live="assertive" id="toast" aria-atomic="true" style="visibility: hidden;">
+  <div class="toast-header">
+    <img src="/images/omm.png" class="img-fluid rounded mr-2" style="height: 20px;">
+    <strong class="mr-auto">From Rss Tvndr</strong>
+  </div>
+  <div class="toast-body text-center">
+   <img src="/images/success.gif" class="img-fluid rounded mr-2" style="height: 60px;">
+   <p>SuccessFull</p>
+  </div>
+</div>
+{{/if}}

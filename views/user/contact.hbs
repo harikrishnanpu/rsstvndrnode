@@ -1,0 +1,45 @@
+<section style="background-color: #474e5d;color: white;" class="container pb-3 text-center">
+  <h4 style="color: white;" class="text-center mb-3 mt-2">Contact <span style="color: orange;">Us </span></h4>
+  <h5 style="color: white;" class="text-center">Rashtriya <span style="color: orange;"> Swayam </span> Seva <span style="color: orange;"> Sangh </span> Thiruvanvadoor</h6>
+  <h6 style="color: white;" class="text-left" id="date"></h6>
+  <div class="container">
+      <form class="text-center mt-5 container" method="POST" action="/contact">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Your Name" required>
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Phone Number</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Your Phone Number" required>
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Place</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="place" placeholder="Place" required>
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">About</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="about" placeholder="Short Description" required>
+  </div>
+  <div class="form-group">
+      <label for="exampleFormControlInput1">Message</label>
+      <textarea name="text"  style="width: 100%;height: 100px;"  class="form-control" id="exampleFormControlInput1" placeholder="Type Your Message Here..." required></textarea>
+  </div>
+  <input type="text" style="display: none;"  name="date1" id="date">
+  <input type="text" name="time" id="time" style="display: none;">
+  <div class="form-group">
+      <input type="submit"  id="submit" class="form-control btn btn-color" id="exampleFormControlInput1">
+  </div>
+</form>
+  </div>
+</section>
+
+<script>
+  var tdate = new Date().getDate();
+  var tmonth = new Date().getMonth();
+  var tyear = new Date().getFullYear();
+  var hour = new Date().getHours();
+  var minute = new Date().getMinutes();
+  var second = new Date().getSeconds();
+  document.getElementById('date1').value =  tdate  + "/" + tmonth + "/" + tyear;
+  document.getElementById('time').value =  hour  + ":" + minute + ":" + second;
+</script>

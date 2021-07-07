@@ -1,0 +1,24 @@
+{
+    "name": "Rss Tvndr App",
+    "short_name": "Rss Tvndr App",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#ff6f00",
+    "orientation": "portrait",
+    "icons": [
+      {
+        "src": "/images/omm.png",
+        "type": "image/png", "sizes": "178x178"
+      }
+    ],
+    "description": "Rss Thiruvanvadoor Shaka All Details Are Available Here..",
+    "screenshots": [
+      {
+        "src": "/images/screen540x720.jpg",
+        "type": "image/jpg",
+        "sizes": "540x720"
+
+      }
+    ]
+  }

@@ -1,0 +1,29 @@
+<section style="background-color: #474e5d; color: white;">
+    <hr style="background-color: orange;margin-top: 0;margin-bottom: 0;height: 5px;">
+    <h5 class="text-center mt-5">Edit-Details</h5>
+<form class="text-center mt-5 container" method="POST" action="/admin/edit-content/{{contentDetails._id}}">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="title" value="{{contentDetails.title}}">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Description</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="description" placeholder="description" value="{{contentDetails.description}}">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Marquee</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="marquee" placeholder="moving text" value="{{contentDetails.marquee}}">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Buttton Text</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="btntext" placeholder="click me" value="{{contentDetails.btntext}}">
+  </div>
+      <div class="form-group">
+    <label for="exampleFormControlInput1">Content</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="content" placeholder="content" value="{{contentDetails.content}}">
+  </div>
+  <div class="form-group">
+      <input type="submit" class="form-control btn btn-color" id="exampleFormControlInput1">
+  </div>
+</form>
+</section>

@@ -1,0 +1,440 @@
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@700&display=swap');
+</style>
+<style>
+  .bnav1 {
+    top: 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 100%;
+    height: 90px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+  }
+
+  .bnav1::-webkit-scrollbar{
+    display: none;
+  }
+
+
+
+  @media screen and (max-width:700px) {
+    .bnav1 {
+      overflow-x: auto;
+      height: 70px;
+      padding-left: 5px;
+      padding-right: 5px;
+      overflow-y: hidden;
+    }
+
+  ::-webkit-scrollbar{
+    display: none;
+  }
+
+  }
+
+  .nav__link {
+    width: 14%;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: black;
+    font-size: large;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: .8rem;
+    background-color: rgba(255, 255, 255, 0.452);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+
+  @media screen and (max-width:700px) {
+    .nav__link {
+      width: 17%;
+      text-align: center;
+      transition: all 0.3s ease;
+      color: black;
+      font-size: large;
+      display: inline-block;
+      text-align: center;
+      padding: .3rem;
+      text-decoration: none;
+      font-size: .8rem;
+      background-color: rgba(255, 255, 255, 0.452);
+      border-radius: 70%;
+    }
+  }
+
+  .nav__text {
+    font-size: 10px;
+  }
+
+  .nav__link:hover {
+    background-color: #eeeeee;
+    text-decoration: none;
+    color: orange;
+  }
+
+  .nav__link--active {
+    color: #ff5e00;
+  }
+
+  .nav__icon {
+    font-size: 1rem;
+  }
+
+  .homesection{
+    font-size: medium;
+  }
+
+  @media screen and (max-width:700px) {
+    .homesection{
+      font-size: xx-small;
+    }.card-subtitle{
+  font-size: small;
+    }
+  }
+
+@media screen and (min-width:700px){ 
+.card-text{
+  font-family:'Manjari', sans-serif;
+}.card-title{
+  font-size: 1.5rem !important;
+}
+}
+
+.nav__link {
+  transition: transform 0.2s;
+}
+
+.bnav1:hover .nav__link {
+  transform: translateX(-25%);
+}
+.bnav1:hover .nav__link:hover {
+  transform: scale(1.3);
+  transition-duration: 0.1818181818s;
+}
+.bnav1:hover .nav__link:hover ~ .nav__link {
+  transform: translateX(25%);
+}
+  
+</style>
+
+<div class="container">
+<nav class="bnav1" id="bnav">
+  <a href="/" class="nav__link {{#if home}} nav__link--active {{/if}}">
+    <i class="fas fa-home nav__icon"></i><br>
+    <span class="nav__text">Home</span>
+  </a>
+  <a href="/blood-donation" class="nav__link">
+    <i class="fas fa-heartbeat nav__icon"></i><br>
+    <span class="nav__text">Blood</span>
+  </a>
+  <a href="/latest-updates" class="nav__link">
+    <i class="fas fa-newspaper nav__icon"></i><br>
+    <span class="nav__text">latest</span>
+  </a>
+  <a href="/rss-ghosh" class="nav__link ">
+    <i class="fas fa-drum nav__icon"></i><br>
+    <span class="nav__text">Ghosh</span>
+  </a>
+
+    <a href="/karyakarthakal" class="nav__link">
+    <i class="fas fa-users nav__icon"></i><br>
+    <span class="nav__text">Members</span>
+  </a>
+  <a href="/notes" class="nav__link">
+    <i class="fas fa-scroll nav__icon"></i><br>
+    <span class="nav__text">Notes</span>
+  </a>
+  <a href="/my-account" class="nav__link">
+    <i class="fas fa-cog nav__icon"></i><br>
+    <span class="nav__text">Setting</span>
+  </a>
+  <a href="/gallery" class="nav__link">
+    <i class="fas fa-images nav__icon"></i><br>
+    <span class="nav__text">Gallery</span>
+  </a>
+</nav>
+</div>
+{{!-- <hr class="" style="margin: 0 0;height: 2px;background-color: orange;"> --}}
+                <section class="container">
+            <div id="carouselExampleIndicators"  class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators" style="cursor: pointer;">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+
+              </ol>
+              <div class="carousel-inner" style="height: 150px;width: 100% !important;border-radius:5px ; border: 4px solid orange;">
+                <div class="carousel-item active">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/rss2.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/gosh.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/rss3.png" alt="Third slide">
+                </div>
+                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/rss12.jpg" alt="fourth slide">
+                </div>
+                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/rss4.jpg" alt="fourth slide">
+                </div>
+                                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/dr.ji.jpg" alt="fourth slide">
+                </div>
+                                                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/guruji.jpg" alt="fourth slide">
+                </div>
+                                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/Madhukar Dattatraya Deoras 3rd.jpg" alt="fourth slide">
+                </div>
+                                                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/Rajendra Singh.jpg" alt="fourth slide">
+                </div>
+                                                                        <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/K S Sundareshan 5th.jpg" alt="fourth slide">
+                
+                </div>
+                                                                                        <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/Mohan Bhagawat.jpg" alt="fourth slide">
+                
+                </div>
+
+              </div>
+            </div>
+          </section>
+<section class="container homesection" style="font-family: 'Manjari', sans-serif;">
+  <div class="container">
+    <div class="row">
+      <div class="card w-100 text-center mb-4"
+        style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/rssbg.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+        <div class="card-body container">
+          <h4 class="card-title mt-3" style="font-size: medium;">Latest <span style="color: orange;">Updates</span></h4>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          <p class="card-text">{{latestUpdatesContent.description}}</p>
+          <marquee behavior="" direction="">{{latestUpdatesContent.marquee}}</marquee>
+          <div class="text-center mb-3"><a href="/latest-updates"
+              class="btn btn-color w-50">{{latestUpdatesContent.btntext}}</a></div>
+        </div>
+      </div>
+
+            <div class="card w-100 text-center mb-4 ghoshsec"
+        style="background-color:rgba(255, 255, 255, 0.411);">
+        <div class="card-body container">
+          <h4 class="card-title mt-3" style="font-size: medium;"> Online <span style="color: #ec650b;">Ghosh</span>Class</h4>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          <p class="card-text">{{rssGhoshContent.description}}</p>
+          <marquee behavior="" direction="">{{rssGhoshContent.marquee}}</marquee>
+          <div class="text-center mb-3"><a href="/rss-ghosh" class="btn btn-color w-50">Rss Ghosh</a></div>
+        </div>
+      </div>
+
+      <div class="card w-100 text-center mb-4"
+        style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/blood.png.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+        <div class="card-body container">
+          <h4 class="card-title mt-3" style="font-size: medium;">Blood <span style="color: #ff0000;">Donation</span></h4>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          <h6 class="card-text" style="font-size: small;">New Donour: {{lastUser.name}}</h6>
+          <p class="card-text">{{bloodDonationContent.description}}</p>
+          <marquee behavior="" direction="">{{bloodDonationContent.marquee}}</marquee>
+          <div class="text-center mb-3"><a href="/need-blood" class="btn btn-danger w-50">Need Blood</a></div>
+          <div class="text-center mb-3"><a href="/blood-donation"
+              class="btn btn-danger w-50">{{bloodDonationContent.btntext}}</a></div>
+        </div>
+      </div>
+
+      <div class="card w-100 text-center mb-4"
+        style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/omm.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+        <div class="card-body container">
+          <h4 class="card-title mt-3" style="font-size: medium;"> Rss Shaka <br> <span style="color: #ec650b;">Subhashitham , Amrithavachanam</span></h4>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          <p class="card-text">നമസ്‌തെ, Rss Shaka അതാതു മാസത്തെ ഗണഗീത്തം സുഭാഷിതം കാണുവാനായി താഴെ കാണുന്ന ബട്ടൺ ക്ലിക്ക്
+            ചെയ്യുക.</p>
+          <div class="text-center mb-2"><a href="/ganageetham" class="btn btn-color w-50">Ganageetham</a></div>
+          <div class="text-center mb-3"><a href="/subhashitham" class="btn btn-color w-50">Subhashitham</a></div>
+          <div class="text-center mb-3"><a href="/amrithavachanam" class="btn btn-color w-50">Amrithavachanam</a></div>
+        </div>
+      </div>
+
+                  <div class="card w-100 text-center mb-4"
+        style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/omm.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+        <div class="card-body container">
+          <h4 class="card-title mt-3" style="font-size: medium;">Online <span style="color: #ec650b;">Shaka</span></h4>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          <p class="card-text">നമസ്‌തെ, Rss Tvndr അവതരിപ്പിക്കുന്ന Online ശാഖാ ഇന്നു മുതൽ ആരംഭിക്കുന്നു </p>
+          <marquee behavior="" direction="">{{latestUpdatesContent.marquee}}</marquee>
+          <div class="text-center mb-3"><a href="/e-shaka" 
+              class="btn btn-color w-50">Join Now</a></div>
+        </div>
+      </div>
+
+            <div class="card w-100 text-center mb-4"
+        style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/flag-unscreen.gif');background-repeat: no-repeat;background-size: contain;background-position: center;">
+        <div class="card-body container">
+          <h4 class="card-title mt-3" style="font-size: medium;"> Rss Shaka <span style="color:#ec650b;">Karyakari</span></h4>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          {{!-- <h6 class="card-text">Next Karyakari Details</h6> --}}
+          <p class="card-text">Next Karyakari: {{#if KaryakariDetails}} {{KaryakariDetails.kdate}} {{else}}Not Fixed {{/if}}</p>
+        {{!-- <p class="card-text">Date: {{#if KaryakariDetails}} {{KaryakariDetails.kdate}} {{else}} Not Fixed {{/if}}</p>
+          <p class="card-text">Time: {{#if KaryakariDetails}} {{KaryakariDetails.ktime}} {{else}} Not Fixed {{/if}}</p> --}}
+          <p class="card-text">നമസ്‌തെ, Rss Tvndr ശാഖയുടെ ശാഖാ കാര്യകാരിയുടെ വിവരങ്ങൾ ഈ ആപ്പിൽ ലഭ്യമാണ്.</p>
+          <marquee behavior="" direction="">കൂടുതൽ വിവരങ്ങൾ അറിയാൻ താഴെ കാണുന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്യുക.</marquee>
+          <div class="text-center mb-3"><a href="/karyakari" class="btn btn-color w-50">See More</a></div>
+        </div>
+      </div>
+
+              <div class="card w-100 text-center mb-4"
+        style="background: rgba(255, 255, 255, 0.411)  url('/images/sangh.png') no-repeat center;background-size:contain;">
+        <div class="card-body container">
+          <h4 class="card-title mt-3" style="font-size: medium;"> Shakha <span style="color: #ec650b;">Karyakarthakkal</span></h4>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          <p class="card-text">Thiruvanvadoor ശാഖയുടെ എല്ലാ ശാഖാ കാര്യകര്താക്കളെയും കാണുവാൻ താഴെ കാണുന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്യുക</p>
+          <marquee behavior="" direction="">Rss Tvndr ശാഖയുടെ എല്ലാ Updatsukalum ഈ ആപ്പിൾ ലഭ്യമാണ് </marquee>
+          <div class="text-center mb-3"><a href="/karyakarthakal" class="btn btn-color w-50">See More</a></div>
+        </div>
+      </div>
+
+
+
+      <div class="card w-100 text-center mb-4" style="background-color:rgba(255, 255, 255, 0.411);">
+        <div class="card-body container">
+          <h4 class="card-title mt-3" style="font-size: medium;"> Rss <span style="color: #ec650b;">Gallery</span></h4>
+          <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+          <p class="card-text">{{galleryContent.description}}</p>
+          <div class="text-center mb-3"><a class="btn btn-color w-50" href="/gallery">{{galleryContent.btntext}}</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+{{!-- Other Elements In This Site --}}
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: black;" id="exampleModalLongTitle">Rss <span style="color: orange;">Tvndr</span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center" style="color: black;">
+      <h6>നമസ്‌തെ, താഴെ കാണുന്ന Install Button ക്ലിക്ക് ചെയ്തു Rss Tvndr App Install ചെയുക.</h6>
+       <button id="butInstall" type="button" class="btn btn-color">Install</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: black;" id="exampleModalLongTitle">Rss <span style="color: orange;">Tvndr</span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center" style="color: black;">
+      <h6>താങ്കൾ Rss Tvndr App വിജയകരമായി Install ചെയ്തിരിക്കുന്നു.താങ്കളുടെ Phoninte Home Pagill ചെന്ന് Rss Tvndr App Open ചെയുക.</h6>
+      <a href="tel:7306899364" class="btn btn-color">Want Help</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+    </div>
+  </div>
+</div>
+
+{{#if success}}
+<div class="message" id="alert" >
+  <span class="messageclosebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Success </strong>Successfully Submitted
+</div>
+{{/if}}
+
+{{#if welmsg}}
+<div class="message" id="alert" >
+  <span class="messageclosebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Rss Tvndr</strong> Hi, {{user.name}} Welcome To Rss Tvndr App</div>
+{{/if}}
+
+<p id="userName" style="display: none;">{{user.name}}</p>
+<p id="userPhone" style="display: none;">{{user.phone}}</p>
+
+<script>
+  window.addEventListener('load',()=>{
+    setTimeout(()=>{
+    document.getElementById("alert").classList.add("show1")
+    },1000);
+    setTimeout(()=>{
+      document.getElementById("alert").classList.remove("show1");
+      document.getElementById("alert").classList.add("hide1");
+    },6000)
+    setTimeout(()=>{
+      document.getElementById("alert").style.display = "none";
+    },8000)
+  })
+</script>
+
+
+<script>
+  let uname = document.getElementById('userName').innerText;
+  let uphone = document.getElementById('userPhone').innerText;
+  localStorage.setItem("logged", "true")
+  localStorage.setItem("userName", uname);
+  localStorage.setItem("userPhone", uphone);
+</script>
+
+{{!-- <script>
+   // var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?89338';
+    //var s = document.createElement('script');
+   // s.type = 'text/javascript';
+   // s.async = true;
+    //s.src = url;
+    //var options = {
+  "enabled":true,
+  "chatButtonSetting":{
+      "backgroundColor":"#4dc247",
+      "ctaText":"Chat",
+      "borderRadius":"25",
+      "marginRight":"10",
+      "marginLeft":"10",
+      "marginBottom":"25",
+      "position":"left"
+  },
+  "brandSetting":{
+      "brandName":"Rss Tvndr Help",
+      "brandSubTitle":"Replies as Faster as possible",
+      "brandImg":"https://rsstvndrapp.herokuapp.com/images/omm.png",
+      "welcomeText":"Hi there!\nHow can I help you?",
+      "messageText":"Hello, I have a question about {{page_link}}",
+      "backgroundColor":"#0a5f54",
+      "ctaText":"Start Chat",
+      "borderRadius":"25",
+      "autoShow":false,
+      "phoneNumber":"919567012837"
+  }
+};
+    s.onload = function() {
+        CreateWhatsappChatWidget(options);
+    };
+   // var x = document.getElementsByTagName('script')[0];
+    //x.parentNode.insertBefore(s, x);
+</script> --}}
+
+

@@ -1,0 +1,35 @@
+<section class="container"  style="width: 100%;">
+    <h5 class="text-center mt-3">All Ghosh Classes</h5>
+      <div class="table-responsive">
+                 {{#if classes}}
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Class Time</th>
+      <th scope="col">Ghosh</th>
+      <th>Date</th>
+      <th>Join</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each classes}}
+    <tr>
+      <td>{{this.tutor}}</td>
+      <td>{{this.classtime}}</td>
+      <td>{{this.ghosh}}</td>
+      <td>{{this.classdate}}</td>
+      <td><a href="{{this.link}}" class="btn btn-color">Join Now</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+     {{else}}
+    <br><br><br> 
+    <h3 class="text-center">!</h3>          
+    <h6 class="text-center">No Classess Found</h6>
+    <p class="text-center">Add A New Class By Click The Below Button</p>
+    <div class="text-center"><a href="/admin/addghoshclass" class="btn btn-color">Add New Class</a></div>
+      {{/if}}
+</table>
+</div>
+</section>

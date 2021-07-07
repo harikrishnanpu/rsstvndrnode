@@ -1,0 +1,196 @@
+<style>
+
+  .card_section {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.card_section:first-child {
+  margin-bottom: 5px;
+}
+.card_section .card_one {
+  height: min-content;
+  background: rgba(255, 255, 255, 0.411);
+  box-shadow: 0px 13.6919px 21.6187px -10.8094px rgba(0, 48, 209, 0.153027);
+  border-radius: 10.8094px;
+  padding: 30px 35px;
+  position: relative;
+  transform: translateY(25px);
+  margin-left: auto;
+}
+.card_section .card_one:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 18px solid transparent;
+  border-bottom: 18px solid rgba(255, 255, 255, 0.411);
+  border-right: 18px solid transparent;
+  left: 34px;
+  top: -18px;
+}
+.card_section .card_one h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18.7412px;
+  line-height: 24px;
+  color: white;
+}
+.card_section .card_one .content_section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.card_section .card_one .content_section .section_left h2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13.63px;
+  line-height: 17px;
+  color: white;
+  margin-top: 21px;
+}
+.card_section .card_one .content_section .section_left p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11.9262px;
+  line-height: 15px;
+  color: white;
+  width: 220px;
+  margin-top: 4px;
+}
+.card_section .card_one .content_section .section_left p a {
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration-line: underline;
+  color: #3B40D9;
+}
+.card_section .card_one .content_section .section_right .btn {
+  width: 110px;
+  height: 38px;
+  background: orangered;
+  border-radius: 19.1672px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11.9262px;
+  line-height: 15px;
+  cursor: pointer;
+  color: #FFFFFF;
+  margin-top: 40px;
+}
+.card_section .card_one .content_section .section_right .toogle {
+  display: block;
+  width: 49px;
+  height: 30px;
+  background: #FFFFFF;
+  border: 0.851875px solid #D1DEF7;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+.card_section .card_one .content_section .section_right .toogle .box {
+  width: 19.5px;
+  height: 19.5px;
+  background: rgba(255, 166, 0, 0.582);
+  display: block;
+  border-radius: 50%;
+  transition: 0.3s all;
+  margin-left: 0;
+  background-position: left;
+}
+.card_section .card_one .content_section .section_right .toogle input {
+  position: absolute;
+  display: none;
+}
+.card_section .card_one .content_section .section_right .toogle input:checked + .box {
+  margin-left: 50%;
+  background: orangered;
+  background-position: right;
+}
+.card_section .card_one .content_section .section_right .toogle:active .box {
+  width: 24px;
+}
+.card_section .card_one hr {
+  border: none;
+  height: 1px;
+  background: #E8EEFB;
+  margin-top: 35px;
+}
+
+    h6,p{
+        font-weight: 600;
+    }
+
+    @media screen  and (max-width:700px) {
+      .card{
+        font-size: xx-small !important;
+      }
+      .card-title{
+        font-size: large;
+      }
+      .error{
+        font-size: x-small;
+      }
+    }
+</style>
+
+<section class="container">
+    <div class="container">
+      
+        <div class="card_section">
+
+  <div class="card_one">
+      <h1> Rss <span style="color: #ec650b;">Ghosh Registered</span></h1>
+
+    <div class="content_section"  style="background-image: url('/images/omm.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+     {{#if ghosh}}
+      <div class="section_left">
+              <h6 class="card-text">നമസ്‌തെ,{{user.name}}</h6>
+      {{#if noclassess}} 
+      <p class="card-text">Online {{user.ghosh.ghosh}} ക്ലാസ് തീയതി ഇതുവരെ ഉറപ്പിച്ചിട്ടില്ല.അടുത്ത ക്ലാസ് എന്നാണെന്നു വാട്സാപ്പിൽ കൂടിയോ അല്ലെങ്കിൽ ആപ്പ് Notification വഴിയോ നിങ്ങള്ക്ക് ലഭിക്കും</p>
+      <marquee style="font-size: xx-small;" behavior="" direction="">ക്ലാസിൽ Join ചെയ്യാൻ എന്തെങ്കിലും  ബുദ്ധിമുട്ടുണ്ടെങ്കിൽ അറിയിക്കുക</marquee>
+     <div><a  class="btn btn-color" >No Classes</a></div>
+     {{else}}
+           <p class="card-text">താഴെ കാണുന്ന അതാതു ക്ലാസ്സിന്റെ സമയം അനുസരിച്ചു Join Now എന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്യുക.</p>
+      <marquee style="font-size: xx-small;" behavior="" direction="">ക്ലാസിൽ Join ചെയ്യാൻ എന്തെങ്കിലും  ബുദ്ധിമുട്ടുണ്ടെങ്കിൽ അറിയിക്കുക</marquee>
+     {{/if}}
+      </div>
+      {{else}}
+            <div class="section_left">
+      <p class="card-text">നമസ്‌തെ,{{user.name}} താങ്കൾ Rss Tvndr അവതരിപ്പിക്കുന്ന  ഓൺലൈൻ ഘോഷ് Clasill Register ചെയ്തിട്ടില്ല.</p>
+      <marquee style="font-size: xx-small;" behavior="" direction="">താഴെ കാണുന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്തു രജിസ്റ്റർ ചെയ്തതിനു ശേഷം ക്ലാസ്സിൽ Join ചെയ്യുക.</marquee>
+      <a href="/rss-ghosh/register" class="btn btn-color" >Register Now</a>
+      </div>
+
+      {{/if}}
+      <div class="section_right">
+
+        <label class="toogle"><input type="checkbox" /><span class="box"></span></label>
+      </div>
+    </div><br>
+    {{#if noclassess}}<h5 class="text-fluid text-center">No {{ghosh.ghosh}} Classes Found</h5> <div class="text-center"><a href="tel:7306899364" class='btn btn-color text-center'>Contact</a></div>  {{else}}<h5 class="text-fluid text-center">All {{ghosh.ghosh}} Classes</h5>     <hr style="margin-top: 2px;">{{/if}}
+      {{#if classes}}
+      {{#each classes}}
+    <div class="content_section">
+      <div class="section_left">
+        <h2 style="margin-top:34px;">{{this.ghosh}} Class</h2>
+        <p>Date: {{this.classdate}}</p>
+        <p>Time: {{this.classtime}}</p>
+        <p>Tutor: {{this.tutor}}</p>
+      </div>
+      <div class="section_right"><br>
+
+       <a href="{{this.link}}"><div class="btn">Join Now</div></a>
+      </div>
+    </div>
+    {{/each}}
+      {{/if}}
+
+  </div>
+    </div><br><br>
+</section>
