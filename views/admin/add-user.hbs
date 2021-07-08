@@ -1,0 +1,38 @@
+<section style="background-color: #474e5d; color: white;">
+      <h5 class="text-center mt-5">Add Users</h5>
+<form class="text-center mt-5 container" method="POST" action="/admin/add-user">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="name">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Phone</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Phone">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Age</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="age" placeholder="Age">
+  </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Blood</label>
+    <select name="blood" class="form-control" required>
+        <option value="" disabled selected>Choose Your Blood Group...</option>
+        <option>A+ve</option>
+        <option>A-ve</option>
+        <option>B+ve</option>
+        <option>B-ve</option>
+        <option>AB+ve</option>
+        <option>AB-ve</option>
+        <option>O+ve</option>
+        <option>O-ve</option>
+    </select>
+  </div>
+      <div class="form-group">
+    <label for="exampleFormControlInput1">Added By:</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="by" value="{{Admin.name}}" readonly>
+  </div>
+  <div class="form-group">
+      <input type="submit" class="form-control" id="exampleFormControlInput1">
+  </div>
+</form>
+</section>

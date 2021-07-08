@@ -41,6 +41,10 @@ router.get('/login',(req,res)=>{
   req.session.adminLogginErr = false; 
 });
 
+router.get("/add-user",(req,res)=>{
+  res.render("admin/add-user",{admin:true,Admin:req.session.admin})
+})
+
 router.get("/blood-donators",(req,res)=>{
   adminHelper.getBloodDonators().then((donators)=>{
   res.render("admin/blood-donators",{donators:donators,admin:true,Admin:req.session.admin})
@@ -49,6 +53,13 @@ router.get("/blood-donators",(req,res)=>{
 
 router.get("/ghoshclass",verifyLogin,(req,res)=>{
   res.render("admin/ghosh",{Admin:req.session.admin,admin:true})
+})
+
+router.post("/add-user",verifyLogin,(req,res)=>{
+  contentHelper.addBloodDonators(req.body).then(()=>{
+    req.session.updatedsuccess = true;
+    res.redirect("/admin")
+  })
 })
 
 router.get("/addghoshclass",(req,res)=>{
