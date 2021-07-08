@@ -22,9 +22,15 @@ router.get('/add-details', (req,res)=>{
 
 router.post('/add-content', (req,res)=>{
   contentHelper.addDetails(req.body, (id)=>{
-    res.redirect('/add-content')
+    res.redirect('/add-content',{Admin:req.session.admin})
   })
 });
+
+router.get("/gurudakshina",(req,res)=>{
+  adminHelper.getAllGurudakshina().then((response)=>{
+    res.render("admin/gurudakshina",{payments:response,Admin:req.session.admin,admin:true})
+  })
+})
 
 router.get('/signup',verifyLogin,(req,res)=>{
   res.render('admin/signup',{admin:true} )
@@ -37,7 +43,7 @@ router.get('/login',(req,res)=>{
 
 router.get("/blood-donators",(req,res)=>{
   adminHelper.getBloodDonators().then((donators)=>{
-  res.render("admin/blood-donators",{donators:donators})
+  res.render("admin/blood-donators",{donators:donators,admin:true,Admin:req.session.admin})
   })
 })
 

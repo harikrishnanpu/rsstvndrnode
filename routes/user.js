@@ -13,6 +13,7 @@ const verifyLogin = (req, res, next) => {
   }
 }
 
+
 /* GET home page. */
 router.get('/',  verifyLogin, function (req, res, next) {
   let user = req.session.user;
@@ -123,11 +124,11 @@ router.post('/signup', (req, res) => {
     if (response.status) {
       contentHelper.addBloodDonators(req.body).then((bloodData)=>{
       if (bloodData.status) {
-      req.session.lastuser = bloodData.lastuser
-      req.session.loggedIn = true;
-      req.session.welcomemsg = true;
-      req.session.user = response.user
-      res.redirect('/');
+          req.session.lastuser = bloodData.lastuser
+          req.session.loggedIn = true;
+          req.session.welcomemsg = true;
+          req.session.user = response.user
+          res.redirect('/');
     } });
     } else {
       req.session.lastuser = "No Data";
@@ -433,8 +434,12 @@ router.get("/videomeet",(req,res)=>{
   res.render("user/meet/videomeet")
 });
 
-router.get("/gurudhakshina",verifyLogin,(req,res)=>{
+router.get("/gurudhakshina",(req,res)=>{
+  if(req.session.user){
   res.render("user/gurudhakshina",{user:req.session.user})
+  }else{
+    res.render("user/gurudhakshina")
+  }
 });
 
 router.post("/add-gurudhakshina",(req,res)=>{
@@ -463,7 +468,7 @@ router.get("/payment-success",(req,res)=>{
 });
 
 router.get("/payment-status",(req,res)=>{
-  userHelpers.getAllPaymentStatus(req.session.user._id).then((response)=>{
+  userHelpers.getAllPaymentStatus(req.session.user.phone).then((response)=>{
     res.render("user/payment-status",{payments:response,user:req.session.user})
   })
 })

@@ -1,0 +1,30 @@
+<style>
+    body{
+        font-size: x-small;
+    }
+</style>
+<section class="container" >
+    <h5 class="text-center mt-3">All Gurudhakshina</h5>
+      <div class="table-responsive">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each payments}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{this.phone}}</td>
+      <td>₹ {{this.amount}}</td>
+      <td>{{this.status}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+</section>

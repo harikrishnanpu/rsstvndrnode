@@ -129,5 +129,12 @@ module.exports={
             let donators = await db.get().collection(collections.BLOOD_DONATORS_COLLECTION).find().toArray()
             resolve(donators.reverse())
         })
+    },
+
+    getAllGurudakshina:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let data = await db.get().collection(collections.GURUDHAKSHINA_COLLECTIONS).find().toArray()
+            resolve(data.reverse())
+        })
     }
 }

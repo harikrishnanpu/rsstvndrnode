@@ -43,7 +43,6 @@
     <label for="exampleFormControlInput1">Your Gurudhakshina</label>
     <input type="number"  class="form-control" id="exampleFormControlInput1" name="amount" placeholder="₹ Gurudhakshina.." required>
   </div>
-  <input type="hidden" name="paymentId" id="paymentId" value="{{user._id}}">
   <input type="hidden" name="status" id="status" value="Pending">
   <input type="text" style="display: none;"  name="date1" id="date1">
   <input type="text" name="time" id="time" style="display: none;">
@@ -54,10 +53,29 @@
   </div>
 </section>
 {{else}}
-<h4 class="mt-4 text-center">You Are Not Logged In To This App</h4>
-<a href="/login" class="btn btn-color mb-2">Login (Alreday Have A Account In This App )</a><br>
-<a href="/signup" class="btn btn-color mt-2">SignUp (I Am Not Registered In This App )</a>
+<section class="container text-center">
+<h5>Rss <span style="color: orange;">Tvndr</span> App <span style="color: orange;">Payment</span><img src="/images/tick1.jpg" class="img-fluid" width="50px" height="50px" alt="tick"></h5>
+<small>Safe & Secure Payment</small>
+<p class="mt-4 text-center">നമസ്തെ, താങ്കൾ ഈ Appill login ചെയ്തിട്ടില്ല ,Rss Tvndr AppiII login ചെയ്യാതെ താങ്കൾക്ക്  Online Security Reason കാരണം  Online Payment നടത്തുവാൻ സാധിക്കില്ല, താങ്കൾക്ക് ഈ Appill മുമ്പ് ഒരു Account ഉണ്ടെങ്കിൽ Login ബട്ടൺ Click ചെയ്യുക, ഇല്ലെങ്കിൽ Signup ബട്ടൻ Click ചെയ്യുക.</p>
+<div class="text-center">
+<a href="/login" class="btn btn-color mb-2">Login Alreday Have A Account</a><br>
+<a href="/signup" class="btn btn-color mt-2">Sign Up I Am Not Registered</a>
+  </div>
+</section>
+
+<script>
+  let logged = localStorage.getItem("logged");
+  setTimeout(()=>{
+  if(logged === "true"){
+  window.location.href = "http://localhost:3000/login";  
+  }else{
+      window.location.href = "http://localhost:3000/signup";  
+  }
+  },8000)
+</script>
+
 {{/if}}
+
 
 <script>
   var date = new Date();
