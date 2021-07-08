@@ -431,7 +431,7 @@ router.get("/amrithavachanam_vivekanandhan",(req,res)=>{
 });
 
 router.get("/videomeet",(req,res)=>{
-  res.render("user/meet/videomeet")
+  res.render("user/meet/videomeet",{videomeet:true})
 });
 
 router.get("/gurudhakshina",(req,res)=>{
