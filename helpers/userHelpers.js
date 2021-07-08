@@ -161,9 +161,9 @@ module.exports={
         })
     },
 
-    getAllPaymentStatus:(userphone)=>{
+    getAllPaymentStatus:(userId)=>{
         return new Promise(async(resolve,reject)=>{
-            let data = await db.get().collection(collections.GURUDHAKSHINA_COLLECTIONS).find({phone:userphone}).toArray()
+            let data = await db.get().collection(collections.GURUDHAKSHINA_COLLECTIONS).find({paymentId:userId}).toArray()
             resolve(data.reverse())
         })
     }

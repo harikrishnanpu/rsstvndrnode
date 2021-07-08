@@ -468,7 +468,7 @@ router.get("/payment-success",(req,res)=>{
 });
 
 router.get("/payment-status",(req,res)=>{
-  userHelpers.getAllPaymentStatus(req.session.user.phone).then((response)=>{
+  userHelpers.getAllPaymentStatus(req.session.user._id).then((response)=>{
     res.render("user/payment-status",{payments:response,user:req.session.user})
   })
 })

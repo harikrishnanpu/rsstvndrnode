@@ -43,6 +43,7 @@
     <label for="exampleFormControlInput1">Your Gurudhakshina</label>
     <input type="number"  class="form-control" id="exampleFormControlInput1" name="amount" placeholder="₹ Gurudhakshina.." required>
   </div>
+  <input type="hidden" name="paymentId" id="paymentId" value="{{user._id}}">
   <input type="hidden" name="status" id="status" value="Pending">
   <input type="text" style="display: none;"  name="date1" id="date1">
   <input type="text" name="time" id="time" style="display: none;">
