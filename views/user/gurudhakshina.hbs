@@ -4,7 +4,7 @@
   <p style="color: white;" class="text-center">Rashtriya <span style="color: orange;"> Swayam </span> Seva <span style="color: orange;"> Sangh </span> Thiruvanvadoor</p>
   <h6 style="color: white;" class="text-left" id="date"></h6>
   <div class="container">
-      <form class="mt-5 container" id="gurudhakshinaForm">
+      <form class="mt-5 container" id="gurudhakshinaForm" method="POST" action="/add-gurudhakshina">
   <div class="form-group">
     <label for="exampleFormControlInput1">Name</label>
     <input type="text" value="{{#if user}}{{user.name}}{{/if}}" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Your Name" required>
@@ -49,8 +49,6 @@
   <input type="text" name="time" id="time" style="display: none;">
   <div class="form-group">
   <input type="submit" onclick="change_Text_Sub()" value="Submit"  id="submitbtn" class="form-control btn btn-color" id="exampleFormControlInput1">
-  <h4 class="text-center">Or</h4>
-  <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HWuX2UCqcWhWIZ" async> </script> </form>
   </div>
 </form>
   </div>
@@ -74,7 +72,7 @@
   }else{
       window.location.href = "https://rsstvndrapp.herokuapp.com/signup";  
   }
-  },8000)
+  },9000)
 </script>
 
 {{/if}}

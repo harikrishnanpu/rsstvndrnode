@@ -444,10 +444,13 @@ router.get("/gurudhakshina",(req,res)=>{
 
 router.post("/add-gurudhakshina",(req,res)=>{
   userHelpers.addGuruDhakshina(req.body).then((response)=>{
-    userHelpers.generateRazorPay(response._id , response.amount).then((result)=>{
-      res.json(result)
+    // userHelpers.generateRazorPay(response._id , response.amount).then((result)=>{
+    //   res.json(result)
+    console.log("hbdekdw",response);
+    req.session.paymentDetails = response;
+    res.redirect("/gurudhakshina1")
     })
-  })
+  // })
 });
 
 router.post("/verify-payment",(req,res)=>{
@@ -480,6 +483,12 @@ router.get("/ended",(req,res)=>{
 
 router.get("/july",(req,res)=>{
   res.render("user/july")
+});
+
+
+router.get("/gurudhakshina1",(req,res)=>{
+
+  res.render("user/gurudhakshina1",{"payment":req.session.paymentDetails})
 })
 
 module.exports = router;

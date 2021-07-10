@@ -6,7 +6,7 @@ $('.carousel').carousel({
     var loaderText = document.getElementById("loading-msg");
     setInterval(function() {
       loaderText.innerHTML = getLoadingText();
-    }, 1500);
+    }, 2500);
 
     function getLoadingText() {
       var strLoadingText;
