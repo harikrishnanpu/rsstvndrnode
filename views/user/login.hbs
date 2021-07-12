@@ -1,85 +1,71 @@
 <style>
-  .error{
-    background-color: #dc3545;
-    color: white;
-  }
+  .toggle-password {
+    float: right;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: -25px;
+    color: black;
+}
 </style>
+
 <section class="container">
     <h3 class="text-center mt-5">Rss Tvndr Login Form</h3>
-    {{!-- <p class="text-center mt-2">You Are  Not Logged In Fill The Below Form And Click The Submit Button If You Have An Account In Our Website or Else Click The "I Want To Create An Account" Button To Create A Account</p> --}}
     <p class="text-center">Powered By Rss Tvndr</p>
     <div class="text-center">
     <a href="/signup" class="btn btn-color mb-3">I Want To Create A Account</a><br>
     </div>
     {{#if loginErr}}
-    <p class="btn btn-danger form-control">Check Your Phone Number</p>
+    <div class="text-center">
+    <div class="btn btn-danger">
+    <i class="fas fa-exclamation-circle mt-2"></i>
+    <label for="lphone">Check Your Phone Number</label></div> <hr>
+    </div>
     {{/if}}
-        {{#if ploginErr}}
-    <p class="btn btn-danger form-control">Check Your Password</p>
+    {{#if ploginErr}}
+        <div class="text-center">
+    <div class="btn btn-danger">
+    <i class="fas fa-exclamation-circle mt-2"></i>
+    <label for="lpassword">Check Your Password</label></div> <hr>
+    </div>
     {{/if}}
     {{#if loginErr1}}
-    <div class="container text-center" style="width: 90%;">
-      <p style="background-color: #dc3545;border-radius: 5px;height: fit-content;">താങ്കൾ ഈ Appill ഒരു Account Create ചെയ്തിടുണ്ട്.താഴെ കാണുന്ന Login Formill, Account Create ചെയ്യാൻ ഉപയോഗിച്ച Phone നമ്പറും,Passwordum വച്ച് Login ചെയുക. </p>
-    </div>
+    <div class="container text-center" style="width: 90%;background-color: #dc3545;border-radius: 5px;height: fit-content;">
+    <i class="fas fa-exclamation-circle mt-4"></i>
+      <p class="mb-4" style="  font-family:'Manjari', sans-serif;">താങ്കൾ ഈ Appill ഒരു Account Create ചെയ്തിടുണ്ട്.താഴെ കാണുന്ന Login Formill, Account Create ചെയ്യാൻ ഉപയോഗിച്ച Phone നമ്പറും,Passwordum വച്ച് Login ചെയുക. </p>
+    </div> <hr>
     {{/if}}
     <form action="/login" method="POST">
     <div class="form-group">
-    <label for="exampleInputEmail1">Name</label>
+     <i class="fas fa-user-alt" style="left: 0;padding-right: 3px;"></i>
+    <label for="lname">Name</label>
     <input type="text" class="form-control" name="name" id="lname" placeholder="Enter Your Name" required>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Phone</label>
-    <input type="text" name="phone" class="form-control {{#if loginErr}}error{{/if}}{{#if loginErr1}}error{{/if}}" id="lphone" {{#if loginErr}}placeholder="Check Your Phone Number" style="border: 4px solid #dc3545;" {{/if}}   {{#if loginErr1}} style="border: 4px solid #dc3545;" placeholder="Enter Your Registered Number"{{/if}} placeholder="Enter Your Phone Number" required>
+     <i class="fas fa-phone" style="left: 0;padding-right: 3px;"></i>
+    <label for="lphone">Phone</label>
+    <input type="tel" min="10" max="10" name="phone" class="form-control {{#if loginErr}}error{{/if}}{{#if loginErr1}}error{{/if}}" id="lphone" {{#if loginErr}}placeholder="Check Your Phone Number" style="border: 4px solid #dc3545;" {{/if}}   {{#if loginErr1}} style="border: 4px solid #dc3545;" placeholder="Enter Your Registered Number"{{/if}} placeholder="Enter Your Phone Number" required>
     <small id="emailHelp" class="form-text text-muted">Enter Your Registered Phone Number</small>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="text" name="password" {{#if loginErr}} style="border: 2px solid #dc3545;" {{/if}} {{#if loginErr1}} style="border: 4px solid #dc3545;" {{/if}} {{#if ploginErr}} style="border: 4px solid #dc3545;" {{/if}} class="form-control {{#if loginErr}}error{{/if}}{{#if ploginErr}}error{{/if}}" id="exampleInputPassword1" {{#if ploginErr}} placeholder="Check Your Password" {{/if}} placeholder="Password" required>
+     <i class="fas fa-lock" style="left: 0;padding-right: 3px;"></i>
+    <label for="lpassword">Password Or <a href="/user/forgotton-password">Forgotton Password</a></label>
+    <input type="password" name="password" {{#if loginErr}} style="border: 2px solid #dc3545;" {{/if}} {{#if loginErr1}} style="border: 4px solid #dc3545;" {{/if}} {{#if ploginErr}} style="border: 4px solid #dc3545;" {{/if}} class="form-control" id="lpassword" {{#if ploginErr}} placeholder="Check Your Password" {{/if}} placeholder="Password" required>
+    <i class="toggle-password fa fa-fw fa-eye-slash"></i>
     <small id="emailHelp" class="form-text text-muted" >Enter Your Registered password</small>
   </div>
   <input type="submit" value="Submit" onclick="changeText()"  id="submitbtn" class="btn btn-color w-100 mb-5">
 </form>
 </section>
-
-
-
-
-{{!-- Other Components --}}
-{{!-- {{#if ploginErr}}
-<div class="message" id="alert" style="background-color: #dc3545;border-left:15px solid #880714;" >
-  <span class="messageclosebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Error! </strong>Please Check Your Password, It's Wrong!..
-</div>
-{{/if}}
-
-{{!-- {{#if loginErr1}}
-<div class="message" id="alert" style="background-color: #dc3545;border-left:15px solid #880714;" >
-  <span class="messageclosebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Error! </strong>Account This Number Already Registered Fill This Form
-</div>
-{{/if}} 
-
-{{#if loginErr}}
-<div class="message" id="alert" style="background-color: #dc3545;border-left:15px solid #880714;" >
-  <span class="messageclosebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Error! </strong>Check Your Phone Number, It's Wrong
-</div>
-{{/if}} --}}
-{{!-- /Other Components --}}
-
 <script>
-  window.addEventListener('load',()=>{
-    setTimeout(()=>{
-    document.getElementById("alert").classList.add("show")
-    },1000);
-    setTimeout(()=>{
-      document.getElementById("alert").classList.remove("show");
-      document.getElementById("alert").classList.add("hide");
-    },6000)
-    setTimeout(()=>{
-      document.getElementById("alert").style.display = "none";
-    },8000)
-  })
+  $(".toggle-password").click(function() {
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    input = $(this).parent().find("input");
+    if (input.attr("type") == "password") {
+        input.attr("type", "text");
+    } else {
+        input.attr("type", "password");
+    }
+});
 </script>
 
 <script>

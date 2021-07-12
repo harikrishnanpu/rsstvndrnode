@@ -1,4 +1,23 @@
- <section style="background-color: #474e5d;color: white;" class="container"> 
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.toggle-password {
+    float: right;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: -25px;
+    color: black;
+}
+
+</style>
+   
+   <section style="background-color: #474e5d;color: white;" class="container"> 
     <h3 class="text-center mt-5">Create An Account</h3>
         {{!-- <p class="text-center mt-2">You Didn't Have A Account Fill The Below Form And Click The Submit Button If You Want To Create An Account In Our Website or Else Click The "I Have An Account" Button To Login If You Already Have A Account</p> --}}
     <p class="text-center">Powered By,Rss Tvndr</p>
@@ -11,24 +30,25 @@
       <p style="background-color: #dc3545;border-radius: 5px;">താങ്കൾക്ക് ഈ Appill ഒരു Account ഇല്ല . താഴെ കാണുന്ന Form Fill ചെയ്തു ഒരു Account Create ചെയുക.</p>
     </div>
     {{/if}}
-    {{!-- <div class="container text-center" style="width: 90%;" id="lcheck">
-      <p style="background-color: #dc3545;border-radius: 5px;">താങ്കൾക്ക് ഈ Appill ഒരു Account ഇല്ല . താഴെ കാണുന്ന Form Fill ചെയ്തു ഒരു Account Create ചെയുക.</p>
-    </div> --}}
 
     <div class="form-group">
-    <label for="exampleInputEmail1">Name</label>
-    <input type="text" name="name" class="form-control"  placeholder="Enter Your Name" required>
+     <i class="fas fa-user-alt" style="left: 0;padding-right: 3px;"></i>
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name" class="form-control"  placeholder="Enter Your Name" required>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Phone</label>
-    <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone Number" required>
+     <i class="fas fa-phone" style="left: 0;padding-right: 3px;"></i>
+    <label for="phone">Phone</label>
+    <input id="phone" max="10" min="10" autocomplete="mobile" type="tel" name="phone" class="form-control" placeholder="Enter Your Phone Number" required>
   </div>
     <div class="form-group">
-    <label for="exampleInputEmail1">Age</label>
-    <input type="text" name="age" class="form-control" placeholder="Enter Your Age"required >
+     <i class="fas fa-user-alt" style="left: 0;padding-right: 3px;"></i>
+    <label for="age">Age</label>
+    <input id="age" type="number" name="age" class="form-control" placeholder="Enter Your Age" required >
   </div>
     <div class="form-group">
-    <label for="exampleInputEmail1">Blood</label>
+     <i class="fas fa-heartbeat" style="left: 0;padding-right: 3px;"></i>
+    <label for="blood">Blood</label>
     <select name="blood" class="form-control" required>
         <option value="" disabled selected>Choose Your Blood Group...</option>
         <option>A+ve</option>
@@ -42,9 +62,11 @@
     </select>
   </div>
     <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Any Password,Example: 123" required>
-    <small id="emailHelp" class="form-text text-muted">Enter Any Password You Want, Example: 123</small>
+     <i class="fas fa-lock" style="left: 0;padding-right: 3px;"></i>
+    <label for="password">Choose A Password</label>
+    <input type="password" name="password" class="form-control" id="password" placeholder="Choose A Password" required>
+    <i class="toggle-password fa fa-fw fa-eye-slash"></i>
+    <small id="emailHelp" class="form-text text-muted">Choose A Password For Your Account</small>
   </div>
   <input type="submit" value="Submit" onclick="changeText()"  id="submitbtn"  class="btn btn-color w-100 mb-5">
 </form>
@@ -52,76 +74,14 @@
 </section>
 
 
-{{#if loginErr}}
-<div style="background-color: #dc3545;color: white;" class="alert alert-dismissible fade show" role="alert">
-  <strong>Login Error </strong> <br> You Entered A Invalid Password Or Phone Number
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-{{/if}}
-
-  {{!-- Modal --}}
-
-<!-- Modal -->
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" style="color: black;" id="exampleModalLongTitle">Rss <span style="color: orange;">Tvndr</span></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center" style="color: black;">
-      <h6>നമസ്‌തെ, താഴെ കാണുന്ന Install Button ക്ലിക്ക് ചെയ്തു Rss Tvndr App Install ചെയുക.</h6>
-       <button id="butInstall" type="button" class="btn btn-color">Install</button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" style="color: black;" id="exampleModalLongTitle">Rss <span style="color: orange;">Tvndr</span></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center" style="color: black;">
-      <h6>താങ്കൾ Rss Tvndr App വിജയകരമായി Install ചെയ്തിരിക്കുന്നു.താങ്കളുടെ Phoninte Home Pagill ചെന്ന് Rss Tvndr App Open ചെയുക.</h6>
-      <img src="/images/screenShot.jpg" alt="">
-      <a href="tel:7306899364" class="btn btn-color">Want Help</a>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-    </div>
-  </div>
-</div>
-
 <script>
-  let logged = localStorage.getItem("logged");
-  if(logged === "true"){
-  window.location.href = "https://rsstvndrapp.herokuapp.com/login";  
-  }else{
-  console.log("Not Registered")
-}
-
-function submit (){
-  document.getElementById("submit").value = "Loading.."
-}
-</script>
-
-
-<script>
-  function changeText(){
-    var elem = document.getElementById("submitbtn");
-    elem.value = "Loading...."
-  }
+  $(".toggle-password").click(function() {
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    input = $(this).parent().find("input");
+    if (input.attr("type") == "password") {
+        input.attr("type", "text");
+    } else {
+        input.attr("type", "password");
+    }
+});
 </script>

@@ -1,0 +1,660 @@
+
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: calibri;
+}
+/* covers page, holds everything */
+#mainBody {
+  position: relative;
+   overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+.daybackdrop { /* backdrop colour for day*/
+   animation: backdropcolour infinite linear; /* 86400 being the total seconds in a day*/
+   animation-duration: 52503s;
+   animation-delay: ;
+}
+.nightbackdrop { /* backdrop colour for night*/
+   background-color: rgba(7, 3, 14, 0.89);
+}
+/* color of backdrop across the day */
+@keyframes backdropcolour {
+   0% {background-color: rgba(7, 3, 14, 0.89);}
+   5% {background-color: rgba(254, 239, 170, 0.8);}
+   15% {background-color: rgba(69, 87, 190, 0.8);}
+   85% {background-color: rgba(69, 87, 190, 0.8);}
+   95% {background-color: rgba(254, 239, 170, 0.8);}
+   100% {background-color: rgba(7, 3, 14, 0.89);}
+}
+/* settings for all rings */
+#ringsdiv {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 20;
+  overflow: hidden;
+}
+.rings {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.ringcontainers {
+  position: relative;
+  top: 50%;
+}
+
+/* ring sizes and animations */
+#ring1 {
+  width: 15vw;
+  height: 15vw;
+  min-width: 250px;
+  min-height: 250px;
+  animation: rotaterings 60s 0.7s infinite linear;
+}
+#ring2 {
+  width: 16vw;
+  height: 16vw;
+  min-width: 310px;
+  min-height: 310px;
+  animation: rotaterings 3600s infinite linear;
+}
+#ring3 {
+  width: 23vw;
+  height: 23vw;
+  min-width: 380px;
+  min-height: 380px;
+  animation: rotaterings 43200s infinite linear;
+}
+
+/* ring colours */
+#ring1svg {
+   stroke: #14effe66;
+}
+#ring2svg {
+   stroke: #2db4c9aa;
+}
+#ring3svg {
+   stroke: #2db4c9aa;
+}
+
+
+@keyframes rotaterings {
+  0% {
+     
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* box in mddle with time */
+#totaldate {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 10vw;
+  height: 5vw;
+  min-width: 180px;
+  min-height: 90px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 2;
+  background-color: rgba(255,255,255,0.7);
+   color: rgba(0,0,0,0.7);
+  text-align: center;
+  border-radius: 15px;
+}
+#timetext {
+  font-size: 1.6rem;
+  display: inline-block;
+}
+#yeardiv, #monthdiv, #daydiv {
+   position: absolute;
+   font-size: 1.1rem;
+}
+#daydiv {
+   position: absolute;
+   top: 10%;
+}
+#yeardiv {
+   right: 30%;
+   top: 65%;
+}
+#monthdiv {
+   left: 30%;
+   top: 65%;
+}
+
+#box2 {
+   z-index: 30;
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 1.1rem;
+  left: 0;
+  right: 0;
+  top: 150px;
+  bottom: 0;
+  margin: auto;
+   background-color: rgba(255,255,255,0.7);
+   border-radius: 80px;
+   width: 70px;
+   height: 50px;
+}
+
+#box2:hover {
+   background-color: rgba(255,255,255,0.6);
+   cursor: pointer;
+}
+#tempdiv {
+   z-index: 29;
+}
+
+
+
+/* the sun settings and animations */
+#sundiv {
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 800px;
+   height: 800px;
+   background:radial-gradient(ellipse at center, rgba(255,217,79,0.5) 0%, rgba(0,0,0,0) 40%);
+   fill: rgba(255, 240, 42,0.9);
+   top: 30vh;
+   left: -25vw;
+   opacity: 0;
+}
+.sunrise {
+   animation: sunrise infinite alternate;
+   animation-duration: 43200s;
+}
+@keyframes sunrise {
+   0% {
+      opacity: 0;
+   }
+   10% {
+      opacity: 1;
+      fill: #ff8567;
+   }
+   20% {
+      fill: #ffaf4f;
+   }
+   100% {
+      transform: translate(46vw, -80vh);
+      opacity: 1;
+      fill: rgba(255, 240, 42,0.7);
+   }
+}
+
+/* the moon settings and animations */
+#moondiv {
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 800px;
+   height: 800px;
+   background:radial-gradient(ellipse at center, rgba(82,103,227,0.5) 0%, rgba(0,0,0,0) 20%);
+   fill: rgba(255, 240, 255,0.7);
+   top: 30vh;
+   right: -25vw;
+   opacity: 0;
+}
+.moonrise {
+   animation: moonrise infinite alternate;
+   animation-duration: 2s;
+}
+@keyframes moonrise {
+   0% {
+      opacity: 0;
+   }
+   10% {
+      opacity: 1;
+   }
+   100% {
+      transform: translate(-46vw, -80vh);
+      opacity: 1;
+   }
+}
+
+/* each individual cloud */
+#cloudsdiv ul {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   list-style-type: none;
+}
+#cloudsdiv ul li img {
+   position: absolute;
+   width: 400px;
+}
+#cloudsdiv li {
+   animation: cloudsmove1 linear infinite;
+   animation-duration: 10s;
+   height: 20vh;
+}
+
+@keyframes cloudsmove1 {
+   from {
+      transform: translateX(-400px);
+   }
+   to {
+      transform: translateX(120%);
+   }
+}
+
+/* general cloud backdrop */
+#cloudbackdrop {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(134,134,134,0);
+}
+</style>
+
+
+
+
+<div id="mainBody" class="">
+
+   
+   <div id="ringsdiv">
+     <div id="ring1container" class="ringcontainers">
+       <svg viewBox="0 0 25.1 25.1" width="25.1" height="25.1" version="1.1" xmlns="http://www.w3.org/2000/svg" id="ring1" class="rings">
+         <path d="m 12.531719,2.5031714 0.01448,-2.36438416 C 19.27845,0.46359384 24.793023,4.932963 24.959712,12.5523 24.579815,20.757825 17.727117,25.077682 12.546199,24.96581 5.5855007,24.906683 0.07856469,19.462511 0.13268669,12.5523 0.19827469,5.5670753 5.6769817,0.31157024 12.546199,0.13878724 Z" fill="none" stroke-width="0.3" id="ring1svg"></path>
+       </svg>
+     </div>
+     <div id="ring2container" class="ringcontainers">
+       <svg viewBox="0 0 25.1 25.1" width="25.1" height="25.1" version="1.1" xmlns="http://www.w3.org/2000/svg" id="ring2" class="rings">
+         <path d="m 12.531719,2.5031714 0.01448,-2.36438416 C 19.27845,0.46359384 24.793023,4.932963 24.959712,12.5523 24.579815,20.757825 17.727117,25.077682 12.546199,24.96581 5.5855007,24.906683 0.07856469,19.462511 0.13268669,12.5523 0.19827469,5.5670753 5.6769817,0.31157024 12.546199,0.13878724 Z" fill="none" stroke-width="0.3" id="ring2svg"></path>
+       </svg>
+     </div>
+     <div id="ring3container" class="ringcontainers">
+       <svg viewBox="0 0 25.1 25.1" width="25.1" height="25.1" version="1.1" xmlns="http://www.w3.org/2000/svg" id="ring3" class="rings">
+         <path d="m 12.531719,2.5031714 0.01448,-2.36438416 C 19.27845,0.46359384 24.793023,4.932963 24.959712,12.5523 24.579815,20.757825 17.727117,25.077682 12.546199,24.96581 5.5855007,24.906683 0.07856469,19.462511 0.13268669,12.5523 0.19827469,5.5670753 5.6769817,0.31157024 12.546199,0.13878724 Z" fill="none" stroke-width="0.3" id="ring3svg"></path>
+       </svg>
+     </div>
+   </div>
+
+
+   <div id="totaldate">
+     <p id="timetext" class="timetext" ></p>
+      <div id="daydiv"></div>
+      <div id="yeardiv"></div>
+      <div id="monthdiv"></div>
+   </div>
+
+    <div id="box2">
+       <div id="tempdiv"></div>
+    </div>
+
+
+
+   <div id="sundiv">
+      <svg height="100" width="100">
+     <circle cx="50" cy="50" r="40"/>
+   </svg>
+   </div>
+
+   <div id="moondiv">
+      <svg height="101" width="100">
+     <circle cx="50" cy="50" r="40"/>
+   </svg>
+   </div>
+
+   <div id="infodiv">
+      <p id="info1"></p>
+      <p id="info2"></p>
+      <p id="info3"></p>
+   </div>
+   
+   <div id="cloudsdiv">
+      <div id="cloudbackdrop"></div>
+      <ul id="firstlayerclouds">
+         <li><img src="https://data.whicdn.com/images/138510361/large.png" alt=""></li>
+         <li><img src="http://www.freepngimg.com/download/cloud/26-cloud-png-image.png" alt=""></li>
+         <li><img src="https://cdn172.picsart.com/228360378035212.png?r1024x1024" alt=""></li>
+         <li><img src="http://www.lisahopedesign.com/images/bg-clouds.png" alt=""></li>
+         <li><img src="" alt=""></li>
+      </ul>
+      <ul id="secondlayerclouds">
+         <li><img src="https://data.whicdn.com/images/138510361/large.png" alt=""></li>
+         <li><img src="http://www.freepngimg.com/download/cloud/26-cloud-png-image.png" alt=""></li>
+         <li><img src="https://cdn172.picsart.com/228360378035212.png?r1024x1024" alt=""></li>
+         <li><img src="http://www.lisahopedesign.com/images/bg-clouds.png" alt=""></li>
+         <li><img src="" alt=""></li>
+      </ul>
+      <ul id="thirdlayerclouds">
+         <li><img src="https://data.whicdn.com/images/138510361/large.png" alt=""></li>
+         <li><img src="http://www.freepngimg.com/download/cloud/26-cloud-png-image.png" alt=""></li>
+         <li><img src="https://cdn172.picsart.com/228360378035212.png?r1024x1024" alt=""></li>
+         <li><img src="http://www.lisahopedesign.com/images/bg-clouds.png" alt=""></li>
+         <li><img src="" alt=""></li>
+      </ul>
+   </div>
+
+   
+   
+</div>
+
+
+<script>
+    /* setting all times and dates initially */
+function seteverything() {
+      /* getting times */
+      var dateInfo = new Date();
+      var sec = dateInfo.getSeconds()
+      var min = dateInfo.getMinutes()
+      var hr = dateInfo.getHours()
+      /* current rotationg angle for time */
+      var rotatesec = (sec * 6) + "deg";
+      var rotatemin = (min * 6) + "deg";
+      var rotatehr = (hr * 30) + "deg";
+
+      /* rotating rings to current time */
+      $("#ring1container").attr("style", "transform:rotate(" + rotatesec + ");");
+      $("#ring2container").attr("style", "transform:rotate(" + rotatemin + ");");
+      $("#ring3container").attr("style", "transform:rotate(" + rotatehr + ");");
+};
+seteverything();
+
+/* setting the time in middle every second to change */
+function formatingtime(currenttime) {
+   var x = "0";
+   var t = x + currenttime;
+   if (t.length > 2) { /* this to set a 0 in front of any single digit */
+      y = t.substr(1);
+      t = y;
+      return t;
+   }
+   else {
+   return t;
+   }
+}
+
+/* getting the right time, days etc */
+function updatingTime() {
+   var days = ['MON','TUE','WED','THU','FRI','SAT','SUN']
+   var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
+   var newdateInfo = new Date();
+   var liveSecs = formatingtime(newdateInfo.getSeconds());
+   var liveMinutes = formatingtime(newdateInfo.getMinutes());
+   var liveHours = formatingtime(newdateInfo.getHours());
+   $('#timetext').html(liveHours + " : " + liveMinutes + " : " + liveSecs);
+   var currentDay = (newdateInfo.getDay() - 1);
+   var currentMonth= newdateInfo.getMonth();
+   var currentYear = newdateInfo.getFullYear();
+   $("#daydiv").html(days[currentDay]);
+   $("#monthdiv").html(months[currentMonth]);
+   $("#yeardiv").html(currentYear);
+};
+/* getting these times to update as often as possible */
+setInterval(updatingTime, 1000);
+
+
+//setting backdrop to start at rigt time of day, setting how far in the day we are  in seconds, then setting te animation to have already started that long ago
+function settingbackdrop() {
+      var dateInfo = new Date();
+      var sec = dateInfo.getSeconds()
+      var min = dateInfo.getMinutes()
+      var hr = dateInfo.getHours()
+      var currenttimeofday = (hr*3600) + (min*60) + (sec);
+      var animdelay = "-" + currenttimeofday + "s";
+      $("#mainBody").css("animation-delay", animdelay);
+}
+settingbackdrop();
+
+
+
+/* setting everything within current(), using the data from the weather api in one function */
+function current(){
+var currentLocation = {};
+navigator.geolocation.getCurrentPosition(function(position) {
+             currentLocation.lat = position.coords.latitude;
+             currentLocation.long = position.coords.longitude;
+            location();
+        });
+
+function location(){
+        $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+currentLocation.lat + "&lon="+ currentLocation.long, function(data) {
+           $("#tempdiv").html(data.main.temp + "°C");
+           currenttemp = data.main.temp;
+           
+      /* getting the sunrise & set times */
+           function suntimes() {
+      /*first getting time sun is supposed to be in sky, setting sunrise and sunset in seconds in two variables */
+           var sunriseunix = data.sys.sunrise;
+           var sunrisetime = new Date(sunriseunix *1000);
+           var sunrisesecs = (sunrisetime.getHours()*3600)+(sunrisetime.getMinutes()*60)+sunrisetime.getSeconds();
+           var sunsetunix = data.sys.sunset;
+           var sunsettime = new Date(sunsetunix *1000);
+           var sunsetsecs = (sunsettime.getHours()*3600)+(sunsettime.getMinutes()*60)+sunsettime.getSeconds();
+      /* getting the total daytime seconds by comparing sunsetsecsand sunrisesecs */
+           var totaldaytimesecs = sunsetsecs-sunrisesecs;
+      /* getting the total seconds elapsed right now */
+           var datenow = new Date();
+           var sec = datenow.getSeconds()
+           var min = datenow.getMinutes()
+           var hr = datenow.getHours()
+           var secondselapsednow = (hr*3600) + (min*60) + (sec);
+           
+      /* checking current time against sunrise, to see if the sun needs to be out, and how long a delay */
+           if ((secondselapsednow > sunrisesecs) && (secondselapsednow < sunsetsecs)) {
+         /* sun needs to be up */
+              console.log("suntime");
+              var sundifference = (secondselapsednow - sunrisesecs) * 2; /* multiplied by 2 as the animation is triggered to go up, then to reverse, it takes double the time needed */
+              var sunanimdelay = "-" + sundifference + "s";
+              sunrisefunc();
+              $(".sunrise").css("animation-duration", totaldaytimesecs);
+              $(".sunrise").css("animation-delay", sunanimdelay);
+              $(".daybackdrop").css("animation-duration", totaldaytimesecs);
+              $(".daybackdrop").css("animation-delay", sunanimdelay);
+           }
+         /* moon needs to be out */
+           else {
+              console.log("moontime");
+              var totaldaylength = 86400;
+              var nightlength = sunrisesecs + (totaldaylength - sunsetsecs) + "s";
+         /* set moon animation duration to night length */
+              moonrise();
+              $(".moonrise").css("animation-duration", nightlength);
+              if (secondselapsednow > sunsetsecs) { /* if its evening */
+                 var moondelay = "-" + ((secondselapsednow - sunsetsecs)*2) + "s";
+                 /* multiplied by 2 as the animation is triggered to go up, then to reverse, it takes double the time needed */
+                 $(".moonrise").css("animation-delay", moondelay);
+              }
+              else if (secondselapsednow <= sunrisesecs) { /* if its morning */
+                 var moondelay = "-" + ((secondselapsednow + totaldaylength - sunsetsecs)*2) + "s"; /* multiplied by 2 as the animation is triggered to go up, then to reverse, it takes double the time needed */
+                 $(".moonrise").css("animation-delay", moondelay);
+              }
+              else {
+              }
+           }
+
+              
+              
+           /* adding the sunrise and moonrise classes */
+            function sunrisefunc() {
+               $("#moondiv").removeClass("moonrise");
+               $("#sundiv").addClass("sunrise");
+               $("#mainBody").removeClass("nightbackdrop");
+               $("#mainBody").addClass("daybackdrop");
+            }
+            function moonrise() {
+               $("#sundiv").removeClass("sunrise");
+               $("#moondiv").addClass("moonrise");
+               $("#mainBody").removeClass("daybackdrop");
+               $("#mainBody").addClass("nightbackdrop");
+            }
+              
+            } /* end of suntimes function */
+           suntimes();
+           
+           
+           /* getting windspeed */
+           var windspeed = data.wind.speed;
+           /* setting each possibility of speed for duration */
+           if (windspeed<2) {
+              var windanimationduration = "120s";
+              var windanimationdurationno = 120;
+              $("#cloudsdiv li").css("animation-duration", windanimationduration)
+              console.log("<2");
+               /* setting a random delay for each li */
+              $("#cloudsdiv li").each(function () {
+                                             var randomno = Math.floor(Math.random() * windanimationdurationno);
+                                             var delayno = "-" + randomno + "s";
+                                             $(this).css("animation-delay", delayno);
+                                             });
+           }
+           else if (windspeed<4) {
+              var windanimationduration = "90s";
+              var windanimationdurationno = 90;
+              $("#cloudsdiv li").css("animation-duration", windanimationduration)
+              console.log("<4");
+              $("#cloudsdiv li").each(function () {
+                                             var randomno = Math.floor(Math.random() * windanimationdurationno);
+                                             var delayno = "-" + randomno + "s";
+                                             $(this).css("animation-delay", delayno);
+                                             });
+           }
+           else if (windspeed<6) {
+              var windanimationduration = "70s";
+              var windanimationdurationno = 70;
+              $("#cloudsdiv li").css("animation-duration", windanimationduration)
+              console.log("<6");
+              $("#cloudsdiv li").each(function () {
+                                             var randomno = Math.floor(Math.random() * windanimationdurationno);
+                                             var delayno = "-" + randomno + "s";
+                                             $(this).css("animation-delay", delayno);
+                                             });
+           }
+           else if (windspeed<8) {
+              var windanimationduration = "50s";
+              var windanimationdurationno = 50;
+              $("#cloudsdiv li").css("animation-duration", windanimationduration)
+              console.log("<8");
+              $("#cloudsdiv li").each(function () {
+                                             var randomno = Math.floor(Math.random() * windanimationdurationno);
+                                             var delayno = "-" + randomno + "s";
+                                             $(this).css("animation-delay", delayno);
+                                             });
+           }
+           else if (windspeed<10) {
+              var windanimationduration = "30s";
+              var windanimationdurationno = 30;
+              $("#cloudsdiv li").css("animation-duration", windanimationduration)
+              console.log("<10");
+              $("#cloudsdiv li").each(function () {
+                                             var randomno = Math.floor(Math.random() * windanimationdurationno);
+                                             var delayno = "-" + randomno + "s";
+                                             $(this).css("animation-delay", delayno);
+                                             });
+           }
+           else {
+              var windanimationduration = "10s";
+              var windanimationdurationno = 10;
+              $("#cloudsdiv li").css("animation-duration", windanimationduration)
+              console.log(">10");
+              $("#cloudsdiv li").each(function () {
+                                             var randomno = Math.floor(Math.random() * windanimationdurationno);
+                                             var delayno = "-" + randomno + "s";
+                                             $(this).css("animation-delay", delayno);
+                                             });
+           }
+           
+           /* getting cloud coverage out of 100% */
+           var cloudcover = data.clouds.all;
+           /* for each possibility, make backdrop more grey and hide each layer of clouds */
+           if (cloudcover == 0) {
+              $("#cloudbackdrop").css("background-color","rgba(134,134,134,0);");
+              $("firstlayerclouds").hide();
+              $("secondlayerclouds").hide();
+              $("thirdlayerclouds").hide();
+           }
+           else if (cloudcover > 20) {
+              $("#cloudbackdrop").css("background-color","rgba(134,134,134,0.15);");
+              $("firstlayerclouds").show();
+              $("secondlayerclouds").hide();
+              $("thirdlayerclouds").hide();
+           }
+           else if (cloudcover > 40) {
+              $("#cloudbackdrop").css("background-color","rgba(134,134,134,0.3);");
+              $("firstlayerclouds").show();
+              $("secondlayerclouds").hide();
+              $("thirdlayerclouds").hide();
+           }
+           else if (cloudcover > 60) {
+              $("#cloudbackdrop").css("background-color","rgba(134,134,134,0.45);");
+              $("firstlayerclouds").show();
+              $("secondlayerclouds").show();
+              $("thirdlayerclouds").hide();
+           }
+           else if (cloudcover > 80) {
+              $("#cloudbackdrop").css("background-color","rgba(134,134,134,0.6);");
+              $("firstlayerclouds").show();
+              $("secondlayerclouds").show();
+              $("thirdlayerclouds").hide();
+           }
+           else if (cloudcover > 100) {
+              $("#cloudbackdrop").css("background-color","rgba(134,134,134,0.75);");
+              $("firstlayerclouds").show();
+              $("secondlayerclouds").show();
+              $("thirdlayerclouds").show();
+           }
+           
+           /* getting the rest of the data about weather */
+           var weather1 = data.rain;
+           var weather2 = data.weather[0].main;
+           var weather3 = data.weather[0].description;
+           $("#info1").html(weather1 + "1");
+           $("#info2").html(weather2 + "2");
+           $("#info3").html(weather3 + "3");
+
+        } /* end of data function */
+                  
+)}; /* end of location function */
+
+
+}; /* end of current function */
+current();
+
+/* changing temp from C to F on click */
+$("#box2").click(function() {
+   var currenttempdisplayed = $("#tempdiv").html();
+   var tempstring = currenttemp.toString();
+   var tempstringleng = tempstring.length;
+   var tempC = tempstring.substr(0,4);
+   var tempFmath = tempC*1.8+32;
+   var tempF = tempFmath.toString().substr(0,4);
+   if (currenttempdisplayed.includes("C")) { /*if C, show F */
+      if (tempF.length < 5) {
+          tempF = tempFmath.toString().substr(0,5);
+          $("#tempdiv").html(tempF + "°F");
+      }
+      $("#tempdiv").html(tempF + "°F");
+   }
+   else if (currenttempdisplayed.includes("F")) { /*if F, show C */
+      $("#tempdiv").html(tempC + "°C");
+   }
+});
+
+</script>
