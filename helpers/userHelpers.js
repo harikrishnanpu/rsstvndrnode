@@ -7,6 +7,8 @@ var instance = new Razorpay({
     key_secret: 'GdT68bWdBoMy5gh1NuCBaxyq',
   });
 
+  const bcrypt = require('bcrypt');
+
 
 module.exports={
     needBlood:(userData,callback)=>{
@@ -165,6 +167,27 @@ module.exports={
         return new Promise(async(resolve,reject)=>{
             let data = await db.get().collection(collections.GURUDHAKSHINA_COLLECTIONS).find({paymentId:userId}).toArray()
             resolve(data.reverse())
+        })
+    },
+
+    changePassword:(details)=>{
+        return new Promise(async(resolve,reject)=>{
+            details.password = await bcrypt.hash(details.password , 10);
+            let user = await db.get().collection(collections.USERS_COLLECTION).find({phone:details.phone})
+            if(user){
+                db.get().collection(collections.USERS_COLLECTION).updateOne({phone:details.phone},
+                    {
+                        $set:{
+                            password: details.password
+                        }
+                    }
+                    ).then((response)=>{
+                        console.log("Changed Password",response);
+                        resolve({status:true})
+                    })
+            }else{
+                resolve({status:false})
+            }
         })
     }
 }

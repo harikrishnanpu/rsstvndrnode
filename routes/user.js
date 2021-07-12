@@ -267,8 +267,21 @@ router.get('/my-account',verifyLogin,(req,res)=>{
 router.get('/logout',(req,res)=>{
   req.session.loggedIn = false;
   req.session.user = null;
-  req.session.destroy();
   res.redirect('/check')
+});
+
+router.get("/user/forgotton-password",(req,res)=>{
+  res.render("user/forgot-password")
+});
+
+router.post("/change-password",(req,res)=>{
+  userHelpers.changePassword(req.body).then((response)=>{
+    res.json(response)
+  })
+});
+
+router.get("/password-changed",(req,res)=>{
+  res.render("user/password-changed")
 });
 
 router.get("/e-shaka",(req,res)=>{
@@ -465,6 +478,10 @@ router.post("/verify-payment",(req,res)=>{
     res.json({status:false})
   })
 });
+
+router.get("/weather",(req,res)=>{
+  res.render("user/weather")
+})
 
 router.get("/payment-success",(req,res)=>{
   res.render("user/payment-success")

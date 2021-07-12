@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Chilanka&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap");
 
 html{
     scroll-behavior: smooth;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 body{
   overflow-x: hidden;
   background-color: #474e5d;
   color: #fff;
-  font-family:'Manjari', sans-serif;
   font-weight: 600;
   font-size: medium;
   /* font-size: clamp(4rem,3vw+1rem,1rem); */
