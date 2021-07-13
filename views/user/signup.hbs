@@ -24,7 +24,7 @@
     <div class="text-center">
       <a href="/login" class="btn btn-color mb-3">I Have An Account</a>
     </div>
-    <form action="/signup" method="POST">
+    <form onsubmit="changeText()" action="/signup" method="POST">
     {{#if loginErr}}
     <div class="container text-center" style="width: 90%;">
       <p style="background-color: #dc3545;border-radius: 5px;">താങ്കൾക്ക് ഈ Appill ഒരു Account ഇല്ല . താഴെ കാണുന്ന Form Fill ചെയ്തു ഒരു Account Create ചെയുക.</p>
@@ -68,7 +68,9 @@
     <i class="toggle-password fa fa-fw fa-eye-slash"></i>
     <small id="emailHelp" class="form-text text-muted">Choose A Password For Your Account</small>
   </div>
-  <input type="submit" value="Submit" onclick="changeText()"  id="submitbtn"  class="btn btn-color w-100 mb-5">
+  <input type="submit" value="Submit"  id="submitbtn"  class="btn btn-color w-100 mb-5">
+  <a href="/terms-conditions">You Agreed Our Terms And Conditions <i class="fas fa-check"></i></a>
+
 </form>
 
 </section>
@@ -87,7 +89,7 @@
 </script>
 
 <script>
-  if(localStorage.getItem("logged") == "true"){
-    window.location.href = "https://rsstvndrapp.herokuapp.com/login"
+  if(localStorage.getItem("logged") === "true"){
+    window.location.href = "/login"
   }
 </script>

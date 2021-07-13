@@ -291,6 +291,10 @@ router.get("/update-profile",(req,res)=>{
   userHelpers.getGhoshData(req.session.user._id).then((ghoshData)=>{  
     res.render("user/update-profile",{user:req.session.user,ghosh:ghoshData})
   })
+});
+
+router.get("/terms-condition",(req,res)=>{
+  res.render("user/terms-condition.hbs")
 })
 
 

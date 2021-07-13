@@ -34,7 +34,7 @@
       <p class="mb-4" style="  font-family:'Manjari', sans-serif;">താങ്കൾ ഈ Appill ഒരു Account Create ചെയ്തിടുണ്ട്.താഴെ കാണുന്ന Login Formill, Account Create ചെയ്യാൻ ഉപയോഗിച്ച Phone നമ്പറും,Passwordum വച്ച് Login ചെയുക. </p>
     </div> <hr>
     {{/if}}
-    <form action="/login" method="POST">
+    <form onsubmit="changeText()" action="/login" method="POST">
     <div class="form-group">
      <i class="fas fa-user-alt" style="left: 0;padding-right: 3px;"></i>
     <label for="lname">Name</label>
@@ -53,7 +53,8 @@
     <i class="toggle-password fa fa-fw fa-eye-slash"></i>
     <small id="emailHelp" class="form-text text-muted" >Enter Your Registered password</small>
   </div>
-  <input type="submit" value="Submit" onclick="changeText()"  id="submitbtn" class="btn btn-color w-100 mb-5">
+  <input type="submit" value="Submit" id="submitbtn" class="btn btn-color w-100 mb-5"><br>
+  <a href="/terms-conditions">You Agreed Our Terms And Conditions <i class="fas fa-check"></i></a>
 </form>
 </section>
 <script>
