@@ -293,9 +293,7 @@ router.get("/update-profile",(req,res)=>{
   })
 });
 
-router.get("/terms-condition",(req,res)=>{
-  res.render("user/terms-condition.hbs")
-})
+
 
 
 router.post("/update-profile",(req,res)=>{
@@ -508,9 +506,27 @@ router.get("/july",(req,res)=>{
 
 
 router.get("/gurudhakshina1",(req,res)=>{
-
   res.render("user/gurudhakshina1",{"payment":req.session.paymentDetails})
-})
+});
+
+router.get("/terms-condition",(req,res)=>{
+  res.render("user/terms-condition.hbs")
+});
+
+router.get("/refund",verifyLogin,(req,res)=>{
+  res.render("user/refund",{user:req.session.user})
+});
+
+
+
+router.post("/add-refund",(req,res)=>{
+  userHelpers.addRefundForm(req.body).then(()=>{
+    req.session.updateSuccess = true;
+    res.redirect("/")
+  })
+});
+
+
 
 module.exports = router;
 

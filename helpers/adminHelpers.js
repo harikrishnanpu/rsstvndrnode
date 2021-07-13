@@ -136,5 +136,12 @@ module.exports={
             let data = await db.get().collection(collections.GURUDHAKSHINA_COLLECTIONS).find().toArray()
             resolve(data.reverse())
         })
+    },
+
+    getRefundForm:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let formData = await db.get().collection(collections.REFUND_FORM_COLLECTION).find().toArray();
+            resolve(formData.reverse())
+        })
     }
 }

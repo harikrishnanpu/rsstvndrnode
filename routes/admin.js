@@ -20,6 +20,12 @@ router.get('/add-details', (req,res)=>{
   res.render('admin/add-details',{admin:true,"Admin":req.session.admin} )
 });
 
+router.get("/refund",(req,res)=>{
+  adminHelper.getRefundForm().then((response)=>{
+    res.render("admin/refund",{admin:true,Admin:req.session.admin,"data":response})
+  })
+})
+
 router.post('/add-content', (req,res)=>{
   contentHelper.addDetails(req.body, (id)=>{
     res.redirect('/add-content',{Admin:req.session.admin})

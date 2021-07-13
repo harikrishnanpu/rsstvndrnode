@@ -5,6 +5,7 @@
       <p class="text-center">Rashtriya <span style="color: orange;">Swayam</span> Seva <span style="color: orange;">Sangh <span> Thiruvanvadoor</p>
       <br><div class="text-center"><a href="tel:7306899364" class="btn btn-color" style="margin-top: -21px !important;">Contact Us</a></div><hr>
       <div class="row">
+        {{#if payments}}
         {{#each payments}}
         <div class="class card w-100 text-center mb-4"
           style="background-color:rgba(255, 255, 255, 0.411);background-repeat: no-repeat;background-size: contain;background-position: center;">
@@ -19,10 +20,22 @@
             <h6 class="card-text">Receipt To: {{this.name}}</h6>
             <h6 class="card-text">Date: {{this.date1}}</h6>
             <h6 class="card-text">Time: {{this.time}}</h6>
+            <h6 class="card-text">Receipt Id: {{@index}}id_rsstvndr</h6><br>
+            <small>Copy The Above Receipt Id For Order Refund Form</small>
             <h6 class="card-text mb-3">Verified By: Rss Tvndr App</h6>
           </div>
         </div>
         {{/each}}
+        {{else}}
+                <div class="class card w-100 text-center mb-4"
+          style="background-color:rgba(255, 255, 255, 0.411);background-repeat: no-repeat;background-size: contain;background-position: center;">
+          <div class="card-body container">
+            <h6 class="mt-3">No Payments Found <i class="fas fa-exclamation"></i></h6>
+            <small>No Payments Or Payment Attempts You Maded.If You Know That This Is An Error Plss Contact Us Imediately! <br>From Rss Tvndr Admin Panel</small>
+          <br><br>
+          </div>
+        </div>
+        {{/if}}
         </div>
       </div>
     </section>

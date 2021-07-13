@@ -189,5 +189,13 @@ module.exports={
                 resolve({status:false})
             }
         })
+    },
+
+    addRefundForm:(details)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.REFUND_FORM_COLLECTION).insertOne(details).then(()=>{
+                resolve()
+            })
+        })
     }
 }

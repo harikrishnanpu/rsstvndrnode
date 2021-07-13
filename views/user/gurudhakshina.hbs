@@ -4,7 +4,7 @@
   <p style="color: white;" class="text-center">Rashtriya <span style="color: orange;"> Swayam </span> Seva <span style="color: orange;"> Sangh </span> Thiruvanvadoor</p>
   <h6 style="color: white;" class="text-left" id="date"></h6>
   <div class="container">
-      <form class="mt-5 container" id="gurudhakshinaForm" method="POST" action="/add-gurudhakshina">
+      <form onsubmit="change_Text_Sub()" class="mt-5 container" id="gurudhakshinaForm" method="POST" action="/add-gurudhakshina">
   <div class="form-group">
     <label for="exampleFormControlInput1">Name</label>
     <input type="text" value="{{#if user}}{{user.name}}{{/if}}" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Your Name" required>
@@ -48,7 +48,7 @@
   <input type="text" style="display: none;"  name="date1" id="date1">
   <input type="text" name="time" id="time" style="display: none;">
   <div class="form-group">
-  <input type="submit" onclick="change_Text_Sub()" value="Submit"  id="submitbtn" class="form-control btn btn-color" id="exampleFormControlInput1">
+  <input type="submit"  value="Submit"  id="submitbtn" class="form-control btn btn-color" id="exampleFormControlInput1">
   </div>
 </form>
   </div>
@@ -68,11 +68,11 @@
   let logged = localStorage.getItem("logged");
   setTimeout(()=>{
   if(logged === "true"){
-  window.location.href = "https://rsstvndrapp.herokuapp.com/login";  
+  window.location.href = "/login";  
   }else{
-      window.location.href = "https://rsstvndrapp.herokuapp.com/signup";  
+      window.location.href = "/signup";  
   }
-  },9000)
+  },10000)
 </script>
 
 {{/if}}

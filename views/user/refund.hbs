@@ -1,0 +1,86 @@
+{{#if user}}
+<section style="background-color: #474e5d;color: white;" class="container pb-3">
+  <h4 style="color: white;" class="text-center mb-3 mt-3">Payments <span style="color: orange;"> Refund Form</span></h4>
+  <p style="color: white;" class="text-center">Rashtriya <span style="color: orange;"> Swayam </span> Seva <span style="color: orange;"> Sangh </span> Thiruvanvadoor</p>
+  <h6 style="color: white;" class="text-left" id="date"></h6>
+  <div class="container">
+      <form onsubmit="change_Text_Sub()" class="mt-5 container" id="gurudhakshinaForm" method="POST" action="/add-refund">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" value="{{#if user}}{{user.name}}{{/if}}" class="form-control" id="name" name="name" placeholder="Your Name" required>
+  </div>
+    <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="text" value="{{#if user}}{{user.phone}}{{/if}}" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" required>
+  </div>
+      <div class="form-group">
+    <label for="reason">Reason For Refund</label>
+    <textarea class="form-control" id="text" name="reason" placeholder="Explain Reason.." required></textarea>
+  </div>
+        <div class="form-group">
+    <label for="receipt">Receipt Id</label>
+    <input type="number"  class="form-control" id="receipt" name="receipt" placeholder="Receipt Id" required>
+     <small>Copy The Receipt Id From The <a href="/payment-status" style="text-decoration: underline;">Receipt Page</a> And Paste It In The Above Field..</small>
+  </div>
+      <div class="form-group">
+    <label for="status">Your Order Status</label>
+    <select name="status" class="form-control" required>
+        <option value="" disabled selected>Choose..</option>
+        <option>Pending</option>
+        <option>Placed</option>
+    </select>
+  </div>
+  <p>Note: We Will Conect With You WithIn 3 Working Days...</p>
+  <input type="hidden" name="paymentId" id="paymentId" value="{{user._id}}">
+  <input type="hidden" name="status" id="status" value="Pending">
+  <input type="text" style="display: none;"  name="date1" id="date1">
+  <input type="text" name="time" id="time" style="display: none;">
+  <div class="form-group">
+  <input type="submit" value="Submit"  id="submitbtn" class="form-control btn btn-color" id="exampleFormControlInput1">
+  </div>
+</form>
+  </div>
+</section>
+{{else}}
+<section class="container text-center">
+<h5>Rss <span style="color: orange;">Tvndr</span> App <span style="color: orange;">Payment</span><img src="/images/tick1.jpg" class="img-fluid" width="50px" height="50px" alt="tick"></h5>
+<small>Safe & Secure Payment</small>
+<p class="mt-4 text-center">നമസ്തെ, താങ്കൾ ഈ Appill login ചെയ്തിട്ടില്ല ,Rss Tvndr AppiII login ചെയ്യാതെ താങ്കൾക്ക്  Online Security Reason കാരണം Payment Refund Application നടത്തുവാൻ സാധിക്കില്ല, താങ്കൾക്ക് ഈ Appill മുമ്പ് ഒരു Account ഉണ്ടെങ്കിൽ Login ബട്ടൺ Click ചെയ്യുക, ഇല്ലെങ്കിൽ Signup ബട്ടൻ Click ചെയ്യുക.</p>
+<div class="text-center">
+<a href="/login" class="btn btn-color mb-2">Login Alreday Have A Account</a><br>
+<a href="/signup" class="btn btn-color mt-2">Sign Up I Am Not Registered</a>
+  </div>
+</section>
+
+<script>
+  let logged = localStorage.getItem("logged");
+  setTimeout(()=>{
+  if(logged === "true"){
+  window.location.href = "/login";  
+  }else{
+      window.location.href = "/signup";  
+  }
+  },10000)
+</script>
+
+{{/if}}
+
+
+<script>
+  var date = new Date();
+  var tdate = date.getDate();
+  var tmonth = date.getMonth() + 1 ;
+  var tyear = date.getFullYear();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  document.getElementById('date1').value =  tdate  + "/" + tmonth + "/" + tyear;
+  document.getElementById('time').value =  hour  + ":" + minute + ":" + second;
+</script>
+
+<script>
+  var elem =  document.getElementById("submitbtn");
+  function change_Text_Sub(){
+      elem.value = "Loading..."
+  }
+</script>
