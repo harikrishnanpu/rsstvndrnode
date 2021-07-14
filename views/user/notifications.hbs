@@ -1,97 +1,59 @@
-<section class="container" style="width: 90%;">
-          <div class='onesignal-customlink-container'></div>
-    {{!-- <h4 class="text-center mt-3">My Notifications ({{count}})</h4> --}}
-  <div >
-  {{!-- <div class="container w-50 float-left">
-    <div class="row container">
-       <h5 class="text-center text-fluid">Personal Notifications {{#if Pcount}} ({{Pcount}}) {{else}} (0) {{/if}}</h5>
-      <hr>
-      {{#if Pnotify}}
-          <div>
-                 <div class="accordion" id="accordionExample">
-                       
-                        <hr>
-                        {{#each Pnotify}}
-              <div class="card">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-                <button class="btn btn-color text-fluid" style="width: 100%;" type="button" data-toggle="collapse" data-target="#collapse{{@index}}"
-                  aria-expanded="true" aria-controls="collapseOne">
-                  Perosonal Notify
-                </button>
-              </h2>
-            </div>
-            <div class="collapse" id="collapse{{@index}}" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
-                <div class="list-group">
-                  <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1">{{this.title}}</h5>
-                      <small>{{this.date}}</small>
-                    </div>
-                    <p class="mb-1">{{this.description}}</p>
-                    <small>{{this.About}}</small>
-                  </a>
-                </div>
-              </div>
-            </div>
-            </div>
-                        {{/each}}
-            </div>
-            </div>
-            {{else}}
-            <h6 class="text-center">No Notifications</h6>
-      {{/if}}
-    </div>
+<section class="container">
+    <div class="container text-center">
 
-    </div> --}}
+      <h5 class="mt-2">Rss Tvndr <span style="color: orange;"> App Notifcations</span></h5>
+      <h6 class="text-center text-fluid"> <i class="fas fa-user-alt" style="left: 0;padding-right: 3px;"> </i>  Personal Notifications {{#if Pcount}} ({{Pcount}}) {{else}} (0) {{/if}}</h6>
+      <h6 class="text-center text-fluid"><i class="fas fa-flag" style="left: 0;padding-right: 3px;"></i>  Site Notifications {{#if Scount}} ({{Scount}}) {{else}} (0) {{/if}}</h6>
 
-    <div class="container pt-3">
-    <div>
-    <h5 class="text-center text-fluid">Rss <span style="color: orange;">Site Notifications </span> {{#if Scount}} ({{Scount}}) {{else}} (0) {{/if}}</h5>
-    <p class="text-center">By, Rss Tvndr</p>
-    <hr>
-      {{#if Snotify}}
-          <div>
-                    <div class="accordion " id="accordionExample">
-                      {{#each Snotify}}
-              <div class="card">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-                <button class="btn btn-color" style="width: 100%;" type="button" data-toggle="collapse" data-target=".collapse{{@index}}"
-                  aria-expanded="true" aria-controls=".collapse0">
-                  Site Notification
-                </button>
-              </h2>
+
+      <div class="personal-notification container">
+        {{#if Pnotify}}
+        {{#each Pnotify}}
+        <div class="row">
+          <div class="card w-100 text-center mb-4"
+            style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+            <div class="card-body container">
+              <h4 class="card-title mt-3">{{this.title}}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+              <p class="card-text">{{this.description}}</p>
+              <small>About: {{this.about}}</small>
+              <marquee behavior="" direction="">{{this.marquee}}</marquee>
+              <div class="text-center mb-3"><a href="/rss-ghosh/register" class="btn btn-color w-50">Register</a></div>
             </div>
-            <div class="collapse collapse{{@index}}" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
-                <div class="list-group">
-                  <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1">{{this.title}}</h5>
-                      <small>{{this.date}}</small>
-                    </div>
-                    <p class="mb-1">{{this.description}}</p>
-                    <small>{{this.About}}</small>
-                  </a>
-                </div>
-              </div>
+          </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <h6 class="text-center">No Notifications</h6>
+        {{/if}}
+      </div>
+
+
+
+
+      <div class="site-notification container">
+        {{#if Snotify}}
+        {{#each Snotify}}
+        <div class="row">
+          <div class="card w-100 text-center mb-4"
+            style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/vam.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
+            <div class="card-body container">
+              <h4 class="card-title mt-3"> Rss <span style="color: #ec650b;">Ghosh</span></h4>
+              <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+              <p class="card-text">നമസ്‌തെ,{{user.name}} താങ്കൾ Rss Tvndr അവതരിപ്പിക്കുന്ന ഓൺലൈൻ ഘോഷ് Clasill Register
+                ചെയ്തിട്ടില്ല.</p>
+              <marquee behavior="" direction="">താഴെ കാണുന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്തു രജിസ്റ്റർ ചെയ്തതിനു ശേഷം ക്ലാസ്സിൽ
+                Join
+                ചെയ്യുക.</marquee>
+              <div class="text-center mb-3"><a href="/rss-ghosh/register" class="btn btn-color w-50">Register</a></div>
             </div>
-            </div>
-                        {{/each}}
-            </div>
-            </div>
-                        {{else}}
-            <h6 class="text-center">No Notifications</h6>
-                  {{/if}}
-    </div>
-    </div>
-    <hr>
-    </div>
+          </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <h6 class="text-center">No Notifications</h6>
+        {{/if}}
+      </div>
+
+  </div>
 </section>
-
-<script>
-  document.querySelector('#collapse0').classList.add('show');
-  document.querySelector('.collapse0').classList.add('show');
-</script>

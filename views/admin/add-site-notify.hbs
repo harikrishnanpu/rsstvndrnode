@@ -1,19 +1,32 @@
 <section style="background-color: #474e5d; color: white;">
-    <hr style="background-color: orange;margin-top: 0;margin-bottom: 0;height: 5px;">
-    <h5 class="text-center mt-5">Add Site Notification</h5>
-<form class="text-center mt-5 container" method="POST" action="/admin/add-site-notify">
+    <h4 class="text-center mt-5">Add Site <span style="color: orange;">Notification</span></h4>
+  <p class="text-center ">This Notification Is Send To All The App Users.On Submit This Form This Form Is Only Posted In The App</p>
+<form class="mt-3 container" method="POST" action="/admin/add-site-notify">
   <div class="form-group">
-    <label for="exampleFormControlInput1">Title</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="title">
+    <label for="titile">Title</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="title">
   </div>
     <div class="form-group">
-    <label for="exampleFormControlInput1">Description</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" name="description" placeholder="description">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" id="description" name="description" placeholder="description">
   </div>
       <div class="form-group">
-    <label for="exampleFormControlInput1">About</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" name="About" placeholder="About">
+    <label for="about">About</label>
+    <input type="text" class="form-control" id="about" name="about" placeholder="About">
   </div>
+    <div class="form-group">
+      <label for="marquee">Marquee</label>
+      <input type="text" class="form-control" id="marquee" name="marquee" placeholder="Marquee..">
+    </div>
+    <div class="form-group">
+      <label for="buttontxt">Button Text</label>
+      <input type="text" class="form-control" id="buttontxt" name="buttontxt" placeholder="Button Text..">
+    </div>
+    <div class="form-group">
+      <label for="btnlink">Button Link</label>
+      <input type="text" class="form-control" id="btnlink" name="btnlink" placeholder="Link...">
+    </div>
+
   <input type="text" name="date" style="display: none;" id="date">
   <input type="text" name="time" id="time" style="display: none;">
     <div class="form-group">
