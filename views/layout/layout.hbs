@@ -53,6 +53,18 @@
     }
     document.head.append(s)
   </script>
+
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "5a58eff7-0c3a-44d6-8e2a-eb833169788a",
+    });
+  });
+</script>
+
+
   {{!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> --}}
 </head>
 
