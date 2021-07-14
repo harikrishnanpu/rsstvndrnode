@@ -188,7 +188,7 @@ router.post('/add-latest-updates',(req,res)=>{
   adminHelper.addLatestUpdates(req.body).then((contentId)=>{
     req.session.updatedsuccess = true;
     let image = req.files.image;
-    image.mv("./public/updates/"+contentId+".png",(err,done)=>{
+    image.mv("./updates/"+contentId+".png",(err,done)=>{
       if(!err){
         res.redirect("/admin")
       }

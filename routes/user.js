@@ -15,32 +15,32 @@ const verifyLogin = (req, res, next) => {
 
 
 /* GET home page. */
-router.get('/',  verifyLogin, function (req, res, next) {
+router.get('/', verifyLogin, function (req, res, next) {
   let user = req.session.user;
   contentHelper.getContentDetails().then((content) => {
     userHelpers.getKaryakariDetails().then((karyakari) => {
       userHelpers.getSiteNotifications().then((Snotify) => {
         userHelpers.getPersonalNotifications(req.session.user._id).then((Pnotify) => {
-          contentHelper.getBloodDonatorsDetails().then((bloodDonators)=>{
-            userHelpers.getUsersData(req.session.user.phone).then((userData)=>{
-          req.session.user = userData;
-          req.session.notifyCount = Snotify.length + Pnotify.length;
-          let lastUser = bloodDonators[0];
-          let yogaDayPoster = true;
-          req.session.pcount = Pnotify.length;
-          req.session.scount = Snotify.length;
-          var KaryakariDetails = karyakari[karyakari.length - 1];
-          var latestUpdatesContent = content[0];
-          var bloodDonationContent = content[1];
-          var galleryContent = content[2];
-          var rssGhoshContent = content[3];
-          res.render('user/index', {yogaDayPoster, home: true, bloodDonationContent, latestUpdatesContent, galleryContent, rssGhoshContent, user, lastUser, "welmsg": req.session.welcomemsg, "lastkaryakari": req.session.lastkaryakari, KaryakariDetails, "notifyCount": req.session.notifyCount, "notify": req.session.notify,"cs":req.session.cs,"success":req.session.success});
-          loginErr = false;
-          req.session.welcomemsg = false;
-          req.session.notify = false;
-          req.session.cs = false;
-          req.session.success = false;
-          yogaDayPoster = false;
+          contentHelper.getBloodDonatorsDetails().then((bloodDonators) => {
+            userHelpers.getUsersData(req.session.user.phone).then((userData) => {
+              req.session.user = userData;
+              req.session.notifyCount = Snotify.length + Pnotify.length;
+              let lastUser = bloodDonators[0];
+              let yogaDayPoster = true;
+              req.session.pcount = Pnotify.length;
+              req.session.scount = Snotify.length;
+              var KaryakariDetails = karyakari[karyakari.length - 1];
+              var latestUpdatesContent = content[0];
+              var bloodDonationContent = content[1];
+              var galleryContent = content[2];
+              var rssGhoshContent = content[3];
+              res.render('user/index', { yogaDayPoster, home: true, bloodDonationContent, latestUpdatesContent, galleryContent, rssGhoshContent, user, lastUser, "welmsg": req.session.welcomemsg, "lastkaryakari": req.session.lastkaryakari, KaryakariDetails, "notifyCount": req.session.notifyCount, "notify": req.session.notify, "cs": req.session.cs, "success": req.session.success });
+              loginErr = false;
+              req.session.welcomemsg = false;
+              req.session.notify = false;
+              req.session.cs = false;
+              req.session.success = false;
+              yogaDayPoster = false;
             })
           })
         })
@@ -49,12 +49,12 @@ router.get('/',  verifyLogin, function (req, res, next) {
   });
 });
 
-router.get('/check',(req,res)=>{
+router.get('/check', (req, res) => {
   res.render('user/signup')
 });
 
-router.get("/ghosh-baidakh",(req,res)=>{
-  res.render("user/ghoshbaidakh",{user:req.session.user})
+router.get("/ghosh-baidakh", (req, res) => {
+  res.render("user/ghoshbaidakh", { user: req.session.user })
 })
 
 router.get('/blood-donation', verifyLogin, (req, res) => {
@@ -63,7 +63,7 @@ router.get('/blood-donation', verifyLogin, (req, res) => {
       contentHelper.getContentDetails().then((content) => {
         var cardContent = content[4];
         let lastUser = details[0];
-        res.render('user/blood-donation', {blood:true , cardContent, details, "Error": req.session.error, "lastuser": lastUser, "user":req.session.user })
+        res.render('user/blood-donation', { blood: true, cardContent, details, "Error": req.session.error, "lastuser": lastUser, "user": req.session.user })
         req.session.error = false;
       });
     });
@@ -72,7 +72,7 @@ router.get('/blood-donation', verifyLogin, (req, res) => {
       contentHelper.getContentDetails().then((content) => {
         let lastUser = details[0];
         var cardContent = content[4];
-        res.render('user/blood-donation', {blood:true, cardContent, details, "lastuser": lastUser, "user":req.session.user })
+        res.render('user/blood-donation', { blood: true, cardContent, details, "lastuser": lastUser, "user": req.session.user })
       });
     });
   }
@@ -81,15 +81,15 @@ router.get('/blood-donation', verifyLogin, (req, res) => {
 
 router.get('/add-blood-donators', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/blood-donation' ,{"user":req.session.user })
+    res.redirect('/blood-donation', { "user": req.session.user })
 
   } else {
-    res.render('user/add-blood-donators' ,{ "user":req.session.user })
+    res.render('user/add-blood-donators', { "user": req.session.user })
   }
 });
 
 router.post('/add-donators', (req, res) => {
-  contentHelper.addBloodDonators(req.body).then((response)=>{
+  contentHelper.addBloodDonators(req.body).then((response) => {
     if (response.status) {
       req.session.lastuser = response.lastuser
       res.redirect('/')
@@ -103,7 +103,7 @@ router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/')
   } else {
-    res.render('user/login', { "loginErr": req.session.loginErr, "loginErr1": req.session.loginErr1, "ploginErr":req.session.ploginErr})
+    res.render('user/login', { "loginErr": req.session.loginErr, "loginErr1": req.session.loginErr1, "ploginErr": req.session.ploginErr })
     req.session.loginErr = false;
     req.session.loginErr1 = false;
     req.session.ploginErr = false;
@@ -122,14 +122,15 @@ router.get('/signup', (req, res) => {
 router.post('/signup', (req, res) => {
   loginSignupHelper.doSignup(req.body).then((response) => {
     if (response.status) {
-      contentHelper.addBloodDonators(req.body).then((bloodData)=>{
-      if (bloodData.status) {
+      contentHelper.addBloodDonators(req.body).then((bloodData) => {
+        if (bloodData.status) {
           req.session.lastuser = bloodData.lastuser
           req.session.loggedIn = true;
           req.session.welcomemsg = true;
           req.session.user = response.user
           res.redirect('/');
-    } });
+        }
+      });
     } else {
       req.session.lastuser = "No Data";
       req.session.loginErr1 = true
@@ -145,10 +146,10 @@ router.post('/login', (req, res) => {
       req.session.user = response.user;
       req.session.welcomemsg = true;
       res.redirect('/')
-    }else if(response.pstatus == false){
+    } else if (response.pstatus == false) {
       req.session.ploginErr = true;
       res.redirect('/login')
-    }else {
+    } else {
       req.session.loginErr = true;
       res.redirect('/login')
     }
@@ -156,7 +157,7 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/need-blood', (req, res) => {
-  res.render('user/need-blood',{"user":req.session.user })
+  res.render('user/need-blood', { "user": req.session.user })
 });
 
 router.post('/need-blood', (req, res) => {
@@ -167,7 +168,7 @@ router.post('/need-blood', (req, res) => {
 });
 
 router.get('/contact', verifyLogin, (req, res) => {
-  res.render('user/contact',{ "user":req.session.user , contact:true});
+  res.render('user/contact', { "user": req.session.user, contact: true });
 });
 
 router.get('/notifications', verifyLogin, (req, res) => {
@@ -175,129 +176,129 @@ router.get('/notifications', verifyLogin, (req, res) => {
     userHelpers.getPersonalNotifications(req.session.user._id).then((Pnotify) => {
       if (Pnotify == false) {
         console.log(Pnotify);
-        res.render('user/notifications', {bnotify:true , Snotify , count:req.session.notifyCount, Scount:req.session.scount, Pcount:req.session.pcount, user: req.session.user})
+        res.render('user/notifications', { bnotify: true, Snotify, count: req.session.notifyCount, Scount: req.session.scount, Pcount: req.session.pcount, user: req.session.user })
         req.session.notifycount = 0;
       } else {
-        res.render('user/notifications', {bnotify: true, Snotify, Pnotify, count:req.session.notifyCount,Scount:req.session.scount,Pcount:req.session.pcount , user: req.session.user})
+        res.render('user/notifications', { bnotify: true, Snotify, Pnotify, count: req.session.notifyCount, Scount: req.session.scount, Pcount: req.session.pcount, user: req.session.user })
         req.session.notifycount = 0;
       }
     })
   })
 });
 
-router.get("/about",(req,res)=>{
-  res.render("user/about",{user:req.session.user})
+router.get("/about", (req, res) => {
+  res.render("user/about", { user: req.session.user })
 })
 
 router.get('/latest-updates', (req, res) => {
-  userHelpers.getLatestUpdates().then((details)=>{
+  userHelpers.getLatestUpdates().then((details) => {
     let updates = details.reverse();
-  res.render('user/latest-updates',{details:updates, "user":req.session.user, latestUpdates:true})
+    res.render('user/latest-updates', { details: updates, "user": req.session.user, latestUpdates: true })
   })
 });
 
-router.get('/karyakari',(req,res)=>{
-  userHelpers.getKaryakariDetails().then((details)=>{
+router.get('/karyakari', (req, res) => {
+  userHelpers.getKaryakariDetails().then((details) => {
     let karyakari = details.reverse();
-    res.render('user/karyakari',{karyakari, "user":req.session.user })
+    res.render('user/karyakari', { karyakari, "user": req.session.user })
   })
 })
 
-router.post('/contact',(req,res)=>{
-  userHelpers.addContactFormData(req.body).then(()=>{
+router.post('/contact', (req, res) => {
+  userHelpers.addContactFormData(req.body).then(() => {
     req.session.success = true;
     res.redirect('/')
   })
 });
 
-router.get('/gallery',(req,res)=>{
-  res.render("user/gallery",{user:req.session.user})
+router.get('/gallery', (req, res) => {
+  res.render("user/gallery", { user: req.session.user })
 });
 
-router.get('/rss-ghosh',(req,res)=>{
-  userHelpers.getGhoshData(req.session.user._id).then((ghoshData)=>{
+router.get('/rss-ghosh', (req, res) => {
+  userHelpers.getGhoshData(req.session.user._id).then((ghoshData) => {
     let noclassess = false;
-    if(ghoshData){
-      userHelpers.getGhoshClassData(ghoshData.ghosh).then((classdata)=>{
-      req.session.user.ghosh = ghoshData;
-      console.log(classdata);
-      if(classdata.length === 0){
-      noclassess = true
-      res.render('user/rss-ghosh',{"user":req.session.user , ghosh: ghoshData, rssGhosh:true,classes:classdata, noclassess})
-      }else{
-    res.render('user/rss-ghosh',{"user":req.session.user , ghosh: ghoshData, rssGhosh:true,classes:classdata})
-      }    
+    if (ghoshData) {
+      userHelpers.getGhoshClassData(ghoshData.ghosh).then((classdata) => {
+        req.session.user.ghosh = ghoshData;
+        console.log(classdata);
+        if (classdata.length === 0) {
+          noclassess = true
+          res.render('user/rss-ghosh', { "user": req.session.user, ghosh: ghoshData, rssGhosh: true, classes: classdata, noclassess })
+        } else {
+          res.render('user/rss-ghosh', { "user": req.session.user, ghosh: ghoshData, rssGhosh: true, classes: classdata })
+        }
+      })
+    } else {
+      res.render('user/rss-ghosh', { "user": req.session.user, rssGhosh: true })
+    }
   })
-    }else{
-  res.render('user/rss-ghosh',{"user":req.session.user, rssGhosh:true})
-    }  
-})
 });
 
-router.get('/rss-ghosh/register',(req,res)=>{
-  if(req.session.user.ghosh){
+router.get('/rss-ghosh/register', (req, res) => {
+  if (req.session.user.ghosh) {
     res.redirect('/rss-ghosh')
-  }else{
-  res.render('user/rss-ghosh-register',{"user":req.session.user})
+  } else {
+    res.render('user/rss-ghosh-register', { "user": req.session.user })
   }
 });
 
-router.post('/ghosh-register',(req,res)=>{
-  userHelpers.addGhoshData(req.body).then((result)=>{
+router.post('/ghosh-register', (req, res) => {
+  userHelpers.addGhoshData(req.body).then((result) => {
     req.session.user.ghosh = result;
     res.redirect('/rss-ghosh')
   })
 })
 
-router.get('/shaka-vrittam',(req,res)=>{
+router.get('/shaka-vrittam', (req, res) => {
   req.session.cs = true;
   res.redirect('/')
 });
 
-router.get('/about',(req,res)=>{
+router.get('/about', (req, res) => {
   res.render('user/about')
 });
 
-router.get('/my-account',verifyLogin,(req,res)=>{
-  userHelpers.getGhoshData(req.session.user._id).then((ghoshData)=>{
-      res.render('user/my-account',{bsetting : true , "user":req.session.user, ghosh: ghoshData})
+router.get('/my-account', verifyLogin, (req, res) => {
+  userHelpers.getGhoshData(req.session.user._id).then((ghoshData) => {
+    res.render('user/my-account', { bsetting: true, "user": req.session.user, ghosh: ghoshData })
   });
 });
 
-router.get('/logout',(req,res)=>{
+router.get('/logout', (req, res) => {
   req.session.loggedIn = false;
   req.session.user = null;
   res.redirect('/check')
 });
 
-router.get("/user/forgotton-password",(req,res)=>{
+router.get("/user/forgotton-password", (req, res) => {
   res.render("user/forgot-password")
 });
 
-router.post("/change-password",(req,res)=>{
-  userHelpers.changePassword(req.body).then((response)=>{
+router.post("/change-password", (req, res) => {
+  userHelpers.changePassword(req.body).then((response) => {
     res.json(response)
   })
 });
 
-router.get("/password-changed",(req,res)=>{
+router.get("/password-changed", (req, res) => {
   res.render("user/password-changed")
 });
 
-router.get("/e-shaka",(req,res)=>{
-  res.render("user/e-shaka",{user:req.session.user})
+router.get("/e-shaka", (req, res) => {
+  res.render("user/e-shaka", { user: req.session.user })
 });
-router.get("/update-profile",(req,res)=>{
-  userHelpers.getGhoshData(req.session.user._id).then((ghoshData)=>{  
-    res.render("user/update-profile",{user:req.session.user,ghosh:ghoshData})
+router.get("/update-profile", (req, res) => {
+  userHelpers.getGhoshData(req.session.user._id).then((ghoshData) => {
+    res.render("user/update-profile", { user: req.session.user, ghosh: ghoshData })
   })
 });
 
 
 
 
-router.post("/update-profile",(req,res)=>{
-  userHelpers.updateUser(req.session.user._id,req.body).then((response)=>{
+router.post("/update-profile", (req, res) => {
+  userHelpers.updateUser(req.session.user._id, req.body).then((response) => {
     req.session.updateSuccess = true;
     req.session.user.name = req.body.name;
     req.session.user.age = req.body.age;
@@ -306,14 +307,14 @@ router.post("/update-profile",(req,res)=>{
   })
 })
 
-router.get("/subhashitham",(req,res)=>{
-  res.render("user/subhashitham",{user:req.session.user,subhashitham:true})
+router.get("/subhashitham", (req, res) => {
+  res.render("user/subhashitham", { user: req.session.user, subhashitham: true })
 });
 
 
 
-router.get("/karyakarthakal",(req,res)=>{
-  res.render("user/karyakarthakkal",{user:req.session.user})
+router.get("/karyakarthakal", (req, res) => {
+  res.render("user/karyakarthakkal", { user: req.session.user })
 });
 
 
@@ -429,99 +430,99 @@ router.get("/ganageetham25", (req, res) => {
 });
 
 
-router.get("/amrithavachanam",(req,res)=>{
-  res.render("user/amrithavachanam/amrithavachanam",{amritham:true,user:req.session.user})
+router.get("/amrithavachanam", (req, res) => {
+  res.render("user/amrithavachanam/amrithavachanam", { amritham: true, user: req.session.user })
 });
 
-router.get("/amrithavachanam_drji",(req,res)=>{
-  res.render("user/amrithavachanam/drji/amrithavachanam",{user:req.session.user})
+router.get("/amrithavachanam_drji", (req, res) => {
+  res.render("user/amrithavachanam/drji/amrithavachanam", { user: req.session.user })
 });
 
-router.get("/amrithavachanam_guruji",(req,res)=>{
-  res.render("user/amrithavachanam/guruji/amrithavachanam",{user:req.session.user})
+router.get("/amrithavachanam_guruji", (req, res) => {
+  res.render("user/amrithavachanam/guruji/amrithavachanam", { user: req.session.user })
 });
 
-router.get("/amrithavachanam_vivekanandhan",(req,res)=>{
-  res.render("user/amrithavachanam/vivekanandhan/amrithavachanam",{user:req.session.user})
+router.get("/amrithavachanam_vivekanandhan", (req, res) => {
+  res.render("user/amrithavachanam/vivekanandhan/amrithavachanam", { user: req.session.user })
 });
 
-router.get("/videomeet",(req,res)=>{
-  res.render("user/meet/videomeet",{videomeet:true})
+router.get("/videomeet", (req, res) => {
+  res.render("user/meet/videomeet", { videomeet: true })
 });
 
-router.get("/gurudhakshina",(req,res)=>{
-  if(req.session.user){
-  res.render("user/gurudhakshina",{user:req.session.user})
-  }else{
+router.get("/gurudhakshina", (req, res) => {
+  if (req.session.user) {
+    res.render("user/gurudhakshina", { user: req.session.user })
+  } else {
     res.render("user/gurudhakshina")
   }
 });
 
-router.post("/add-gurudhakshina",(req,res)=>{
-  userHelpers.addGuruDhakshina(req.body).then((response)=>{
+router.post("/add-gurudhakshina", (req, res) => {
+  userHelpers.addGuruDhakshina(req.body).then((response) => {
     // userHelpers.generateRazorPay(response._id , response.amount).then((result)=>{
     //   res.json(result)
-    console.log("hbdekdw",response);
+    console.log("hbdekdw", response);
     req.session.paymentDetails = response;
     res.redirect("/gurudhakshina1")
-    })
+  })
   // })
 });
 
-router.post("/verify-payment",(req,res)=>{
+router.post("/verify-payment", (req, res) => {
   console.log(req.body);
-  userHelpers.verifyPayment(req.body).then(()=>{
-    userHelpers.changePaymentStatus(req.body['order[receipt]']).then(()=>{
+  userHelpers.verifyPayment(req.body).then(() => {
+    userHelpers.changePaymentStatus(req.body['order[receipt]']).then(() => {
       console.log("Payment Success");
-      res.json({status:true})
+      res.json({ status: true })
     })
-  }).catch(()=>{
+  }).catch(() => {
     console.log("Payment Failed");
-    res.json({status:false})
+    res.json({ status: false })
   })
 });
 
-router.get("/weather",(req,res)=>{
+router.get("/weather", (req, res) => {
   res.render("user/weather")
 })
 
-router.get("/payment-success",(req,res)=>{
+router.get("/payment-success", (req, res) => {
   res.render("user/payment-success")
 });
 
-router.get("/payment-status",(req,res)=>{
-  userHelpers.getAllPaymentStatus(req.session.user._id).then((response)=>{
-    res.render("user/payment-status",{payments:response,user:req.session.user})
+router.get("/payment-status", (req, res) => {
+  userHelpers.getAllPaymentStatus(req.session.user._id).then((response) => {
+    res.render("user/payment-status", { payments: response, user: req.session.user })
   })
 })
 
-router.get("/ended",(req,res)=>{
-  res.render("user/meet/thanks",{thanksPage:true})
+router.get("/ended", (req, res) => {
+  res.render("user/meet/thanks", { thanksPage: true })
 });
 
 
-router.get("/july",(req,res)=>{
+router.get("/july", (req, res) => {
   res.render("user/july")
 });
 
 
-router.get("/gurudhakshina1",(req,res)=>{
-  res.render("user/gurudhakshina1",{"payment":req.session.paymentDetails})
+router.get("/gurudhakshina1", (req, res) => {
+  res.render("user/gurudhakshina1", { "payment": req.session.paymentDetails })
 });
 
-router.get("/terms-condition",(req,res)=>{
+router.get("/terms-condition", (req, res) => {
   res.render("user/terms-condition.hbs")
 });
 
-router.get("/refund",verifyLogin,(req,res)=>{
-  res.render("user/refund",{user:req.session.user})
+router.get("/refund", verifyLogin, (req, res) => {
+  res.render("user/refund", { user: req.session.user })
 });
 
 
 
-router.post("/add-refund",(req,res)=>{
-  userHelpers.addRefundForm(req.body).then(()=>{
-    req.session.updateSuccess = true;
+router.post("/add-refund", (req, res) => {
+  userHelpers.addRefundForm(req.body).then(() => {
+    req.session.success = true;
     res.redirect("/")
   })
 });
