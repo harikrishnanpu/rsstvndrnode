@@ -1,59 +1,278 @@
+<style>
+  
+.help-tip {
+  top: 0px;
+  right: 0px;
+  text-align: center;
+  background-color: #f58300;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 26px;
+  cursor: default;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.help-tip:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+.help-tip:before {
+  content: '?';
+  font-weight: 700;
+  color: #fff;
+}
+
+.help-tip p {
+  visibility: hidden;
+  opacity: 0;
+  text-align: left;
+  background-color: #f39111;
+  padding: 20px;
+  width: 300px;
+  position: absolute;
+  border-radius: 4px;
+  left: 2px;
+  color: #fff;
+  font-size: 13px;
+  line-height: normal;
+  transform: scale(0.7);
+  transform-origin: 100% 0%;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+@media screen and (max-width:300px) {
+  .help-tip{
+    display: none;
+  }
+  
+}
+
+.help-tip:hover p {
+  cursor: default;
+  visibility: visible;
+  opacity: 100;
+  background-color: #f58300;
+  z-index: 1000;
+  transform: scale(1.0);
+}
+
+.help-tip p:before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-bottom-color: #fa8b0c;
+  right: 10px;
+  top: -12px;
+}
+
+.help-tip p:after {
+  width: 100%;
+  height: 40px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+}
+
+.help-tip a {
+  color: #fff;
+  font-weight: 700;
+}
+
+.help-tip a:hover, .help-tip a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+</style>
+
+
 <section class="container">
-    <div class="container text-center">
+  <div class="container text-center">
 
-      <h5 class="mt-2">Rss Tvndr <span style="color: orange;"> App Notifcations</span></h5>
-      <h6 class="text-center text-fluid"> <i class="fas fa-user-alt" style="left: 0;padding-right: 3px;"> </i>  Personal Notifications {{#if Pcount}} ({{Pcount}}) {{else}} (0) {{/if}}</h6>
-      <h6 class="text-center text-fluid"><i class="fas fa-flag" style="left: 0;padding-right: 3px;"></i>  Site Notifications {{#if Scount}} ({{Scount}}) {{else}} (0) {{/if}}</h6>
+    <h5 class="mt-2">Rss Tvndr <span style="color: orange;"> App Notifcations</span></h5>
+    <h6 class="text-center text-fluid"> <i class="fas fa-user-alt" style="left: 0;padding-right: 3px;"> </i> Personal
+      Notifications {{#if PnotifyCount}} ({{PnotifyCount}}) {{else}} (0) {{/if}}</h6>
+    <h6 class="text-center text-fluid"><i class="fas fa-flag" style="left: 0;padding-right: 3px;"></i> Site
+      Notifications {{#if SnotifyCount}} ({{SnotifyCount}}) {{else}} (0) {{/if}}</h6>
 
+<hr>
+    <div class="personal-notification container">
+      <div class="help-tip float-left">
+    <p>This Notification Is Only Visible To You And Sended From Rss Tvndr App Admin Panel Privately</p>
+  </div>
+      <p>Personal Notifications</p>
 
-      <div class="personal-notification container">
-        {{#if Pnotify}}
-        {{#each Pnotify}}
-        <div class="row">
-          <div class="card w-100 text-center mb-4"
-            style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
-            <div class="card-body container">
-              <h4 class="card-title mt-3">{{this.title}}</h4>
-              <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
-              <p class="card-text">{{this.description}}</p>
-              <small>About: {{this.about}}</small>
-              <marquee behavior="" direction="">{{this.marquee}}</marquee>
-              <div class="text-center mb-3"><a href="/rss-ghosh/register" class="btn btn-color w-50">Register</a></div>
-            </div>
+      {{#if Pnotify}}
+      {{#each Pnotify}}
+      <div class="row">
+        <div class="card w-100 text-center mb-4"
+          style="background-color:rgba(255, 255, 255, 0.411);background-repeat: no-repeat;background-size: contain;background-position: center;">
+          <div class="card-body container mb-3">
+            <h4 class="card-title mt-3"><i class="fas fa-bell"></i>  {{this.title}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+            <p class="card-text">{{this.description}}</p>
+            <small id="agotime"></small>
+            <marquee behavior="" direction="">{{this.marquee}}</marquee>
+            <div class="text-center mb-3"><a href="{{this.btnlink}}" class="btn btn-color w-50">{{this.buttontxt}}</a></div>
+          <hr><small><i class="fas fa-clock"></i> Time: <time datetime="{{this.date}}">{{this.date}}</time></small>
           </div>
         </div>
-        {{/each}}
-        {{else}}
-        <h6 class="text-center">No Notifications</h6>
-        {{/if}}
       </div>
-
-
-
-
-      <div class="site-notification container">
-        {{#if Snotify}}
-        {{#each Snotify}}
-        <div class="row">
-          <div class="card w-100 text-center mb-4"
-            style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/vam.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
-            <div class="card-body container">
-              <h4 class="card-title mt-3"> Rss <span style="color: #ec650b;">Ghosh</span></h4>
-              <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
-              <p class="card-text">നമസ്‌തെ,{{user.name}} താങ്കൾ Rss Tvndr അവതരിപ്പിക്കുന്ന ഓൺലൈൻ ഘോഷ് Clasill Register
-                ചെയ്തിട്ടില്ല.</p>
-              <marquee behavior="" direction="">താഴെ കാണുന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്തു രജിസ്റ്റർ ചെയ്തതിനു ശേഷം ക്ലാസ്സിൽ
-                Join
-                ചെയ്യുക.</marquee>
-              <div class="text-center mb-3"><a href="/rss-ghosh/register" class="btn btn-color w-50">Register</a></div>
-            </div>
+      {{/each}}
+      {{else}}
+      <div class="row">
+        <div class="card w-100 text-center mb-4"
+          style="background-color:rgba(255, 255, 255, 0.411);background-repeat: no-repeat;background-size: contain;background-position: center;">
+          <div class="card-body container">
+            <h6 class="card-title mt-3 mb-2"><i class="fas fa-bell"></i> No Notification <span style="color: orange;"> Found</span> <i class="fas fa-exclamation-circle mb-3"></i></h4>
           </div>
         </div>
-        {{/each}}
-        {{else}}
-        <h6 class="text-center">No Notifications</h6>
-        {{/if}}
       </div>
+      {{/if}}
+    </div>
+
+
+<hr>
+
+    <div class="site-notification container">
+
+            <div class="help-tip float-left">
+              <p>This Notification Is Sended To All The App Users From Rss Tvndr Admin Panel</p>  </div>
+      <p>Site Notifications</p>
+
+      {{#if Snotify}}
+      {{#each Snotify}}
+      <div class="row">
+        <div class="card w-100 text-center mb-4"
+          style="background-color:rgba(255, 255, 255, 0.411);background-repeat: no-repeat;background-size: contain;background-position: center;">
+          <div class="card-body container">
+            <h4 class="card-title mt-3"><i class="fas fa-bell"></i> {{this.title}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
+            <p class="card-text">{{this.description}}</p>
+            <small id="agotime"></small>
+            <marquee behavior="" direction="">{{this.marquee}}</marquee>
+            <div class="text-center mb-3"><a href="{{this.btnlink}}" class="btn btn-color w-50">{{this.buttontxt}}</a></div>
+          <hr><small>Time: <time datetime="{{this.date}}">{{this.date}}</time></small>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+      {{else}}
+      <div class="row">
+        <div class="card w-100 text-center mb-4"
+          style="background-color:rgba(255, 255, 255, 0.411);background-repeat: no-repeat;background-size: contain;background-position: center;">
+          <div class="card-body container">
+            <h6 class="card-title mt-3 mb-2"><i class="fas fa-bell"></i> No Site Notification <span style="color: orange;"> Found</span> <i class="fas fa-exclamation-circle mb-3"></i></h4>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+    </div>
 
   </div>
 </section>
+
+
+<script>
+  function timeToWords(time, lang) {
+  lang = lang || {
+    postfixes: {
+      "<": " ago",
+      ">": " from now"
+    },
+    1000: {
+      singular: "a few moments",
+      plural: "a few moments"
+    },
+    60000: {
+      singular: "about a minute",
+      plural: "# minutes"
+    },
+    3600000: {
+      singular: "about an hour",
+      plural: "# hours"
+    },
+    86400000: {
+      singular: "a day",
+      plural: "# days"
+    },
+    31540000000: {
+      singular: "a year",
+      plural: "# years"
+    }
+  };
+
+  var timespans = [1000, 60000, 3600000, 86400000, 31540000000];
+  var parsedTime = Date.parse(time.replace(/\-00:?00$/, ""));
+
+  if (parsedTime && Date.now) {
+    var timeAgo = parsedTime - Date.now();
+    var diff = Math.abs(timeAgo);
+    var postfix = lang.postfixes[timeAgo < 0 ? "<" : ">"];
+    var timespan = timespans[0];
+
+    for (var i = 1; i < timespans.length; i++) {
+      if (diff > timespans[i]) {
+        timespan = timespans[i];
+      }
+    }
+
+    var n = Math.round(diff / timespan);
+
+    return (
+      lang[timespan][n > 1 ? "plural" : "singular"].replace("#", n) + postfix
+    );
+  }
+}
+
+var norwegian = {
+  postfixes: {
+    "<": " siden",
+    ">": " fra nå"
+  },
+  1000: {
+    singular: "et øyeblikk",
+    plural: "et øyeblikk"
+  },
+  60000: {
+    singular: "omtrent et minutt",
+    plural: "# minutter"
+  },
+  3600000: {
+    singular: "omtrent en time",
+    plural: "# timer"
+  },
+  86400000: {
+    singular: "en dag",
+    plural: "# dager"
+  },
+  31540000000: {
+    singular: "et år",
+    plural: "# år"
+  }
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  var elements = document.getElementsByTagName("time");
+  for (var i = 0; i < elements.length; i++) {
+    var time = elements[i];
+    // The date should be either in the datetime attribute
+    // or in the text contents if no datetime attribute
+    var date = time.getAttribute("datetime") || time.textContent;
+    var lang = time.className === "norsk" ? norwegian : null;
+
+    var dateInWords = timeToWords(date, lang);
+    if (dateInWords) {
+      time.textContent = dateInWords;
+    }
+  }
+});
+
+</script>
+
+

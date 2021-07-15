@@ -44,13 +44,6 @@ module.exports={
         })
     },
 
-    getNotifyCount:(userid)=>{
-        return new Promise((resolve,reject)=>{
-            let count = 0;
-            let notify = db.get().collection(collections.NOTIFICATION_COLLECTION).find({_id:userid})
-        })
-    },
-
     getLatestUpdates:()=>{
         return new Promise((resolve,reject)=>{
             let data = db.get().collection(collections.LATESTUPDATES_COLLECTION).find().toArray();
@@ -196,6 +189,16 @@ module.exports={
             db.get().collection(collections.REFUND_FORM_COLLECTION).insertOne(details).then(()=>{
                 resolve()
             })
+        })
+    },
+
+    getNotificationCount:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let count = 0;
+            let PersonalNotification = await db.get().collection(collections.SITE_NOTIFICATION_COLLECTION).find().toArray();
+            count = await PersonalNotification.length;
+             resolve(count);
+            
         })
     }
 }

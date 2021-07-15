@@ -19,30 +19,20 @@ router.get('/', verifyLogin, function (req, res, next) {
   let user = req.session.user;
   contentHelper.getContentDetails().then((content) => {
     userHelpers.getKaryakariDetails().then((karyakari) => {
-      userHelpers.getSiteNotifications().then((Snotify) => {
-        userHelpers.getPersonalNotifications(req.session.user._id).then((Pnotify) => {
-          contentHelper.getBloodDonatorsDetails().then((bloodDonators) => {
-            userHelpers.getUsersData(req.session.user.phone).then((userData) => {
-              req.session.user = userData;
-              req.session.notifyCount = Snotify.length + Pnotify.length;
-              let lastUser = bloodDonators[0];
-              let yogaDayPoster = true;
-              req.session.pcount = Pnotify.length;
-              req.session.scount = Snotify.length;
-              var KaryakariDetails = karyakari[karyakari.length - 1];
-              var latestUpdatesContent = content[0];
-              var bloodDonationContent = content[1];
-              var galleryContent = content[2];
-              var rssGhoshContent = content[3];
-              res.render('user/index', { yogaDayPoster, home: true, bloodDonationContent, latestUpdatesContent, galleryContent, rssGhoshContent, user, lastUser, "welmsg": req.session.welcomemsg, "lastkaryakari": req.session.lastkaryakari, KaryakariDetails, "notifyCount": req.session.notifyCount, "notify": req.session.notify, "cs": req.session.cs, "success": req.session.success });
-              loginErr = false;
-              req.session.welcomemsg = false;
-              req.session.notify = false;
-              req.session.cs = false;
-              req.session.success = false;
-              yogaDayPoster = false;
-            })
-          })
+      contentHelper.getBloodDonatorsDetails().then((bloodDonators) => {
+        userHelpers.getUsersData(req.session.user.phone).then((userData) => {
+          req.session.user = userData;
+          let lastUser = bloodDonators[0];
+          var KaryakariDetails = karyakari[karyakari.length - 1];
+          var latestUpdatesContent = content[0];
+          var bloodDonationContent = content[1];
+          var galleryContent = content[2];
+          var rssGhoshContent = content[3];
+          res.render('user/index', { home: true, bloodDonationContent, latestUpdatesContent, galleryContent, rssGhoshContent, user, lastUser, "welmsg": req.session.welcomemsg, "lastkaryakari": req.session.lastkaryakari, KaryakariDetails, "cs": req.session.cs, "success": req.session.success });
+          loginErr = false;
+          req.session.welcomemsg = false;
+          req.session.cs = false;
+          req.session.success = false;
         })
       })
     })
@@ -174,17 +164,17 @@ router.get('/contact', verifyLogin, (req, res) => {
 router.get('/notifications', verifyLogin, (req, res) => {
   userHelpers.getSiteNotifications().then((Snotify) => {
     userHelpers.getPersonalNotifications(req.session.user._id).then((Pnotify) => {
-      if (Pnotify == false) {
-        console.log(Pnotify);
-        res.render('user/notifications', { bnotify: true, Snotify, count: req.session.notifyCount, Scount: req.session.scount, Pcount: req.session.pcount, user: req.session.user })
-        req.session.notifycount = 0;
+      let SnotifyCount = Snotify.length;
+      let PnotifyCount = Pnotify.length;
+      if (Pnotify === false || Pnotify === null) {
+        res.render('user/notifications', { bnotify: true, Snotify, user: req.session.user , SnotifyCount})
       } else {
-        res.render('user/notifications', { bnotify: true, Snotify, Pnotify, count: req.session.notifyCount, Scount: req.session.scount, Pcount: req.session.pcount, user: req.session.user })
-        req.session.notifycount = 0;
+        res.render('user/notifications', { bnotify: true, Snotify, Pnotify, user: req.session.user , SnotifyCount , PnotifyCount})
       }
     })
   })
 });
+
 
 router.get("/about", (req, res) => {
   res.render("user/about", { user: req.session.user })

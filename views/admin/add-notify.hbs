@@ -29,6 +29,7 @@
     <input type="text" style="display: none;" value="{{userId}}" name="userId">
     <input type="hidden" name="date"  id="date">
     <input type="hidden" name="time" id="time" >
+    <input type="hidden" name="Nstatus" id="Nstatus" value="not">
     <div class="form-group">
       <input type="submit" class="btn btn-color mb-5 w-100" id="exampleFormControlInput1">
     </div>
@@ -42,6 +43,6 @@
   var hour = new Date().getHours();
   var minute = new Date().getMinutes();
   var second = new Date().getSeconds();
-  document.getElementById('date').value = tdate + "/" + tmonth + "/" + tyear;
+  document.getElementById('date').value = tyear + "-" + tmonth + "-" + tdate;
   document.getElementById('time').value = hour + ":" + minute + ":" + second;
 </script>
