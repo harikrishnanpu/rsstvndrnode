@@ -4,7 +4,7 @@
   <p style="color: white;" class="text-center">Rashtriya <span style="color: orange;"> Swayam </span> Seva <span style="color: orange;"> Sangh </span> Thiruvanvadoor</p>
   <h6 style="color: white;" class="text-left" id="date"></h6>
   <div class="container">
-      <form onsubmit="change_Text_Sub()" class="mt-5 container" id="gurudhakshinaForm" method="POST" action="/add-gurudhakshina">
+      <form onsubmit="change_Text_Sub()" class="mt-5 container" id="gurudhakshinaForm">
   <div class="form-group">
     <label for="exampleFormControlInput1">Name</label>
     <input type="text" value="{{#if user}}{{user.name}}{{/if}}" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Your Name" required>

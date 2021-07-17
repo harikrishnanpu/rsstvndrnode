@@ -440,6 +440,15 @@ router.get("/videomeet", (req, res) => {
   res.render("user/meet/videomeet", { videomeet: true })
 });
 
+router.get("/shaka", (req, res) => {
+  res.render("user/shaka")
+});
+
+router.get("/shaka/prardhana", (req, res) => {
+  res.render("user/prardhana")
+});
+
+
 router.get("/gurudhakshina", (req, res) => {
   if (req.session.user) {
     res.render("user/gurudhakshina", { user: req.session.user })
@@ -450,13 +459,10 @@ router.get("/gurudhakshina", (req, res) => {
 
 router.post("/add-gurudhakshina", (req, res) => {
   userHelpers.addGuruDhakshina(req.body).then((response) => {
-    // userHelpers.generateRazorPay(response._id , response.amount).then((result)=>{
-    //   res.json(result)
-    console.log("hbdekdw", response);
-    req.session.paymentDetails = response;
-    res.redirect("/gurudhakshina1")
+    userHelpers.generateRazorPay(response._id , response.amount).then((result)=>{
+      res.json(result)
   })
-  // })
+  })
 });
 
 router.post("/verify-payment", (req, res) => {
