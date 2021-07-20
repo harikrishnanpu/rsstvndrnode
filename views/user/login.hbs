@@ -48,14 +48,16 @@
   </div>
   <div class="form-group">
      <i class="fas fa-lock" style="left: 0;padding-right: 3px;"></i>
-    <label for="lpassword">Password Or <a style="text-decoration: underline;" href="/user/forgotton-password">Forgotton Password</a></label>
+    <label for="lpassword">Password </label>
     <input type="password" name="password" {{#if loginErr}} style="border: 2px solid #dc3545;" {{/if}} {{#if loginErr1}} style="border: 4px solid #dc3545;" {{/if}} {{#if ploginErr}} style="border: 4px solid #dc3545;" {{/if}} class="form-control" id="lpassword" {{#if ploginErr}} placeholder="Check Your Password" {{/if}} placeholder="Password" required>
     <i class="toggle-password fa fa-fw fa-eye-slash"></i>
     <small id="emailHelp" class="form-text text-muted" >Enter Your Registered password</small>
   </div>
    <i class="fas fa-check-square"></i> <a style="text-decoration: underline !important;" href="/terms-condition">Agree Terms And Conditions</a>
   <hr>
-  <input type="submit" value="Submit" id="submitbtn" class="btn btn-color w-100 mb-5"><br>
+  <input type="submit" value="Submit" id="submitbtn" class="btn btn-color w-100">
+  <a class="btn btn-color mt-2 mb-5 w-100" href="/user/forgotton-password">Forgotton Password? </a><br>
+
 </form>
 </section>
 
