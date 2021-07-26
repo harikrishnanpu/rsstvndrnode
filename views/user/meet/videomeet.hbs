@@ -6,23 +6,28 @@
 
     iframe{
         width: 100% !important;
-        height: 100% !important;
-        position: absolute !important;
+        height: 104% !important;
+        position: fixed !important;
         z-index: -10 !important;
-        top: 50px !important;
         bottom: 0 !important;
         left: 0 !important;
         right: 0 !important;
         border: transparent !important;
     }
+
+    @media screen and (max-width:700px) {
+        iframe{
+            top: 30px;
+        }    
+    }
 </style>
 {{!-- <hr class="" style="margin: 0 0;height: 20px;background-color: orange;"> --}}
-<div class="banner" style="background-color: #fff;width: 100% !important;position: absolute;color: black;height: 25px;top: 20;z-index: 100000;">
+{{!-- <div class="banner" style="background-color: #fff;width: 100% !important;position: absolute;color: black;height: 25px;top: 20;z-index: 100000;">
         <div class="banner_content" style="width: 100%;">
         <p class="text-center mt-1">Rss Shakha Baidakh</p>
     </div>
 </div>
-<hr>
+<hr> --}}
 
 
 <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
