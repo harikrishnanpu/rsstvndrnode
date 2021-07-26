@@ -188,6 +188,9 @@
       <a href="/" style="font-size: 1.3rem;color:#818181;cursor: pointer;"><span> Rss</span> <span style="color: orange;">Tvndr</span> <span>App</span></a>
       {{#if user}}
       <a href="/my-account">Namaste, {{user.name}}</a>
+      {{else}}
+      <a href="/login">Login</a>
+      <a href="/signup">SignUp</a>
       {{/if}}
       <a href="/" class="{{#if home}} active {{/if}}">Home</a>
       <a href="/latest-updates" class="{{#if latestUpdates}} active {{/if}}">Latest Updates</a>
@@ -270,6 +273,9 @@
     </script>
   </section>
 
+{{#if videomeet}}
+<p class="text-center">&copf; Rss Tvndr Meet</p>
+{{else}}
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -283,6 +289,7 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+{{/if}}
 
 </body>
 
