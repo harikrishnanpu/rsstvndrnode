@@ -440,6 +440,12 @@ router.get("/videomeet", (req, res) => {
   res.render("user/meet/videomeet", { videomeet: true })
 });
 
+
+router.get("/videomeet1", (req, res) => {
+  res.render("user/meet/startmeet", { videomeet: true })
+});
+
+
 router.get("/shaka", (req, res) => {
   res.render("user/shaka")
 });
