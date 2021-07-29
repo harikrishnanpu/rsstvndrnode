@@ -200,5 +200,22 @@ module.exports={
              resolve(count);
             
         })
+    },
+
+    addFeedBack:(feedback,name)=>{
+        return new Promise((resolve,reject)=>{
+            if(name){
+                let For = feedback.For;
+                let rating = feedback.rating;
+                let datas = {For,rating,name}
+                db.get().collection(collections.FEEDBACK_COLLECTION).insertOne(datas).then(()=>{
+                    resolve();
+                })
+            }else{
+                db.get().collection(collections.FEEDBACK_COLLECTION).insertOne(feedback).then(()=>{
+                    resolve()
+                })
+            }
+        })
     }
 }

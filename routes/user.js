@@ -440,6 +440,24 @@ router.get("/videomeet", (req, res) => {
   res.render("user/meet/videomeet", { videomeet: true })
 });
 
+router.post("/feedback",(req,res)=>{
+  let Feeback = req.body.rating
+  if(req.session.user){
+    userHelpers.addFeedBack(req.body,req.session.user.name).then(()=>{
+      res.json(Feeback)
+    })
+  }else{
+    userHelpers.addFeedBack(req.body).then(()=>{
+      res.json(Feeback)
+    })
+  }
+})
+
+router.get("/thankyou/:id",(req,res)=>{
+  let feedbackNum = req.params.id
+  res.render("user/thanks",{feedbackNum})
+})
+
 
 router.get("/videomeet1", (req, res) => {
   res.render("user/meet/startmeet", { videomeet: true })
@@ -499,7 +517,11 @@ router.get("/payment-status", (req, res) => {
 })
 
 router.get("/ended", (req, res) => {
-  res.render("user/meet/thanks", { thanksPage: true })
+  if(req.session.user){
+    res.render("user/meet/thanks", { thanksPage: true , user:req.session.user})
+  }else{
+    res.render("user/meet/thanks", { thanksPage: true })
+  }
 });
 
 

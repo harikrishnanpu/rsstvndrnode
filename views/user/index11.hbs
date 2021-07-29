@@ -1,16 +1,441 @@
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@700&display=swap');
+</style>
+<style>
+
+  .card-text{
+    font-size: xx-small;
+  }
+
+  marquee{
+    font-size: xx-small;
+  }
+
+
+  .bnav1 {
+    top: 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 100%;
+    height: 90px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+  }
+
+  .bnav1::-webkit-scrollbar{
+    display: none;
+  }
+
+
+
+  @media screen and (max-width:700px) {
+    .bnav1 {
+      overflow-x: auto;
+      height: 70px;
+      padding-left: 5px;
+      padding-right: 5px;
+      overflow-y: hidden;
+    }
+
+  ::-webkit-scrollbar{
+    display: none;
+  }
+
+  }
+
+  .nav__link {
+    width: 14%;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: black;
+    font-size: large;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: .8rem;
+    background-color: rgba(255, 255, 255, 0.452);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+
+  @media screen and (max-width:700px) {
+    .nav__link {
+      width: 12%;
+      text-align: center;
+      transition: all 0.3s ease;
+      color: black;
+      font-size: large;
+      display: inline-block;
+      text-align: center;
+      padding: .3rem;
+      text-decoration: none;
+      font-size: .8rem;
+      background-color: rgba(255, 255, 255, 0.452);
+      border-radius: 90%;
+    }
+  }
+
+  .nav__text {
+    font-size: 10px;
+  }
+
+  .nav__link:hover {
+    background-color: #eeeeee;
+    text-decoration: none;
+    color: orange;
+  }
+
+  .nav__link--active {
+    color: #ff5e00;
+  }
+
+  .nav__icon {
+    font-size: 1rem;
+  }
+
+  .homesection{
+    font-size: medium;
+  }
+
+  @media screen and (max-width:700px) {
+    .homesection{
+      font-size: xx-small;
+    }.card-subtitle{
+  font-size: small;
+    }
+  }
+
+@media screen and (min-width:700px){ 
+.card-text{
+  font-family:'Manjari', sans-serif;
+}.card-title{
+  font-size: 1.5rem !important;
+}
+}
+
+.nav__link {
+  transition: transform 0.2s;
+}
+
+.bnav1:hover .nav__link {
+  transform: translateX(-25%);
+}
+.bnav1:hover .nav__link:hover {
+  transform: scale(1.3);
+  transition-duration: 0.1818181818s;
+}
+.bnav1:hover .nav__link:hover ~ .nav__link {
+  transform: translateX(25%);
+}
+  
+</style>
+
+<div class="container">
+<nav class="bnav1" id="bnav">
+  <a href="/" class="nav__link {{#if home}} nav__link--active {{/if}}">
+    <i class="fas fa-home nav__icon"></i><br>
+    <span class="nav__text">Home</span>
+  </a>
+  <a href="/blood-donation" class="nav__link">
+    <i class="fas fa-heartbeat nav__icon"></i><br>
+    <span class="nav__text">Blood</span>
+  </a>
+  <a href="/latest-updates" class="nav__link">
+    <i class="fas fa-newspaper nav__icon"></i><br>
+    <span class="nav__text">latest</span>
+  </a>
+  <a href="/rss-ghosh" class="nav__link ">
+    <i class="fas fa-drum nav__icon"></i><br>
+    <span class="nav__text">Ghosh</span>
+  </a>
+
+    <a href="/karyakarthakal" class="nav__link">
+    <i class="fas fa-users nav__icon"></i><br>
+    <span class="nav__text">Members</span>
+  </a>
+  <a href="/notes" class="nav__link">
+    <i class="fas fa-scroll nav__icon"></i><br>
+    <span class="nav__text">Notes</span>
+  </a>
+  <a href="/my-account" class="nav__link">
+    <i class="fas fa-cog nav__icon"></i><br>
+    <span class="nav__text">Setting</span>
+  </a>
+  <a href="/gallery" class="nav__link">
+    <i class="fas fa-images nav__icon"></i><br>
+    <span class="nav__text">Gallery</span>
+  </a>
+</nav>
+</div>
+
+
+<hr class="" style="margin: 0 0;height: 2px;background-color: orange;">
+
+
+
+
+
+
+
+
 <section class="container">
-    <div class="container">
-        <div class="row">
-                          <div class="card w-100 text-center mb-4"
-        style="background: rgba(255, 255, 255, 0.411)  url('/images/sangh.png') no-repeat center;background-size:contain;">
+  <div class="container">
+    <div class="row">
+
+
+
+
+      <div class="card w-100 text-center mb-4"
+        style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/rssbg.png');background-repeat: no-repeat;background-size: contain;background-position: center;">
         <div class="card-body container">
-          <h4 class="card-title mt-3" style="font-size: medium;"> Shakha <span style="color: #ec650b;">Karyakarthakkal</span></h4>
+          <h4 class="card-title mt-3" style="font-size: medium;">Latest <span style="color: orange;">Updates</span></h4>
           <h6 class="card-subtitle mb-2 text-muted">By, Rss Tvndr</h6>
-          <p class="card-text">Thiruvanvadoor ശാഖയുടെ എല്ലാ ശാഖാ കാര്യകര്താക്കളെയും കാണുവാൻ താഴെ കാണുന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്യുക</p>
-          <marquee behavior="" direction="">Rss Tvndr ശാഖയുടെ എല്ലാ Updatsukalum ഈ ആപ്പിൾ ലഭ്യമാണ് </marquee>
-          <div class="text-center mb-3"><a href="/karyakarthakal" class="btn btn-color w-50">See More</a></div>
+          <p class="card-text">{{latestUpdatesContent.description}}</p>
+          <marquee behavior="" direction="">{{latestUpdatesContent.marquee}}</marquee>
+          <div class="text-center mb-3"><a href="/latest-updates"
+              class="btn btn-color w-50">{{latestUpdatesContent.btntext}}</a></div>
         </div>
       </div>
+
+      <div class="card text-center mb-4 ml-auto mr-auto" style="background-color: transparent;box-shadow: none;border: none;">
+        <p style="font-size: small;">ജൂലൈ മാസ ശാഖാ ഗണഗീതം, സുഭാഷിതം, അമൃതവചനം</p>
+        <div><a href="/july" style="margin-bottom: -20px;margin-top: -10px;" class="btn btn-color w-50">See Now</a>
         </div>
+      </div>
+
+
+      <div class="container">
+        <div class="container">
+          <div class="row">
+
+
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-4"><span><i class="fa fa-newspaper"></i></span>  Latest <span style="color: orange;">Updates</span></p>
+              </div>
+            </div>
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-4"><span><i class="fa fa-heartbeat"></i></span>  Blood <br><span style="color: red;">Donation</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="container">
+        <div class="container">
+          <div class="row">
+
+
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-4"> <span><i class="fa fa-drum"></i></span> Rss <span style="color: orange;">Ghosh</span></p>
+              </div>
+            </div>
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-3">Rss Shakha <span style="color: orange;">Karyakari</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="container">
+        <div class="container">
+          <div class="row">
+
+
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-2"><i class="fa fa-users"></i> Tvndr Shakha <span style="color: orange;">Team</span></p>
+              </div>
+            </div>
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-2"><i class="fa fa-images"></i> Shakha <span style="color: orange;">Gallery</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="container">
+          <div class="row">
+
+
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-3"><i class="fa fa-video"></i> Rss Video <span style="color: orange;">Meet</span></p>
+              </div>
+            </div>
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-3"><i class="far fa-address-card"></i> My <span style="color:orange;">Account</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="container">
+          <div class="row">
+
+
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-2"><i class="fa fa-phone"></i> Contact <span style="color: orange;">Account</span></p>
+              </div>
+            </div>
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-2">Online Ghosh <span style="color: orange;">Class</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+            <div class="container">
+        <div class="container">
+          <div class="row">
+
+
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-2">Subhashithm</p>
+              </div>
+            </div>
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-2" style="color: orange;">Amrithvcham</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+            <div class="container">
+        <div class="container">
+          <div class="row">
+
+
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-2">Ganagetham</p>
+              </div>
+            </div>
+
+            <div class="card col text-center mb-2"
+              style="background: rgba(255, 255, 255, 0.411)  url('/images/.png') no-repeat center;background-size:contain;">
+              <div class="card-body container">
+                <p class="mt-2">About <span style="color: orange;">App</span></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+                <section class="container mb-4 mt-2">
+            <div id="carouselExampleIndicators"  class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators" style="cursor: pointer;">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+
+              </ol>
+              <div class="carousel-inner" style="height: 150px;width: 100% !important;border-radius:5px ; border: 4px solid orange;">
+                <div class="carousel-item active">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/rss2.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/gosh.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/rss3.png" alt="Third slide">
+                </div>
+                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/rss12.jpg" alt="fourth slide">
+                </div>
+                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/rss4.jpg" alt="fourth slide">
+                </div>
+                                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/dr.ji.jpg" alt="fourth slide">
+                </div>
+                                                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/guruji.jpg" alt="fourth slide">
+                </div>
+                                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/Madhukar Dattatraya Deoras 3rd.jpg" alt="fourth slide">
+                </div>
+                                                                  <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/Rajendra Singh.jpg" alt="fourth slide">
+                </div>
+                                                                        <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/K S Sundareshan 5th.jpg" alt="fourth slide">
+                
+                </div>
+                                                                                        <div class="carousel-item">
+                  <img class="img-fluid" style="width: 100% !important;" src="/images/Mohan Bhagawat.jpg" alt="fourth slide">
+                
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+
+          <hr>
+
+
+
+
     </div>
+  </div>
 </section>

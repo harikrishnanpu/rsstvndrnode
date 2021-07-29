@@ -12,5 +12,6 @@ module.exports = {
     GHOSH_DATA_COLLECTION : 'users-ghosh',
     GHOSH_CLASS_CONNECTION:'ghosh-class',
     GURUDHAKSHINA_COLLECTIONS: 'guru-dhakshina',
-    REFUND_FORM_COLLECTION: 'refund-form'
+    REFUND_FORM_COLLECTION: 'refund-form',
+    FEEDBACK_COLLECTION: 'all-feedbacks'
 }
