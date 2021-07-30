@@ -249,6 +249,10 @@ router.get('/about', (req, res) => {
   res.render('user/about')
 });
 
+router.get("/feedback",(req,res)=>{
+  res.render("user/feedback")
+})
+
 router.get('/my-account', verifyLogin, (req, res) => {
   userHelpers.getGhoshData(req.session.user._id).then((ghoshData) => {
     res.render('user/my-account', { bsetting: true, "user": req.session.user, ghosh: ghoshData })
