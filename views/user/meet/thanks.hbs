@@ -148,6 +148,8 @@
                 <div class="feedback mb-4">
                     <form id="feedbackForm">
                         <input type="hidden" name="For" value="RssVideoMeet">
+                        <input type="hidden" name="time" id="time">
+                        <input type="hidden" name="date" id="date">
                         <h4 class="text-center" id="changeText"> <span style="color: rgb(245, 185, 75);">App</span> Feedback</h4>
                         <h6 class="text-center">Click The Stars To Give Your Feedback</h6>
                         <div class="rating" id="feedbackDiv">
@@ -336,6 +338,17 @@
 
 
 <script>
+
+  var date = new Date();
+  var tdate = date.getDate();
+  var tmonth = date.getMonth() + 1;
+  var tyear = date.getFullYear();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  document.getElementById('date').value =  tdate  + "/" + tmonth + "/" + tyear;
+  document.getElementById('time').value =  hour  + ":" + minute + ":" + second;
+
     function FeedbackSubmit() {
         document.getElementById("changeText").innerText = "Loading..."
         $.ajax({

@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var contentHelper = require('../helpers/content-helper');
-var adminHelper = require('../helpers/adminHelpers');
 const userHelpers = require('../helpers/userHelpers');
+const adminHelpers = require('../helpers/adminHelpers');
 const verifyLogin = (req,res,next)=>{
   if(req.session.adminLoggedIn && req.session.admin){
     next()
@@ -188,7 +188,7 @@ router.post('/add-latest-updates',(req,res)=>{
   adminHelper.addLatestUpdates(req.body).then((contentId)=>{
     req.session.updatedsuccess = true;
     let image = req.files.image;
-    image.mv("../updates/"+contentId+".png",(err,done)=>{
+    image.mv("/updates/"+contentId+".png",(err,done)=>{
       if(!err){
         res.redirect("/admin")
       }
@@ -205,6 +205,12 @@ router.get('/get-contact',(req,res)=>{
 router.get("/contents",verifyLogin,(req,res)=>{
   contentHelper.getContentDetails().then((content)=>{
     res.render("admin/contents",{admin:true,content,"Admin":req.session.admin})
+  })
+});
+
+router.get("/get-feedbacks",(req,res)=>{
+  adminHelpers.getAllFeedbacks().then((details)=>{
+    res.render("admin/get-allfeedbacks",{admin:true,Admin:req.session.admin,details})
   })
 })
 

@@ -143,5 +143,12 @@ module.exports={
             let formData = await db.get().collection(collections.REFUND_FORM_COLLECTION).find().toArray();
             resolve(formData.reverse())
         })
+    },
+
+    getAllFeedbacks:()=>{
+        return new Promise( async (resolve,reject)=>{
+            let feedbacks = await db.get().collection(collections.FEEDBACK_COLLECTION).find().toArray();
+            resolve(feedbacks)
+        })
     }
 }

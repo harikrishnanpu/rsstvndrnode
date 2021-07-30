@@ -1,0 +1,33 @@
+<style>
+    i{
+        color: yellow;
+    }
+</style>
+
+<section class="container" style="width: 90%;height: 100%;">
+  <h5 class="text-center mt-3">All Feedbacks <i class="fa fa-star"></i></h5>
+  <hr>
+    {{#if details}}
+  {{#each details}}
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action ">
+    <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">User Feedback {{@index}}</h5>
+      <small>Submitted Date: {{this.date}}</small>
+      <small>Time: {{this.time}}</small>
+    </div>
+     {{#if this.name}} <p class="mb-1">Submitted By: {{this.name}}</p> {{else}} <p class="mb-1">Submitted Anonymous</p> {{/if}}
+      <p class="mb-1">For: {{this.For}}</p>
+       <p class="mb-1" id="Feedcount">Rating: {{this.rating}} Stars</p>
+        <span class="mb-1" id="Feedstars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+  </a>
+</div> <hr>
+
+
+{{/each}}
+{{/if}}
+<br>
+<p class="text-center">&copy; Rss Tvndr Survey Form</p><br>
+</section>
+
+

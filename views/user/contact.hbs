@@ -34,12 +34,13 @@
 </section>
 
 <script>
-  var tdate = new Date().getDate();
-  var tmonth = new Date().getMonth();
-  var tyear = new Date().getFullYear();
-  var hour = new Date().getHours();
-  var minute = new Date().getMinutes();
-  var second = new Date().getSeconds();
-  document.getElementById('date1').value =  tdate  + "/" + tmonth + "/" + tyear;
+  var date = new Date();
+  var tdate = date.getDate();
+  var tmonth = date.getMonth() + 1;
+  var tyear = date.getFullYear();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  document.getElementById('date').value =  tdate  + "/" + tmonth + "/" + tyear;
   document.getElementById('time').value =  hour  + ":" + minute + ":" + second;
 </script>
