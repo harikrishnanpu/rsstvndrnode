@@ -133,8 +133,9 @@
     }
 </style>
 
+
 <div class="maincard container">
-    <div class="card text-center mb-5 mt-5"
+    <div class="card text-center mb-5 mt-5 container"
         style="background-color:rgba(255, 255, 255, 0.411);background-image: url('/images/.png');background-repeat: no-repeat;background-size: contain;background-position: center;font-size: xx-small;">
         <div class="card-body container text-center mt-4">
             <h5 class="mb-2">Give Your Feedback</h5>
@@ -149,6 +150,8 @@
                         <h4 class="text-center" id="changeText"> <span style="color: rgb(245, 185, 75);">App</span> Feedback</h4>
                         <h6 class="text-center">Click The Stars To Give Your Feedback</h6>
                         <input type="hidden" name="For" value="AppFeedback">
+                        <input type="text" name="date1" id="date1">
+                        <input type="text" name="time" id="time">
                         <div class="rating" id="feedbackDiv">
                             <input type="radio" onclick="FeedbackSubmit()" name="rating" value="5" id="rating-5">
                             <label for="rating-5"></label>
@@ -336,7 +339,6 @@
 
 
 <script>
-
     function FeedbackSubmit() {
         document.getElementById("changeText").innerText = "Loading..."
         $.ajax({
