@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var contentHelper = require('../helpers/content-helper');
 const userHelpers = require('../helpers/userHelpers');
-const adminHelpers = require('../helpers/adminHelpers');
+const adminHelperss = require('../helpers/adminHelperss');
 const verifyLogin = (req,res,next)=>{
   if(req.session.adminLoggedIn && req.session.admin){
     next()
@@ -21,7 +21,7 @@ router.get('/add-details', (req,res)=>{
 });
 
 router.get("/refund",(req,res)=>{
-  adminHelper.getRefundForm().then((response)=>{
+  adminHelpers.getRefundForm().then((response)=>{
     res.render("admin/refund",{admin:true,Admin:req.session.admin,"data":response})
   })
 })
@@ -33,7 +33,7 @@ router.post('/add-content', (req,res)=>{
 });
 
 router.get("/gurudakshina",(req,res)=>{
-  adminHelper.getAllGurudakshina().then((response)=>{
+  adminHelpers.getAllGurudakshina().then((response)=>{
     res.render("admin/gurudakshina",{payments:response,Admin:req.session.admin,admin:true})
   })
 })
@@ -52,7 +52,7 @@ router.get("/add-user",(req,res)=>{
 })
 
 router.get("/blood-donators",(req,res)=>{
-  adminHelper.getBloodDonators().then((donators)=>{
+  adminHelpers.getBloodDonators().then((donators)=>{
   res.render("admin/blood-donators",{donators:donators,admin:true,Admin:req.session.admin})
   })
 })
@@ -73,7 +73,7 @@ router.get("/addghoshclass",(req,res)=>{
 })
 
 router.get("/joinclass",(req,res)=>{
-  adminHelper.getGhoshClassData().then((data)=>{
+  adminHelpers.getGhoshClassData().then((data)=>{
     res.render("admin/joinclass",{Admin:req.session.admin, admin:true, classes:data.reverse()})
   })
 })
@@ -85,13 +85,13 @@ router.post("/add-ghosh-class",(req,res)=>{
 });
 
 router.get("/ghosh-members",(req,res)=>{
-  adminHelper.getGhoshMembers().then((datas)=>{
+  adminHelpers.getGhoshMembers().then((datas)=>{
     res.render("admin/ghosh-members",{Admin:req.session.admin,admin:true,users:datas})
   })
 })
 
 router.post('/login',(req,res)=>{
-  adminHelper.doLogin(req.body).then((response)=>{
+  adminHelpers.doLogin(req.body).then((response)=>{
     if(response.status){
       req.session.adminLoggedIn = true;
       req.session.admin= response.user;
@@ -105,7 +105,7 @@ router.post('/login',(req,res)=>{
 });
 
 router.post('/signup' , (req,res)=>{
-  adminHelper.doSignup(req.body).then((response)=>{
+  adminHelpers.doSignup(req.body).then((response)=>{
     if(response.status){
       req.session.adminLoggedIn = true;
       req.session.admin= response.user;
@@ -116,7 +116,7 @@ router.post('/signup' , (req,res)=>{
 });
 
 router.get('/all-users',verifyLogin,(req,res)=>{
-  adminHelper.getAllUsers().then((result)=>{
+  adminHelpers.getAllUsers().then((result)=>{
     let allusers = result
     res.render('admin/all-users',{allusers,admin:true,"Admin":req.session.admin})
   })
@@ -128,7 +128,7 @@ router.get('/edit-details/:id',verifyLogin,async(req,res)=>{
 });
 
 router.post('/edit-content/:id',(req,res)=>{
-  adminHelper.updateDetails(req.params.id,req.body).then(()=>{
+  adminHelpers.updateDetails(req.params.id,req.body).then(()=>{
     req.session.updatedsuccess = true;
     res.redirect('/admin')
   })
@@ -140,7 +140,7 @@ router.get('/add-notify/:id',(req,res)=>{
 
 
 router.post('/add-notify',(req,res)=>{
-  adminHelper.addNotification(req.body).then(()=>{
+  adminHelpers.addNotification(req.body).then(()=>{
     req.session.updatedsuccess = true;
     req.session.notify = true;
     res.redirect('/admin')
@@ -152,7 +152,7 @@ router.get('/add-site-notify',(req,res)=>{
 })
 
 router.post('/add-site-notify',(req,res)=>{
-  adminHelper.addSiteNotification(req.body).then(()=>{
+  adminHelpers.addSiteNotification(req.body).then(()=>{
     req.session.notify = true;
     req.session.updatedsuccess = true;
     res.redirect('/admin')
@@ -160,7 +160,7 @@ router.post('/add-site-notify',(req,res)=>{
 });
 
 router.get('/need-blood',verifyLogin,(req,res)=>{
-  adminHelper.getNeedBloodData().then((details)=>{
+  adminHelpers.getNeedBloodData().then((details)=>{
     res.render('admin/get-need-blood',{admin:true,"Formdata":details,"Admin":req.session.admin})
   })
 });
@@ -170,7 +170,7 @@ router.get('/add-karyakari',verifyLogin,(req,res)=>{
 })
 
 router.post('/add-karyakari',(req,res)=>{
-  adminHelper.addkaryakari(req.body).then((result)=>{
+  adminHelpers.addkaryakari(req.body).then((result)=>{
     if(result){
       req.session.updatedsuccess = true;
       res.redirect('/admin')
@@ -185,7 +185,7 @@ router.get('/add-latest-updates',(req,res)=>{
 });
 
 router.post('/add-latest-updates',(req,res)=>{
-  adminHelper.addLatestUpdates(req.body).then((contentId)=>{
+  adminHelpers.addLatestUpdates(req.body).then((contentId)=>{
     req.session.updatedsuccess = true;
     let image = req.files.image;
     image.mv("/updates/"+contentId+".png",(err,done)=>{
@@ -197,7 +197,7 @@ router.post('/add-latest-updates',(req,res)=>{
 })
 
 router.get('/get-contact',(req,res)=>{
-  adminHelper.getContactUsFormData().then((details)=>{
+  adminHelpers.getContactUsFormData().then((details)=>{
     res.render('admin/getcontact',{details,admin:true,"Admin":req.session.admin})
   })
 });
@@ -209,7 +209,7 @@ router.get("/contents",verifyLogin,(req,res)=>{
 });
 
 router.get("/get-feedbacks",(req,res)=>{
-  adminHelpers.getAllFeedbacks().then((details)=>{
+  adminHelperss.getAllFeedbacks().then((details)=>{
     res.render("admin/get-allfeedbacks",{admin:true,Admin:req.session.admin,details})
   })
 })
