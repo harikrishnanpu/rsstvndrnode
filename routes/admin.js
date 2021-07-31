@@ -209,7 +209,7 @@ router.get("/contents",verifyLogin,(req,res)=>{
 });
 
 router.get("/get-feedbacks",(req,res)=>{
-  adminHelperss.getAllFeedbacks().then((details)=>{
+  adminHelpers.getAllFeedbacks().then((details)=>{ 
     res.render("admin/get-allfeedbacks",{admin:true,Admin:req.session.admin,details})
   })
 })
