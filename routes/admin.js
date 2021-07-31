@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var contentHelper = require('../helpers/content-helper');
 const userHelpers = require('../helpers/userHelpers');
-const adminHelperss = require('../helpers/adminHelperss');
+const adminHelpers = require('../helpers/adminHelpers');
 const verifyLogin = (req,res,next)=>{
   if(req.session.adminLoggedIn && req.session.admin){
     next()
