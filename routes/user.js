@@ -529,8 +529,8 @@ router.get("/ended", (req, res) => {
 });
 
 
-router.get("/july", (req, res) => {
-  res.render("user/july")
+router.get("/MonthlyGanageethamSubhashitam", (req, res) => {
+  res.render("user/MonthlyGanageethamSubhashitam")
 });
 
 
