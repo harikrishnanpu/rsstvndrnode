@@ -21,17 +21,14 @@
         }    
     }
 </style>
-{{!-- <hr class="" style="margin: 0 0;height: 20px;background-color: orange;"> --}}
-{{!-- <div class="banner" style="background-color: #fff;width: 100% !important;position: absolute;color: black;height: 25px;top: 20;z-index: 100000;">
-        <div class="banner_content" style="width: 100%;">
-        <p class="text-center mt-1">Rss Shakha Baidakh</p>
-    </div>
-</div>
-<hr> --}}
 
 
 <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
 <script>
+
+window.addEventListener("load", async ()=>{
 callFrame = window.DailyIframe.createFrame();
-callFrame.join({ url: 'https://rsstvndrmeet.daily.co/rsstvndrmeet' })
+await callFrame.join({ url: 'https://devrel.daily.co/LW1t8BuwprZUUw7mwcAv' , showLeaveButton: false , userName: "RssTvndr" })
+});
+
 </script>

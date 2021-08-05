@@ -200,7 +200,6 @@
       <a href="/rss-ghosh" class="{{#if rssGhosh}} active {{/if}}">Rss Ghosh</a>
       <a href="/blood-donation" class="{{#if blood}} active {{/if}}">Blood Donation</a>
       <a href="/videomeet"><i class="fa fa-video" class="{{#if videomeet}} active {{/if}}"></i> Rss Video Meet</a>
-      <a href="/gurudhakshina">Gurudhakshina</a>
       <a href="/notifications" class="{{#if bnotify}} active {{/if}}">Notifications</a>
       <a href="/gallery" class="{{#if gallery}} active {{/if}}">Gallery</a>
       <a href="/contact" class="{{#if contact}} active {{/if}}">Contact</a>
@@ -211,8 +210,6 @@
       <a href="/feedback">Feedback</a>
       {{#if user}}
       <a href="/my-account" class="{{#if bsetting}} active {{/if}}">My Account</a>
-      <a href="/refund">Refund</a>
-      <a href="/payment-status">All Payments</a>
       <a href="/admin">Admin Page</a>
       <a href="/logout">Logout</a>
       {{/if}}
@@ -250,6 +247,24 @@
 
     </script>
 
+{{#if videomeet}}
+<p style="display: none;">&copy; Rss Tvndr Meet</p>
+{{else}}
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/60f8f52ed6e7610a49ac6ba5/1fb67rfmp';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+{{/if}}
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"></script>
@@ -277,23 +292,6 @@
     </script>
   </section>
 
-{{#if videomeet}}
-<p style="display: none;">&copy; Rss Tvndr Meet</p>
-{{else}}
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/60f8f52ed6e7610a49ac6ba5/1fb67rfmp';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-{{/if}}
 
 </body>
 
