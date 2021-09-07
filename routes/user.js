@@ -546,7 +546,13 @@ router.get("/refund", verifyLogin, (req, res) => {
   res.render("user/refund", { user: req.session.user })
 });
 
+router.get("/ganavesham/form",(req,res)=>{
+  res.render("user/form/form")
+})
 
+router.get("/ganavesham/form/success",(req,res)=>{
+  res.render("user/form/success")
+})
 
 router.post("/add-refund", (req, res) => {
   userHelpers.addRefundForm(req.body).then(() => {

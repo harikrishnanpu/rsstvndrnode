@@ -1,0 +1,136 @@
+
+<section class="container">
+    <h3 class="text-center mt-5">Ganavesham <span style="color: orange;">Registeration</span></h3>
+    <hr>
+    <form id="ganavesham-form" onsubmit="changeText()" action="">
+ <h6  class="text-center bold"><i class="fas fa-address-card"></i> Personal Details</h6>
+    <div class="form-group">
+     <i class="fas fa-user-alt" style="left: 0;padding-right: 3px;"></i>
+    <label for="lname">Name</label>
+    <input type="text" class="form-control" name="Name" id="lname" placeholder="Enter Your Name" required>
+  </div>
+  <div class="form-group">
+     <i class="fas fa-phone" style="left: 0;padding-right: 3px;"></i>
+    <label for="lphone">Phone</label>
+    <input class="form-control" placeholder="Enter Phone Number" required type="number" name="Phone" id="lphone">
+  </div>
+
+    <div class="form-group">
+    <label for="age">Age</label>
+    <input class="form-control" placeholder="Enter Age" required type="number" name="Age" id="age">
+  </div>
+
+
+    <div class="form-group">
+     <i class="fas fa-flag" style="left: 0;padding-right: 3px;"></i>
+    <label for="shaka">ശാഖ</label>
+    <select name="Shakha" id="shaka" class="form-control">
+      <option value="" selected disabled>തിരഞ്ഞെടുക്കുക</option>
+      <option value="SamyukthaVidhyardhi">സംയുക്ത വിദ്യാർഥി</option>
+      <option value="TharunaVidhyardhi">തരുണ വിദ്യാർഥി</option>
+      <option value="TharunaVyavasayi">തരുണ വ്യവസായി</option>
+      <option value="Pravda">പ്രൗഡ ശാഖ</option>
+    </select>
+  </div>
+ <hr>
+ <h6  class="text-center bold"><i class="fas fa-address-card"></i> ഗണവേഷം Details</h6>
+<div class="form-control">
+
+ <div class="form-check">
+  <input class="form-check-input" name="Pant" type="checkbox" value="pant" id="pant">
+  <label class="form-check-label" for="pant">
+    Pant 
+  </label>
+</div>
+
+ <div class="form-check">
+  <input class="form-check-input" type="checkbox" name="Shirt" value="shirt" id="shirt">
+  <label class="form-check-label" for="shirt">
+    Shirt
+  </label>
+</div>
+
+ <div class="form-check">
+  <input class="form-check-input" name="Socks" type="checkbox" value="socks" id="socks">
+  <label class="form-check-label" for="socks">
+    Socks
+  </label>
+</div>
+
+ <div class="form-check">
+  <input class="form-check-input" name="Shoe" type="checkbox" value="shoe" id="shoe">
+  <label class="form-check-label" for="shoe">
+    Shoe
+  </label>
+</div>
+
+ <div class="form-check">
+  <input class="form-check-input" name="Belt" type="checkbox" value="belt" id="belt">
+  <label class="form-check-label" for="belt">
+    Belt
+  </label>
+</div>
+
+ <div class="form-check">
+  <input class="form-check-input" name="Dhanda" type="checkbox" value="dhanda" id="Danda">
+  <label class="form-check-label" for="Dhanda">
+    ദണ്ഡ
+  </label>
+</div>
+</div> <hr>
+
+<h6 for="gadaNum" class="text-center bold"><i class="fas fa-list-ol"></i> ഗഢ Number</h6>
+<select type="text" name="GadaNumber" id="gadaNum" class="form-control">
+  <option value="" selected disabled>Choose</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+</select>
+<hr>
+
+  <input type="submit" value="Submit" id="submitbtn" class="btn btn-color w-100"><br><hr>
+</form>
+</section>
+
+
+
+<script>
+          $("#ganavesham-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbxcEBuMEOzS-d82H4ZHS_J_Kts8E9cP2iKUU7FO/exec",
+                data:$("#ganavesham-form").serialize(),
+                method:"post",
+                success:function (response){
+                    window.location.href=`/ganavesham/form/success?data=${response}`
+                },
+                error:function (err){
+                    alert("Error Occured Please Resubmit The Form")
+                }
+            })
+        })
+</script>
+
+
+<script>
+  function changeText(){
+    var elem = document.getElementById("submitbtn");
+    elem.value = "Loading...."
+  }
+</script>
